@@ -4,7 +4,8 @@
  * We have to create parameterized constructor for this enum class.
  * Why? Because as we know that enum class’s object can’t be create explicitly so for initializing we use parameterized constructor.
  * And the constructor cannot be the public or protected it must have private or default modifiers.
- * Why? if we create public or protected, it will allow initializing more than one objects. This is totally against enum concept.
+ * Why? if we create public or protected, it will allow initializing more than one objects.
+ * This is totally against enum concept.
  */
 package Enum;
 
