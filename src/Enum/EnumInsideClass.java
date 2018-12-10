@@ -1,3 +1,7 @@
+/***
+ * https://www.geeksforgeeks.org/enum-in-java/
+ */
+
 package Enum;
 
 public class EnumInsideClass {

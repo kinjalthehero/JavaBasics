@@ -1,3 +1,7 @@
+/***
+ * https://www.geeksforgeeks.org/enum-in-java/
+ */
+
 package Enum;
 
 // enum is declared outside any class (Note enum keyword instead of class keyword)
