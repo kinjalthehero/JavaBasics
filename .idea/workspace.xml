@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/InheritanceConcept/MainClass.java" line="18" mnemonic="4" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="434f5aad-cb7c-4537-8119-75c68f6880f8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/BinarySearch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InheritanceConcept/InheritanceClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InheritanceConcept/InheritedClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InheritanceConcept/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaBasics/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/EnumInSwitch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/EnumInSwitch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/EnumInsideClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/EnumInsideClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/EnumMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/EnumMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/EnumOutsideClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/EnumOutsideClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enum/EnumWithValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enum/EnumWithValues.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,15 +33,62 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Enum/EnumWithValues.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="178">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#0#493#0" expanded="true" />
                 <element signature="e#470#471#0" expanded="true" />
                 <element signature="e#514#515#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/BinarySearch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InheritanceConcept/InheritanceClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#445#446#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/InheritanceConcept/InheritedClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/InheritanceConcept/MainClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -74,15 +123,24 @@
         <option value="$PROJECT_DIR$/src/Enum/EnumOutsideClass.java" />
         <option value="$PROJECT_DIR$/src/Enum/EnumMethods.java" />
         <option value="$PROJECT_DIR$/src/Enum/EnumWithValues.java" />
+        <option value="$PROJECT_DIR$/src/BinarySearch.java" />
+        <option value="$PROJECT_DIR$/src/Inheritance.java" />
+        <option value="$PROJECT_DIR$/src/InheritedClass.java" />
+        <option value="$PROJECT_DIR$/src/InheritanceConcept/Inheritance.java" />
+        <option value="$PROJECT_DIR$/src/InheritanceConcept/InheritanceClass.java" />
+        <option value="$PROJECT_DIR$/src/InheritanceConcept/InheritedClass.java" />
+        <option value="$PROJECT_DIR$/src/InheritanceConcept/MainClass.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="989" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -106,7 +164,7 @@
               <item name="JavaBasics" type="b2602c69:ProjectViewProjectNode" />
               <item name="JavaBasics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Enum" type="462c0819:PsiDirectoryNode" />
+              <item name="InheritanceConcept" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -115,7 +173,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544377612841" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544708548712" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
@@ -130,7 +188,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EnumWithValues">
+  <component name="RunManager" selected="Application.MainClass">
     <configuration name="EnumInSwitch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Enum.EnumInSwitch" />
       <module name="JavaBasics" />
@@ -170,19 +228,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EnumOutsideClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Enum.EnumOutsideClass" />
-      <module name="JavaBasics" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Enum.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="EnumWithValues" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Enum.EnumWithValues" />
       <module name="JavaBasics" />
@@ -196,20 +241,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="InheritanceConcept.MainClass" />
+      <module name="JavaBasics" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="InheritanceConcept.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.EnumOutsideClass" />
       <item itemvalue="Application.EnumInsideClass" />
       <item itemvalue="Application.EnumInSwitch" />
       <item itemvalue="Application.EnumMethods" />
       <item itemvalue="Application.EnumWithValues" />
+      <item itemvalue="Application.MainClass" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainClass" />
         <item itemvalue="Application.EnumWithValues" />
         <item itemvalue="Application.EnumMethods" />
         <item itemvalue="Application.EnumInSwitch" />
         <item itemvalue="Application.EnumInsideClass" />
-        <item itemvalue="Application.EnumOutsideClass" />
       </list>
     </recent_temporary>
   </component>
@@ -239,7 +297,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="989" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="989" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
@@ -326,6 +384,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Enum/EnumWithValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#0#493#0" expanded="true" />
+            <element signature="e#470#471#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Enum/EnumMethods.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -336,14 +406,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Enum/EnumWithValues.java">
+    <entry file="file://$PROJECT_DIR$/src/BinarySearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InheritanceConcept/InheritanceClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
-            <element signature="e#0#493#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InheritanceConcept/InheritedClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InheritanceConcept/MainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
