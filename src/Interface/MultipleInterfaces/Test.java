@@ -18,7 +18,7 @@ public class Test implements Interface2, Interface3 {
         System.out.println("Implementing method of Interface3");
     }
 
-    public static void main(String[] args) {    
+    public static void main(String[] args) {
         Test obj = new Test();
         obj.method1();
         obj.method2();
