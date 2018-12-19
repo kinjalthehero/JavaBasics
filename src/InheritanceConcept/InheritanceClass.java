@@ -5,18 +5,17 @@
 package InheritanceConcept;
 
 // Super class
-public class InheritanceClass {
+public class InheritanceClass extends GrandParentClass {
 
     int superClassvar1;
     int superClassvar2;
 
-    public InheritanceClass() {
-
-    }
+    // We don't need default constructor here because we are calling parameterized constructor using super keyword in subclass
 
     public InheritanceClass(int supervar1, int supervar2) {
         this.superClassvar1 = supervar1;
         this.superClassvar2 = supervar2;
+        System.out.println("Inside base class");
     }
 
     public void methodFromSuperClass() {
