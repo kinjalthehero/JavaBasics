@@ -77,6 +77,7 @@ public class Basics {
 
         for (int elements: arrayForMethodCall)
             System.out.println("Array after method call: " + elements);
+
     }
 
     static void addOneinArray(int[] arr) {
