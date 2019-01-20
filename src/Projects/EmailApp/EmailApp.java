@@ -1,3 +1,9 @@
+/***
+ * https://www.youtube.com/watch?v=U3Ibvu0htNs
+ * Create an Email application
+ */
+
+
 package Projects.EmailApp;
 
 import java.util.Scanner;
