@@ -4,3 +4,11 @@ out/production/JavaBasics/DataTypeClass.class
 out/production/JavaBasics/HelloWorld.class
 .idea/workspace.xml
 out/production/JavaBasics/META-INF/
+*.class
+*.class
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/misc.xml
+out/production/JavaBasics/InheritanceConcept/InheritanceClass.class
+out/production/JavaBasics/InheritanceConcept/InheritedClass.class
+out/production/JavaBasics/InheritanceConcept/MainClass.class

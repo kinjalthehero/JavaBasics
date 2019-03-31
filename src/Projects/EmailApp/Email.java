@@ -3,21 +3,42 @@ import java.security.SecureRandom;
 
 public class Email {
 
-    private String firstName;
-    private String lastName;
-    private String department;
     private String password;
-    private String emailAddres;
-    private final String companyName = "akamai";
     private static final String ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_";
     private static final SecureRandom RANDOM = new SecureRandom();
 
-    Email (String fName, String lName, String department) {
-        this.firstName = fName;
-        this.lastName = lName;
-        this.department = department;
-        generateEmailAddress();
+    private String domainName = "northeaster.edu";
+
+    public String getDomainName() {
+        return domainName;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    private String emailAddress;
+
+    public void setDomainName(String domainName) {
+        this.domainName = domainName;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String generateEmail(String firstName, String lastName, String department) {
+        emailAddress = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department.toLowerCase() + "." + domainName;
         assignRandomPassword();
+        return emailAddress;
     }
 
     public void assignRandomPassword() {
@@ -30,16 +51,4 @@ public class Email {
     public void setNewPassword(String newPassword) {
         this.password = newPassword;
     }
-
-    private String generateEmailAddress() {
-        this.emailAddres = this.firstName.toLowerCase() + "." + this.lastName.toLowerCase() + "@" + this.department.toLowerCase() + "." + this.companyName.toLowerCase() + ".com";
-        return this.emailAddres;
-    }
-
-    void getBasicInfo() {
-        System.out.println("\nYour information: ");
-        System.out.println("Name: " + this.firstName + " " + this.lastName);
-        System.out.println("Email: " + this.emailAddres);
-    }
-
 }
