@@ -4,7 +4,11 @@ public class Basics {
 
     public static void main(String[] args) {
 
+    	// Method 1
         int[] rollNumbers = new int[5];
+        // Method 2
+        int arr[] = {10, 20, 30, 40, 50};
+
         rollNumbers[0] = 1;
         rollNumbers[1] = 2;
         rollNumbers[2] = 3;
@@ -14,23 +18,9 @@ public class Basics {
         for (int i=0; i < rollNumbers.length; i++) {
             System.out.println("Value at the index " + i + " is: " + rollNumbers[i]);
         }
-
-        int arr[] = {10, 20, 30, 40, 50};
-
+        
         for (int val: arr){
             System.out.println(val);
-        }
-
-
-        int[] newArray = new int[]{5, 6, 7, 8, 9, 10};
-        for (int i=0; i < newArray.length; i++) {
-            System.out.println("Value at the index " + i + " is: " + newArray[i]);
-        }
-
-        int index = 0;
-        for (int j : newArray) {
-            System.out.println("Value at the index " + index + " is: " + j);
-            index++;
         }
 
         Student[] students = new Student[5];

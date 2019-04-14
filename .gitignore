@@ -12,3 +12,9 @@ out/production/JavaBasics/META-INF/
 out/production/JavaBasics/InheritanceConcept/InheritanceClass.class
 out/production/JavaBasics/InheritanceConcept/InheritedClass.class
 out/production/JavaBasics/InheritanceConcept/MainClass.class
+*.class
+*.class
+*.class
+out/production/JavaBasics/BreakStatement.class
+*.class
+out/production/JavaBasics/Info.class
