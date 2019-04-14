@@ -1,4 +1,4 @@
-package Abstraction;
+package abstraction;
 
 public class SubClassOfAbstract extends AbstractClass {
 

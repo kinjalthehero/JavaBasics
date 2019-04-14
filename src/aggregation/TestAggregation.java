@@ -1,4 +1,4 @@
-package Aggregation;
+package aggregation;
 
 public class TestAggregation {
 

@@ -1,4 +1,4 @@
-package Aggregation;
+package aggregation;
 
 public class Player {
 
@@ -13,5 +13,5 @@ public class Player {
 
 
 
-
+    
 }

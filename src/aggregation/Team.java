@@ -1,4 +1,4 @@
-package Aggregation;
+package aggregation;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;

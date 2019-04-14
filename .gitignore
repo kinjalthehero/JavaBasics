@@ -19,3 +19,4 @@ out/production/JavaBasics/BreakStatement.class
 *.class
 out/production/JavaBasics/Info.class
 *.class
+/bin/
