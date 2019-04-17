@@ -1,6 +1,13 @@
 package PracticeProblems;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
+// reference: https://javarevisited.blogspot.com/2012/12/how-to-remove-duplicates-elements-from-ArrayList-Java.html
 
 public class Array_RemoveDuplicates {
 	
@@ -35,6 +42,35 @@ public class Array_RemoveDuplicates {
 		return result;
 	}
 	
+	
+	public static List<String> removeDuplicates_hashset (String[] arr) {
+		
+		// Primitive array to ArrayList
+		List<String> duplicateList = Arrays.asList(arr);
+				      
+		//Converting ArrayList to HashSet to remove duplicates
+		Set<String> listToSet = new HashSet<String>(duplicateList);
+		      
+		//Back from Hashset to ArrayList. Without duplicate. 
+		List<String> listWithoutDuplicates = new ArrayList<String>(listToSet);
+				
+		return listWithoutDuplicates;
+	}
+	
+	public static List<String> removeDuplicate_LinkedHashSet (String[] arr) {
+		
+		//ArrayList with duplicates String
+	    List<String> duplicateList = Arrays.asList(arr);
+	   
+	    // Converting ArrayList to HashSet to remove duplicates
+	    Set<String> listToSet = new LinkedHashSet<String>(duplicateList);
+	  
+	    // Back to ArrayList without duplicate
+	    List<String> listWithoutDuplicates = new ArrayList<String>(listToSet);
+	 
+	    return listWithoutDuplicates;
+	}
+	
 	public static void main(String[] args) {
 		
 		// Array with duplicates
@@ -51,6 +87,14 @@ public class Array_RemoveDuplicates {
 		dupArray1 = new int[] {1,2,3,4,5};
 		result = removeDuplicate(dupArray1);
 		System.out.println(Arrays.toString(result));
+		
+		String[] dupArray = {"a", "a", "b", "c", "d"};
+		List<String> stringResult = removeDuplicates_hashset(dupArray);
+		System.out.println(stringResult);
+		
+		String[] dupArray2 = {"a", "a", "b", "c", "d"};
+		stringResult = removeDuplicate_LinkedHashSet(dupArray2);
+		System.out.println(stringResult);
 		
 	}
 
