@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 // Reference: http://www.java67.com/2014/02/how-to-find-largest-and-smallest-number-array-in-java.html
 
-
 public class Array_LargestElement {
 
 	public static void printLargestAndSmallestElements (int[] arr) {
