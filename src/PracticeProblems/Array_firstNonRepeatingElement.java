@@ -7,18 +7,21 @@ import java.util.Map;
 
 public class Array_firstNonRepeatingElement {
 	
-	static int firstNonRepeating(int arr[], int n) 
+	static int firstNonRepeating(int arr[]) 
     { 
         for (int i = 0; i < arr.length; i++) { 
             
-        	// Need to create inner variable separately
+        	// NOTICE: Need to create inner variable separately
         	// Because we will use it outside the inner loop
         	int j; 
         	
         	// If elements are same then ith element has duplicate
+        	// COMPLICATED: Here again loop through entire loop starting from 0
+        	// Add extra check of i != J (Not sure why, check later)
             for (j = 0; j < arr.length; j++) 
-                if (arr[i] == arr[j]) 
-                    break; 
+                if (i != j && arr[i] == arr[j]) {
+                	break;					// break from this loop
+                }                  
             
         	// If it doesn't contain duplicate then j will reach till the end of the loop
             // Return ith element because we couldn't find duplicate element in the entire array
@@ -64,9 +67,10 @@ public class Array_firstNonRepeatingElement {
     { 
           
         int arr[] = { 9, 4, 9, 6, 7, 4 }; 
-        int n = arr.length; 
           
-        System.out.print(firstNonRepeating(arr, n)); 
+        System.out.print(firstNonRepeating(arr)); 
+        System.out.println();
+        System.out.print(firstNonRepeating_usingHashing(arr));
     }
 
 }
