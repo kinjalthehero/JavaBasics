@@ -11,6 +11,7 @@ public class Array_Top2MaxNumbers {
 	public static void topTwo(int[] numbers) { 
 		int max1 = Integer.MIN_VALUE; 
 		int max2 = Integer.MIN_VALUE; 
+		
 		for (int number : numbers) { 
 			if (number > max1) { 
 				max2 = max1; 
