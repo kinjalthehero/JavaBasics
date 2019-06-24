@@ -166,11 +166,10 @@ public class LinkedList {
          
         return list; 
     } 
+     
+    public LinkedList deleteAtPosition(LinkedList list, int index) { 
     
-    // Method to delete a node in the LinkedList by POSITION 
-    public LinkedList deleteAtPosition(LinkedList list, int index) 
-    { 
-        // Store head node 
+    	// Store head node 
         Node currNode = list.head;
         Node prev = null; 
         

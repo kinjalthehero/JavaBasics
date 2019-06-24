@@ -11,7 +11,7 @@ package PracticeProblems;
  * linked list, second will be pointing to the middle 
  * element of a linked list
  */
-public class LinkedList_MiddleElement {
+public class LL_MiddleElement {
   
     public static void main(String args[]) {
       
@@ -36,15 +36,15 @@ public class LinkedList_MiddleElement {
 
     	// Loop till the last element
     	// Logic: We increment middle only when length has increased by 2
-    		  while(current.next() != null) {
-    		      
-    			  length++;
-    		      
-    		      if(length % 2 == 0)
-    		          middle = middle.next();
-    		      
-    		      current = current.next();
-    		  }
+    	while(current.next() != null) {
+	      
+    		length++;
+	      
+    		if(length % 2 == 0)
+    			middle = middle.next();
+	      
+    		current = current.next();
+    	}
 
     		  // Odd number of elements
     	if(length % 2 == 1)
