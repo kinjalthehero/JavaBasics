@@ -6,6 +6,7 @@ import java.util.List;
 
 public class String_ReverseString {
 	
+	// String builder
 	public static String reverseString(String line) {
 		
 		if (line.trim().isEmpty()) 
@@ -22,6 +23,7 @@ public class String_ReverseString {
 		return reverse.toString().trim();
 	}
 	 
+	// String builder
 	public static String reverseString_forLoop(String sentence) {
 		  
 		// \s (lower case), which is a regular expression character class for white space
@@ -38,6 +40,7 @@ public class String_ReverseString {
 		return sb.toString().trim();
 	}
 	
+	// String builder
 	public static String reverseString_collection(String sentence) {
 		  
 		// \s (lower case), which is a regular expression character class for white space

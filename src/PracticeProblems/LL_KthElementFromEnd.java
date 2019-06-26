@@ -3,7 +3,7 @@ package PracticeProblems;
 public class LL_KthElementFromEnd {
 
   public static void main(String args[]) {
-    SinglyLinkedList list = new SinglyLinkedList();
+    SinglyLL list = new SinglyLL();
     list.append("1");
     list.append("2");
     list.append("3");
