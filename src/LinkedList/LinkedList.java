@@ -198,6 +198,28 @@ public class LinkedList {
     
         return list; 
     } 
+    
+    // Iteration
+    public int length_iterative() {
+        int count=0;
+        Node current = this.head;
+
+
+        while(current != null){
+            count++;
+            current=current.next;
+        }
+        return count;
+    }
+
+    // Recursion
+    public int length_recursion (Node current) {
+        if(current == null){ //base case
+            return 0;
+        }
+        
+        return 1+ length_recursion(current.next);
+    }
 	
 	public static void main (String[] args) {
 		
@@ -293,5 +315,11 @@ public class LinkedList {
 		ln.deleteAtPosition(ln, 8); 
 		ln.print(ln);
 		System.out.println();
+		
+		System.out.println("Find length using recursion");
+		System.out.println(ln.length_recursion(ln.head));
+		
+		System.out.println("Find length using iteration");
+		System.out.println(ln.length_iterative());
 	}
 }
