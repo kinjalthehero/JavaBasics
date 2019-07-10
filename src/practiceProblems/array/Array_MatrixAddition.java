@@ -23,14 +23,16 @@ public class Array_MatrixAddition {
   }
 
   public static int[][] add(int[][] a, int[][] b) {
-    
-	  // Need to understand: How to find out rows and columns is important
+
+	  // Important: How to get rows and column values
 	  int rows = a.length;
 	  int columns = a[0].length;
 	  int[][] result = new int[rows][columns];
 	  
-	  for (int i = 0; i < rows; i++) {
-		  for (int j = 0; j < columns; j++) {
+	  for (int i = 0; i < rows; i++)
+	  {
+		  for (int j = 0; j < columns; j++)
+		  {
 			  result[i][j] = a[i][j] + b[i][j];
 		  }
 	  }
@@ -39,13 +41,15 @@ public class Array_MatrixAddition {
 
   public static int[][] subtract(int[][] a, int[][] b) {
     
-	// Need to understand: How to find out rows and columns is important
+  	  // Important: How to get rows and column values
 	  int rows = a.length;
 	  int columns = a[0].length;
 	  int[][] result = new int[rows][columns];
     
-	  for (int i = 0; i < rows; i++) {
-		  for (int j = 0; j < columns; j++) {
+	  for (int i = 0; i < rows; i++)
+	  {
+		  for (int j = 0; j < columns; j++)
+		  {
 			  result[i][j] = a[i][j] - b[i][j];
 		  }
 	  }

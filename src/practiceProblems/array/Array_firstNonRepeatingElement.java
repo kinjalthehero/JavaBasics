@@ -9,19 +9,22 @@ public class Array_firstNonRepeatingElement {
 	
 	static int firstNonRepeating(int arr[]) 
     { 
-        for (int i = 0; i < arr.length; i++) { 
+        for (int i = 0; i < arr.length; i++)
+        {
             
-        	// NOTICE: Need to create inner variable separately
-        	// Because we will use it outside the inner loop
+        	// NOTICE: Need to create inner variable separately because we will use it outside the inner loop
         	int j; 
         	
         	// If elements are same then ith element has duplicate
         	// COMPLICATED: Here again loop through entire loop starting from 0
-        	// Add extra check of i != J (Not sure why, check later)
-            for (j = 0; j < arr.length; j++) 
-                if (i != j && arr[i] == arr[j]) {
-                	break;					// break from this loop
-                }                  
+            for (j = 0; j < arr.length; j++)
+            {
+				if (i != j && arr[i] == arr[j]) {
+					// Break out of this loop and stop looking at remaining elements
+					// Move to the next ith element to check for duplicate
+					break;
+				}
+			}
             
         	// If it doesn't contain duplicate then j will reach till the end of the loop
             // Return ith element because we couldn't find duplicate element in the entire array
