@@ -44,7 +44,23 @@ public class Array_FirstRepeatingElement
 				set.add(array[i]); 
 		} 
 		return minimumIndex;
-	} 
+	}
+
+	public static int firstRepeatingInt (int[] a)
+	{
+		int index =  -1;
+		HashSet<Integer> tempSet = new HashSet<>();
+
+		for (int i=0; i < a.length; i++)
+		{
+			if (tempSet.contains(a[i]) == true)
+				return i;
+			else
+				tempSet.add(a[i]);
+		}
+
+		return -1;
+	}
  
 	public static void main (String[] args) throws java.lang.Exception 
 	{ 
@@ -62,6 +78,13 @@ public class Array_FirstRepeatingElement
 		if (min != -1) 
 			System.out.println("The first repeating element in array is " + array[min]); 
 		else
-			System.out.println("There are no repeating elements"); 
+			System.out.println("There are no repeating elements");
+
+
+		min=firstRepeatingInt(array);
+		if (min != -1)
+			System.out.println("The first repeating element in array is " + array[min]);
+		else
+			System.out.println("There are no repeating elements");
 	} 
 } 
