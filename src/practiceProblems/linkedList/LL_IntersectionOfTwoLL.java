@@ -34,7 +34,6 @@ public class LL_IntersectionOfTwoLL{
 		int lengthOfList1 = 0;
 		int lengthOfList2 = 0;
 		Node temp1=list1, temp2=list2;
-		
 		if (temp1 == null || temp2 == null)
 			return null;
  
