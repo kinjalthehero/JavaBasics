@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class Array_Separate0And1And2 {
 
-
     /*Function to sort the given array*/
     public static void sort(int[]a)
     {
