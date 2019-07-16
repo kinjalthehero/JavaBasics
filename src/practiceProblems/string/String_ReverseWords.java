@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class String_ReverseString {
+public class String_ReverseWords {
 	
 	// String builder
 	public static String reverseString(String line) {

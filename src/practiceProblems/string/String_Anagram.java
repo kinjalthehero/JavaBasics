@@ -1,8 +1,8 @@
-package practiceProblems.general;
+package practiceProblems.string;
 
 import java.util.Arrays;
 
-public class General_Anagram {
+public class String_Anagram {
    
 	// Method 1: Remove chars from str2
     public static boolean isAnagram(String str1, String str2){       

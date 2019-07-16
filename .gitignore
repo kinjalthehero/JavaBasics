@@ -29,3 +29,5 @@ out/production/JavaBasics/Info.class
 .idea/workspace.xml
 JavaBasics.iml
 *.class
+.idea/compiler.xml
+*.class
