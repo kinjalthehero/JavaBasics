@@ -1,4 +1,4 @@
-package Array;
+package dataStructure.array;
 
 public class Basics {
 

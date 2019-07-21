@@ -1,6 +1,6 @@
-package practiceProblems.linkedList;
+package practiceProblems.binarysearchtree;
  
-public class LL_SortedLLToBST {
+public class BST_SortedLLToBST {
  
 	private Node head;
  
@@ -88,7 +88,7 @@ public class LL_SortedLLToBST {
  
 	public static void main(String[] args) {
 		
-		LL_SortedLLToBST list = new LL_SortedLLToBST();
+		BST_SortedLLToBST list = new BST_SortedLLToBST();
 		// Creating a linked list
 		Node head = new Node(10);
 		list.addToTheLast(head);

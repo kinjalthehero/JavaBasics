@@ -2,9 +2,6 @@ public class BinarySearch {
 
 
     int binarySearch (int[] arr, int startIndex, int endIndex, int searchNumber) {
-
-
-
         return -1;
     }
 

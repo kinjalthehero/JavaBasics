@@ -1,4 +1,4 @@
-package practiceProblems.array;
+package practiceProblems.string;
 
 
 // This is a bad implementation of the program. OK to skip.
