@@ -21,7 +21,7 @@ public class LL_FindCycleOrLoop {
         	fast = fast.next.next;
             slow = slow.next;
            
-            //if fast and slow pointers are meeting then LinkedList is cyclic
+            //if fast and slow pointers are meeting then LinkedList_primitive is cyclic
             if(fast == slow ){
                 return true;
             }

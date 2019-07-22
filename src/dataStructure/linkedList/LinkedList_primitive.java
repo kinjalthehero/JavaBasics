@@ -1,6 +1,6 @@
 package dataStructure.linkedList;
 
-public class LinkedList {
+public class LinkedList_primitive {
 		
 	Node head;
 	
@@ -16,7 +16,7 @@ public class LinkedList {
 	}
 	
 	// Insert node at the end of the list
-	public LinkedList insert (LinkedList list ,int data) {
+	public LinkedList_primitive insert (LinkedList_primitive list , int data) {
 		
 		// Create new node with data in it
 		Node new_node = new Node(data);
@@ -37,7 +37,7 @@ public class LinkedList {
 		return list;
 	}
 	
-	public LinkedList insertAfterANode(LinkedList list, int insertAfterNodeData, int data) {
+	public LinkedList_primitive insertAfterANode(LinkedList_primitive list, int insertAfterNodeData, int data) {
 		
 		// Create a new node
 		Node newNode = new Node(data);
@@ -57,7 +57,7 @@ public class LinkedList {
 		
 	}
 	
-	public LinkedList insertBeforeANode (LinkedList list, int insertBefore, int data) {
+	public LinkedList_primitive insertBeforeANode (LinkedList_primitive list, int insertBefore, int data) {
 		
 		// Create a new node
 		Node newNode = new Node(data);
@@ -92,7 +92,7 @@ public class LinkedList {
 	}
 	
 	
-	public void print (LinkedList list) {
+	public void print (LinkedList_primitive list) {
 		
 		Node curr = list.head;
 		
@@ -106,7 +106,7 @@ public class LinkedList {
 		System.out.println();
 	}
 	
-	public LinkedList deleteANode (LinkedList list, int data) {
+	public LinkedList_primitive deleteANode (LinkedList_primitive list, int data) {
 		
 		// If list is empty return an empty list
 		if (list.head == null) {
@@ -138,8 +138,8 @@ public class LinkedList {
 		return list;
 	}
 	  
-    // Method to delete a node in the LinkedList by KEY 
-    public LinkedList deleteByKey(LinkedList list, int key) { 
+    // Method to delete a node in the LinkedList_primitive by KEY
+    public LinkedList_primitive deleteByKey(LinkedList_primitive list, int key) {
 
     	// Point to head node of the list 
         Node currNode = list.head;
@@ -167,7 +167,7 @@ public class LinkedList {
         return list; 
     } 
      
-    public LinkedList deleteAtPosition(LinkedList list, int index) { 
+    public LinkedList_primitive deleteAtPosition(LinkedList_primitive list, int index) {
     
     	// Store head node 
         Node currNode = list.head;
@@ -182,7 +182,7 @@ public class LinkedList {
             return list; 
         } 
   
-        // CASE 2: If the index is greater than 0 but less than the size of LinkedList 
+        // CASE 2: If the index is greater than 0 but less than the size of LinkedList_primitive
         int index_counter = 0; 
   
         while (currNode != null) { 
@@ -223,7 +223,7 @@ public class LinkedList {
 	
 	public static void main (String[] args) {
 		
-		LinkedList ln = new LinkedList();
+		LinkedList_primitive ln = new LinkedList_primitive();
 		ln.insert(ln, 1);
 		ln.insert(ln, 2);
 		ln.insert(ln, 3);

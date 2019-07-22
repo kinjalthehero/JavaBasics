@@ -84,7 +84,7 @@ public class LL_DoublyLinkedList {
  
 	// For printing Doubly Linked List forward
 	public void printLinkedListForward() {
-		System.out.println("Printing Doubly LinkedList (head --> tail) ");
+		System.out.println("Printing Doubly LinkedList_primitive (head --> tail) ");
 		Node current = head;
 		while (current != null) {
 			current.displayNodeData();
@@ -95,7 +95,7 @@ public class LL_DoublyLinkedList {
  
 	// For printing Doubly Linked List forward
 	public void printLinkedListBackward() {
-		System.out.println("Printing Doubly LinkedList (tail --> head) ");
+		System.out.println("Printing Doubly LinkedList_primitive (tail --> head) ");
 		Node current = tail;
 		while (current != null) {
 			current.displayNodeData();
