@@ -56,20 +56,19 @@ public class LL_Add2NumberLinkedList {
 		node.next = null;
 		return remaining;
 	}
- 
-	// This function will do sum of numbers represented by linked list
-	public Node findSumOfNumbers(Node l1, Node l2) {
-		
+
+	public Node findSumOfNumbers(Node l1, Node l2)
+	{
 		int carry = 0;
 		int sum = 0;
-		int firstIter = 0;
+		int iteration = 0;
  
 		Node newHead = null;
 		Node tempNodeForIteration = null;
 		
-		while(l1!=null || l2!=null) 
+		while(l1 != null || l2 != null)
 		{
-			firstIter++;
+			iteration++;
 			sum = carry;
 			
 			if (l1 != null)
@@ -88,7 +87,7 @@ public class LL_Add2NumberLinkedList {
 			sum = sum % 10;
 			
 			// Check if it first node for the result
-			if(firstIter == 1)
+			if(iteration == 1)
 			{ 
 				tempNodeForIteration = new Node(sum);
 				newHead = tempNodeForIteration;
@@ -123,6 +122,7 @@ public class LL_Add2NumberLinkedList {
 		System.out.print("Number 1:  ");
 		list.printList(head1);
 		head=null;
+
 		Node head2=new Node(6);
 		list.addToTheLast(head2);
 		list.addToTheLast(new Node(3));

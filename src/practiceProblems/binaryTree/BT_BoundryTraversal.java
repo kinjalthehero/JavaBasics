@@ -22,8 +22,8 @@ public class BT_BoundryTraversal {
 
     }
 
-    private static void printLeafNodes(TreeNode root) {
-
+    private static void printLeafNodes(TreeNode root)
+    {
         if(root==null)
             return;
 
@@ -41,45 +41,37 @@ public class BT_BoundryTraversal {
         if(root==null)
             return;
 
-        // if leaf node, ignore while printing edges
+        // if leaf node, ignore
         if(root.left==null && root.right==null)
-        {
             return;
-        }
 
-        if(root.right!=null)
-        {
+        // NOTE: else if is important instead of just else
+        if(root.right != null)
             printRightBottomUp(root.right);
-        }
-        else if(root.left!=null)
-        {
+        else
             printRightBottomUp(root.left);
-        }
 
         System.out.print(root.data+" ");
     }
 
 
-    private static void printLeftEdgeNodes(TreeNode root) {
+    private static void printLeftEdgeNodes(TreeNode root)
+    {
+
         if(root==null)
             return;
 
-        // if leaf node, ignore while printing edges
-        if(root.left==null && root.right==null)
+        // if leaf node, ignore
+        if(root.left == null && root.right == null)
             return;
 
-        System.out.print(root.data+" ");
+        System.out.print(root.data + " ");
 
-        // If left is null, right will be the boundary edge.
-        if(root.left==null)
-        {
-            printLeftEdgeNodes(root.right);
-        }
-        else
-        {
+        // If left is null, right will be the boundary edge. Check 5 -> 45 in the diagram
+        if(root.left != null)
             printLeftEdgeNodes(root.left);
-        }
-
+        else
+            printLeftEdgeNodes(root.right);
     }
 
     public static void main(String[] args)

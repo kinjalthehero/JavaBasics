@@ -31,7 +31,7 @@ public class BT_InOrderTraversal {
 
 	  bt.inOrder();
 
-	  System.out.println(); // insert new line
+	  System.out.println(); // insertLast new line
 
 	  // traversing binary tree on InOrder traversal without recursion
 	  System.out.println("printing nodes of binary tree on InOrder using iteration");
@@ -75,21 +75,24 @@ class BinaryTree {
   }
 
   // Without recursion
-  public void inOrderWithoutRecursion() {
-    Stack nodes = new Stack<>();
-    TreeNode current = root;
+  public void inOrderWithoutRecursion()
+  {
+      Stack stack = new Stack<>();
+      TreeNode current = root;
 
-    while (!nodes.isEmpty() || current != null) {
-
-      if (current != null) {
-    	  nodes.push(current);
-    	  current = current.left;
-      } else {
-    	  TreeNode node = (TreeNode)nodes.pop();
-    	  System.out.printf("%s ", node.data);
-    	  current = node.right;
-      }
-
+      while (!stack.isEmpty() || current != null)
+      {
+        if (current != null)
+        {
+            stack.push(current);
+    	    current = current.left;
+        }
+        else
+        {
+            TreeNode node = (TreeNode)stack.pop();
+    	    System.out.printf("%s ", node.data);
+    	    current = node.right;
+        }
     }
   }
 

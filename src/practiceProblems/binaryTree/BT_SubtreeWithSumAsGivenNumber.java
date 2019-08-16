@@ -2,23 +2,24 @@ package practiceProblems.binaryTree;
 
 public class BT_SubtreeWithSumAsGivenNumber
 {
-    public static class Node {
-        int data;   // Data of current Node.
-        Node left;  // Pointer to left child Node.
-        Node right; // Pointer to right child Node.
+    public static class Node
+    {
+        int data;
+        Node left;
+        Node right;
 
-        public Node(int data) {
+        public Node(int data)
+        {
             this.data = data;
         }
     }
 
-    public static pair solve(Node node, int target)
+    public static pair solve (Node node, int target)
     {
+        /* if current node is null, then its contribution to total sum of a subtree will be zero and also it won't have
+         *  any subtree with sum equal to given target sum  */
         if(node == null)
         {
-            /* if current node is null, then its contribution to total
-             * sum of a subtree will be zero and also it won't have
-             *  any subtree with sum equal to given target sum  */
             return new pair(0, 0);
         }
 
@@ -46,8 +47,9 @@ public class BT_SubtreeWithSumAsGivenNumber
         int sum;
 
         // count: number of subtrees with given target sum
-        // sum: sum of the current subtree (includes the sum of root of current subtree, left child and right child subtree
-        public pair(int count, int sum) {
+        // sum: sum of the current subtree (includes the sum of root)
+        public pair(int count, int sum)
+        {
             this.count = count;
             this.sum = sum;
         }

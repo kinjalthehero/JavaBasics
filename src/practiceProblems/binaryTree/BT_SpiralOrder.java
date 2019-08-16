@@ -16,7 +16,6 @@ public class BT_SpiralOrder {
         }
     }
 
-    // Concept is difficult to understand
     public static void spiralOrZigzagLevelOrder(TreeNode root) {
 
         if(root==null)
@@ -27,19 +26,21 @@ public class BT_SpiralOrder {
 
         boolean directionflag = false;
 
+        // NOTE: There are 2 same while loops
         while(!stack.isEmpty())
         {
-            // Create stack of all elements in the next level
+            // Create temp stack of all elements in the next level in one direction
             Stack<TreeNode> tempStack=new Stack<>();
 
-            // Pop and print all elements of the same level
+            // Pop and print all elements of the same level in one direction
+            // NOTE: Second while loop
             while(!stack.isEmpty())
             {
                 TreeNode tempNode = stack.pop();
                 System.out.printf("%d ",tempNode.data);
 
-                // For the first time, push left element first and then right element
-                // reverse direction in the next level
+                // directionFlag = false; push left first and then right
+                // directionFlag = true; push right first and then left
                 if(!directionflag)
                 {
                     if(tempNode.left!=null)
@@ -54,12 +55,56 @@ public class BT_SpiralOrder {
                         tempStack.push(tempNode.left);
                 }
             }
-            // for changing direction
+
+            // NOTE: This part is outside of the 2nd while loop
             directionflag=!directionflag;
 
             // All elements of the next level is added, copy to the stack
             stack = tempStack;
         }
+    }
+
+    void directionTravel (TreeNode node)
+    {
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(node);
+        boolean direction = false;
+
+        while(!stack.isEmpty())
+        {
+            Stack<TreeNode> tempStack = new Stack<>();
+
+            while (!stack.isEmpty()) {
+                TreeNode tempNode = stack.pop();
+                System.out.print(tempNode + " ");
+
+                if (!direction)
+                {
+                    if (tempNode.left != null)
+                        tempStack.push(tempNode.left);
+
+                    if (tempNode.right != null)
+                        tempStack.push(tempNode.right);
+                }
+                else
+                {
+                    if (tempNode.right != null)
+                        tempStack.push(tempNode.right);
+
+                    if (tempNode.left != null)
+                        tempStack.push(tempNode.left);
+                }
+            }
+
+            direction = !direction;
+
+            stack = tempStack;
+
+        }
+
+
+
+
     }
 
     public static void main(String[] args)

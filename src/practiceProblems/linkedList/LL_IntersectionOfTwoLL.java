@@ -29,11 +29,13 @@ public class LL_IntersectionOfTwoLL{
 	}
  
  
-	public Node findIntersectionNode(Node list1, Node list2) 
+	public Node findIntersectionNode (Node head1, Node head2)
 	{
 		int lengthOfList1 = 0;
 		int lengthOfList2 = 0;
-		Node temp1=list1, temp2=list2;
+		Node temp1 = head1;
+		Node temp2 = head2;
+
 		if (temp1 == null || temp2 == null)
 			return null;
  
@@ -43,35 +45,40 @@ public class LL_IntersectionOfTwoLL{
 			lengthOfList1++;
 			temp1 = temp1.next;
 		}
-		while(temp2 !=null)
+
+		while(temp2 != null)
 		{
 			lengthOfList2++;
 			temp2 = temp2.next;
 		}
  
 		int difference = 0;
-		Node ptr1=list1;
-		Node ptr2=list2;
+		Node ptr1 = head1;
+		Node ptr2 = head2;
  
-		// Find bigger linked list and iterate upto the different between two linked list.
-		if(lengthOfList1 > lengthOfList2){
-			difference = lengthOfList1-lengthOfList2;
-			int i=0;
-			while(i<difference)
+		// Find difference in the list and iterate upto that point in the bigger list
+		if(lengthOfList1 > lengthOfList2)
+		{
+			difference = lengthOfList1 - lengthOfList2;
+			int i = 0;
+
+			while(i < difference)
 			{
 				ptr1 = ptr1.next;
 				i++;
 			}
-		}else{
-			difference = lengthOfList2-lengthOfList1;
-			int i=0;
-			while(i<difference)
+		}
+		else
+		{
+			difference = lengthOfList2 - lengthOfList1;
+			int i = 0;
+			while(i < difference)
 			{
 				ptr2 = ptr2.next;
 				i++;
 			}
 		}
- 
+
 		// Iterate over both linked list and find the common node
 		while(ptr1 != null && ptr2 != null)
 		{
@@ -102,6 +109,9 @@ public class LL_IntersectionOfTwoLL{
 		Node head2=new Node(4);
 		list2.addToTheLast(head2);
 		list2.addToTheLast(node);
+		list1.addToTheLast(new Node(1));
+		list1.addToTheLast(new Node(2));
+
  
 		Node findIntersectionNode = list1.findIntersectionNode(head1, head2);
 		if(findIntersectionNode==null)

@@ -1,21 +1,32 @@
 package practiceProblems.linkedList;
 
-public class LL_Stack {
+public class LL_Stack
+{
 	
 	private Node head;
  
-	private class Node {
+	private class Node
+	{
 		int value;
 		Node next;
 	}
  
-	public LL_Stack() {
+	public LL_Stack()
+	{
 		head = null;
 	}
- 
-	// Remove value from the beginning of the list for demonstrating behavior of stack
-	public int pop() throws LinkedListEmptyException {
-		
+
+	// Add value to the beginning of the list for demonstrating behavior of stack
+	public void push(int value)
+	{
+		Node oldHead = head;
+		head = new Node();
+		head.value = value;
+		head.next = oldHead;
+	}
+
+	public int pop() throws LinkedListEmptyException
+	{
 		if (head == null) {
 			throw new LinkedListEmptyException();
 		}
@@ -25,14 +36,7 @@ public class LL_Stack {
 		return value;
 	}
  
-	// Add value to the beginning of the list for demonstrating behavior of stack
-	public void push(int value) {
-		
-		Node oldHead = head;
-		head = new Node();
-		head.value = value;
-		head.next = oldHead;
-	}
+
  
 	public static void main(String args[]) 
 	{
@@ -60,20 +64,19 @@ public class LL_Stack {
 	}
 }
  
-/**
- * 
- * Exception to indicate that LinkedList_primitive is empty.
- */
- 
-class LinkedListEmptyException extends RuntimeException {
+
+class LinkedListEmptyException extends RuntimeException
+{
 	
 	private static final long serialVersionUID = 1L;
  
-	public LinkedListEmptyException() {
+	public LinkedListEmptyException()
+	{
 		super();
 	}
  
-	public LinkedListEmptyException(String message) {
+	public LinkedListEmptyException(String message)
+	{
 		super(message);
 	}
 }

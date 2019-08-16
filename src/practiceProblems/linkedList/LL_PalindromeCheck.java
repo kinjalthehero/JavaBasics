@@ -36,17 +36,18 @@ public class LL_PalindromeCheck {
 		}
 		System.out.println();
 	}
- 
-	// This function will find middle element in linkedlist
+
 	public static Node findMiddleNode(Node head)
 	{
-		// step 1
-		Node slowPointer, fastPointer; 
-		slowPointer = fastPointer = head; 
+		Node slowPointer = head;
+		Node fastPointer = head;
  
-		while(fastPointer != null) { 
+		while(fastPointer != null)
+		{
 			fastPointer = fastPointer.next; 
-			if(fastPointer != null && fastPointer.next != null) { 
+
+			if(fastPointer != null && fastPointer.next != null)
+			{
 				slowPointer = slowPointer.next; 
 				fastPointer = fastPointer.next; 
 			} 
@@ -54,14 +55,29 @@ public class LL_PalindromeCheck {
  
 		return slowPointer; 
 	}
- 
+
+	public static Node reverseLinkedList(Node curr)
+	{
+
+		Node prev = null;
+		Node next;
+
+		while(curr!=null)
+		{
+			next=curr.next;
+			curr.next=prev;
+			prev=curr;
+			curr=next;
+		}
+		return prev;
+	}
+
 	// Function to check if linked list is palindrome or not
 	public static boolean checkPalindrome (Node head)
 	{
-		// Find middle node using slow and fast pointer
 		Node middleNode = findMiddleNode(head);
 		
-		// we got head of second part
+		// head of right side
 		Node secondHead = middleNode.next;
 		
 		// It is end of first part of linked list
@@ -85,32 +101,17 @@ public class LL_PalindromeCheck {
 		return true;
  	}
  
-	public static Node reverseLinkedList(Node currentNode) 
-	{ 
-		// For first node, previousNode will be null 
-		Node previousNode=null; 
-		Node nextNode; 
-		while(currentNode!=null) 
-		{ 
-			nextNode=currentNode.next; 
-			// reversing the link 
-			currentNode.next=previousNode; 
-			// moving currentNode and previousNode by 1 node 
-			previousNode=currentNode; 
-			currentNode=nextNode; 
-		} 
-		return previousNode; 
-	} 
+
  
  
 	public static void main(String[] args) {
 		LL_PalindromeCheck list = new LL_PalindromeCheck();
 		Node head=new Node(1);
 		list.addToTheLast(head);
-		list.addToTheLast(new Node(2));
-		list.addToTheLast(new Node(1));
-		list.addToTheLast(new Node(2));
-		list.addToTheLast(new Node(1));
+		//list.addToTheLast(new Node(2));
+		//list.addToTheLast(new Node(3));
+		//list.addToTheLast(new Node(4));
+
  
 		list.printList();
  

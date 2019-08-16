@@ -22,7 +22,7 @@ public class Array_Separate0And1 {
             arr[i] = 0;
         }
 
-        // From count to arr.length-1, insert 1s
+        // From count to arr.length-1, insertLast 1s
         for (int i = count; i < arr.length; i++)
         {
             arr[i] = 1;

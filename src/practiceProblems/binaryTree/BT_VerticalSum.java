@@ -16,45 +16,20 @@ public class BT_VerticalSum {
         }
     }
 
-    /*
-     * Steps for print vertical sum of binary tree:
-     * Traverse tree in inorder traversal.
-     * Create a variable level and initialise it with 0. When you traverse left child, decrease level by 1(level–) and when you traverse right child, increase level by 1(level++).
-     * We need to maintain TreeMap with key as level and value as node data. If you get same key(level) again, then you need to add current node data to previous stored value to calculate sum.
-     * For example:
-     * TreeMap has entry with (0,40) where 0 is level and 40 is node data. So while traversing, if you encountered node 30 at level 0, so after processing node 30, TreeMap will have entry as (0,70)
-     * Once TreeMap is populated after iterating all nodes, print the results.
-     * Level is a made up variable where it can have value either 0 or 1
-     */
-    public static void printVertivalSumOfBinaryTree(TreeNode startNode, TreeMap<Integer,Integer> treeNodeMap, int level)
+    public static void printVertivalSumOfBinaryTree(TreeNode node, TreeMap<Integer,Integer> map, int level)
     {
-        if(startNode==null)
-        {
+        if (node == null)
             return;
-        }
 
-        // Decrease level by 1 when iterating left child
-        printVertivalSumOfBinaryTree(startNode.left, treeNodeMap,level-1);
-
-        // TreeMap is similar to Hashmap
-        // If we find level value then add the node value to the sum
-        if(treeNodeMap.get(level) != null)
-        {
-            Integer sum = treeNodeMap.get(level) + startNode.data;
-            // Adding current node data to previous stored value to get the sum
-            treeNodeMap.put(level, sum);
-        }
-        // otherwise put the value in the map
+        if(map.get(level) != null)
+            map.put(level, (map.get(level) + node.data));
         else
-        {
+            map.put(level, node.data);
 
-            treeNodeMap.put(level, startNode.data);
-        }
-
-        // Increase level by 1 when iterating right child
-        printVertivalSumOfBinaryTree(startNode.right, treeNodeMap,level+1);
-
+        printVertivalSumOfBinaryTree(node.left, map,level-1);
+        printVertivalSumOfBinaryTree(node.right, map,level+1);
     }
+
     public static void main(String[] args)
     {
         // Creating a binary tree
@@ -64,7 +39,7 @@ public class BT_VerticalSum {
         printVertivalSumOfBinaryTree(rootNode, treeNodeMap, 0);
 
         for(Map.Entry<Integer,Integer> entry:treeNodeMap.entrySet())
-            System.out.println(entry.getValue());
+            System.out.println(entry.getKey() + ": " +entry.getValue());
     }
 
     public static TreeNode createBinaryTree()

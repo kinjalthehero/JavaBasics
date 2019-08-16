@@ -2,6 +2,7 @@ package practiceProblems.binaryTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BT_FindLargestNode
 {
@@ -20,12 +21,12 @@ public class BT_FindLargestNode
     public static  int getMaximumRec(TreeNode root)
     {
         int max = Integer.MIN_VALUE;
-        int value = 0;
+        int currValue = 0;
         int left, right;
 
         if(root != null)
         {
-            value = root.data;
+            currValue = root.data;
 
             left = getMaximumRec(root.left);
             right = getMaximumRec(root.right);
@@ -35,22 +36,23 @@ public class BT_FindLargestNode
             else
                 max = right;
 
-            if(max < value)
-                max = value;
+            if(currValue > max)
+                max = currValue;
         }
 
         return max;
     }
 
+
+
     // Iterative Solution
-    // Put a node and then compare if it is max. Then add left and right nodes in the queue. Repeat.
-    public static int getMaximumItr(TreeNode startNode) {
+    public static int getMaximumItr(TreeNode startNode)
+    {
+        int max = Integer.MIN_VALUE;
 
         // Make a queue using linked list
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(startNode);
-
-        int max = Integer.MIN_VALUE;
 
         while(!queue.isEmpty())
         {
@@ -69,6 +71,7 @@ public class BT_FindLargestNode
 
         return max;
     }
+
 
     public static void main(String[] args)
     {

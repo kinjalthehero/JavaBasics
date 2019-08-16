@@ -36,26 +36,29 @@ public class LL_ReverseLinkedListInPair{
 		}
 		System.out.println();
 	}
- 
-	// Reverse linked list in pair
-	public static Node reverseLinkedListInPairs(Node head) {
- 
-		Node current=head;
-		Node temp=null;
-		Node newHead =null;
-		while (current != null && current.next != null) {
- 
-			if (temp != null) {
+
+	public static Node reverseLinkedListInPairs(Node head)
+	{
+		Node curr = head;
+		Node temp = null;
+		Node newHead = null;
+
+		while (curr != null && curr.next != null)
+		{
+			if (temp != null)
+			{
 				// This is important step
-				temp.next.next = current.next;
+				temp.next.next = curr.next;
 			}
-			temp=current.next;     
-			current.next=temp.next;
-			temp.next=current;
+
+			temp=curr.next;
+			curr.next=temp.next;
+			temp.next=curr;
  
 			if (newHead == null)
 				newHead = temp;
-			current=current.next;
+
+			curr=curr.next;
  
 		}     
 		return newHead;

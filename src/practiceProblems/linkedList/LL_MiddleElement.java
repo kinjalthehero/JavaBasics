@@ -27,6 +27,24 @@ public class LL_MiddleElement {
       
     }
 
+    public Node findMiddleNode(Node head)
+    {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null)
+        {
+            fast = fast.next;
+
+            if(fast != null && fast.next != null) {
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+
+        return slow;
+    }
+
     private static void getMiddleElement(LinkedList.Node head) {
  		
     	//finding middle element of LinkedList_primitive in single pass

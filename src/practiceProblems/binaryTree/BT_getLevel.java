@@ -13,7 +13,6 @@ public class BT_getLevel {
         }
     }
 
-    // Recursive Solution
     public static int getLevelOfNode(TreeNode root, int key, int level)
     {
         if(root == null)
@@ -34,7 +33,6 @@ public class BT_getLevel {
 
         return result;
     }
-
 
     public static void main(String[] args)
     {
