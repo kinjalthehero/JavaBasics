@@ -39,37 +39,48 @@ public class DFS
     public  void dfs(Node node)
     {
         System.out.print(node.data + " ");
-        List<Node> neighbours=node.getNeighbours();
+
+        // We printed the element so mark it as visited
         node.visited=true;
 
+        List<Node> neighbours=node.getNeighbours();
+
+        // Get every node and delegate task to its neighbors
         for (int i = 0; i < neighbours.size(); i++)
         {
-            Node n=neighbours.get(i);
-            if(n!=null && !n.visited)
+            Node n = neighbours.get(i);
+
+            // Delegate only to once which are not visited
+            // (n != null) - For nodes without neighbors
+            if(n != null && !n.visited)
                 dfs(n);
         }
     }
 
     // Iterative DFS using stack
+    // https://www.youtube.com/watch?v=iaBEKo5sM7w
     public  void dfsUsingStack(Node node)
     {
-        Stack<Node> stack=new  Stack<Node>();
+        Stack<Node> stack=new  Stack<>();
         stack.add(node);
         node.visited=true;
+
         while (!stack.isEmpty())
         {
             Node element=stack.pop();
             System.out.print(element.data + " ");
 
-            List<Node> neighbours=element.getNeighbours();
+            List<Node> neighbours = element.getNeighbours();
+
             for (int i = 0; i < neighbours.size(); i++)
             {
-                Node n=neighbours.get(i);
-                if(n!=null && !n.visited)
+                Node n = neighbours.get(i);
+
+                // (n != null) - For nodes without neighbors
+                if(n != null && !n.visited)
                 {
                     stack.add(n);
-                    n.visited=true;
-
+                    n.visited = true;
                 }
             }
         }
