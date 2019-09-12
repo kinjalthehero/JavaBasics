@@ -9,7 +9,7 @@ class CycleInUndirected
     // Adjacency List Represntation
     private LinkedList<Integer> adj[];
 
-    CycleInUndirected (int numberOFVertices) {
+    public CycleInUndirected (int numberOFVertices) {
         this.numberOFVertices = numberOFVertices;
         adj = new LinkedList[numberOFVertices];
         for(int i = 0; i< numberOFVertices; ++i)
@@ -26,10 +26,10 @@ class CycleInUndirected
 
         Boolean visited[] = new Boolean[numberOFVertices];
 
-        // Mark all the vertices as not visited and not part of stack
         for (int i = 0; i < numberOFVertices; i++)
             visited[i] = false;
 
+        // Call isCyclicUtil method for every vertex
         for (int i = 0; i < numberOFVertices; i++)
         {
             if (!visited[i])
@@ -42,26 +42,25 @@ class CycleInUndirected
         return false;
     }
 
-    Boolean isCyclicUtil(int vertex, Boolean visited[], int parent)
+    Boolean isCyclicUtil(int currVertex, Boolean visited[], int parent)
     {
-        visited[vertex] = true;
-        Integer i;
+        visited[currVertex] = true;
 
-        Iterator<Integer> neighbors = adj[vertex].iterator();
+        Iterator<Integer> neighbors = adj[currVertex].iterator();
 
         while (neighbors.hasNext())
         {
-            i = neighbors.next();
+            int currNeighbor = neighbors.next();
 
-            if (!visited[i])
+            //if currNeighbor is not its direct parent
+            if(currNeighbor != parent)
             {
-                if (isCyclicUtil(i, visited, vertex))
-                    return true;
+                if(visited[currNeighbor])
+                    return true; // visited means cycle has been detected
+                else
+                    if (isCyclicUtil(currNeighbor, visited, currVertex)) //recursion from destination node
+                        return true;
             }
-
-            // If an adjacent is visited and not parent of current vertex, then there is a cycle
-            else if (i != parent)
-                return true;
         }
 
         return false;
