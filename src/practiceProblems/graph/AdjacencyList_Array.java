@@ -1,78 +1,72 @@
 package practiceProblems.graph;
 
-class adjNode
-{
-    int source;
-    int destination;
-    adjNode next;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
-    public adjNode(int source, int destination)
+public class AdjacencyList_Array
+{
+    static class Edge
     {
-        this.source = source;
-        this.destination = destination;
-        next = null;
-    }
-}
+        int source;
+        int destination;
+        int weight;
 
-class adjList
-{
-    adjNode head;
-}
-
-class Graph
-{
-    int V;
-    adjList array[];
-
-    public Graph(int V)
-    {
-        this.V = V;
-        array = new adjList[V];
-
-        for (int i = 0; i < V; i++)
+        public Edge(int source, int destination, int weight)
         {
-            array[i] = new adjList();
-            array[i].head = null;
+            this.source = source;
+            this.destination = destination;
+            this.weight = weight;
         }
     }
 
-    public void addEdge(int source, int destination) {
-
-        adjNode adn = new adjNode(source, destination);
-        adn.next = array[source].head;
-        array[source].head = adn;
-    }
-
-    public void printGraph(Graph gph)
+    static class Graph
     {
-        int vertex = gph.V;
-        adjNode ad;
-        for (int i = 0; i < vertex; i++)
+        int vertices;
+        ArrayList<Edge>[] adjacencylist;
+
+        Graph (int vertices)
         {
-            ad = gph.array[i].head;
-            if(ad!=null)
+            this.vertices = vertices;
+            adjacencylist = new ArrayList[vertices];
+
+            for (int i = 0; i <vertices ; i++)
             {
-                System.out.println("\nNodes connected to Vertex " + ad.source + " are :");
-                while (ad != null)
+                adjacencylist[i] = new ArrayList<>();
+            }
+        }
+
+        public void addEgde(int source, int destination, int weight)
+        {
+            Edge edge = new Edge(source, destination, weight);
+            adjacencylist[source].add(edge);
+        }
+
+        public void printGraph(){
+            for (int i = 0; i <vertices ; i++)
+            {
+                ArrayList<Edge> list = adjacencylist[i];
+                for (int j = 0; j <list.size() ; j++)
                 {
-                    System.out.print("  " + ad.destination);
-                    ad = ad.next;
+                    System.out.println("vertex-" + i + " is connected to " +
+                            list.get(j).destination + " with weight " +  list.get(j).weight);
                 }
             }
         }
     }
-}
 
-public class AdjacencyList_Array
-{
-    public static void main(String args[])
+    public static void main(String[] args)
     {
-        Graph gph = new Graph(5);
-        gph.addEdge(0, 1);
-        gph.addEdge(0, 2);
-        gph.addEdge(0, 3);
-        gph.addEdge(1, 2);
-        gph.addEdge(2, 4);
-        gph.printGraph(gph);
+        int vertices = 6;
+        Graph graph = new Graph(vertices);
+        graph.addEgde(0, 1, 4);
+        graph.addEgde(0, 2, 3);
+        graph.addEgde(1, 3, 2);
+        graph.addEgde(1, 2, 5);
+        graph.addEgde(2, 3, 7);
+        graph.addEgde(3, 4, 2);
+        graph.addEgde(4, 0, 4);
+        graph.addEgde(4, 1, 4);
+        graph.addEgde(4, 5, 6);
+        graph.printGraph();
     }
 }

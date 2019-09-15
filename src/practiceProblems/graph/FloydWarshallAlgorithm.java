@@ -23,7 +23,7 @@ public class FloydWarshallAlgorithm
                 // Pick all vertices as destination for the above picked source
                 for (j = 0; j < vertices; j++)
                 {
-                    // If vertex k is on the shortest path from i to j, then update the value of dist[i][j]
+                    // If vertex k is on the shortest pathFromSource from i to j, then update the value of distanceFromSource[i][j]
                     if (dist[i][k] + dist[k][j] < dist[i][j])
                         dist[i][j] = dist[i][k] + dist[k][j];
                 }

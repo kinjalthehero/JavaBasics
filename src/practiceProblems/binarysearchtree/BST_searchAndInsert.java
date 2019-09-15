@@ -33,28 +33,39 @@ public class BST_searchAndInsert {
         return result;
     }
 
-    public static TreeNode insert(TreeNode root,TreeNode node)
+    public static TreeNode insert_rec (TreeNode root, TreeNode node)
     {
         if(root == null)
+            return node;
+
+        if(node.data < root.data)
+            root.left = insert_rec(root.left, node);
+        else if(root.data < node.data)
+            root.right = insert_rec(root.right, node);
+
+        return root;
+    }
+
+    public static TreeNode insert_iterative (TreeNode root, TreeNode node)
+    {
+        if(root == null)
+            return node;
+
+        TreeNode curr = root, prev = null;
+
+        while (curr != null)
         {
-            root = node;
-            return root;
+            prev = curr;
+            if(node.data < curr.data)
+                curr = curr.left;
+            else
+                curr = curr.right;
         }
 
-        if(root.data > node.data)
-        {
-            if(root.left == null)
-                root.left = node;
-            else
-                insert(root.left, node);
-        }
-        else if(root.data < node.data)
-        {
-            if (root.right == null)
-                root.right = node;
-            else
-                insert(root.right, node);
-        }
+        if (prev.data < node.data)
+            prev.right = node;
+        else
+            prev.left = node;
 
         return root;
     }
@@ -78,7 +89,7 @@ public class BST_searchAndInsert {
         System.out.println("Searching for node 55 : "+result);
         System.out.println("---------------------------");
         TreeNode node13=new TreeNode(13);
-        TreeNode root=insert(rootNode,node13);
+        TreeNode root=insert_iterative(rootNode,node13);
         System.out.println("Inorder traversal of binary tree after adding 13:");
         inOrder(root);
 
@@ -96,15 +107,15 @@ public class BST_searchAndInsert {
         TreeNode node5=new TreeNode(5);
         TreeNode node55=new TreeNode(55);
 
-        insert(null,rootNode);
-        insert(rootNode,node20);
-        insert(rootNode,node10);
-        insert(rootNode,node30);
-        insert(rootNode,node60);
-        insert(rootNode,node50);
-        insert(rootNode,node70);
-        insert(rootNode,node5);
-        insert(rootNode,node55);
+        insert_iterative(null,rootNode);
+        insert_iterative(rootNode,node20);
+        insert_iterative(rootNode,node10);
+        insert_iterative(rootNode,node30);
+        insert_iterative(rootNode,node60);
+        insert_iterative(rootNode,node50);
+        insert_iterative(rootNode,node70);
+        insert_iterative(rootNode,node5);
+        insert_iterative(rootNode,node55);
         return rootNode;
     }
 }

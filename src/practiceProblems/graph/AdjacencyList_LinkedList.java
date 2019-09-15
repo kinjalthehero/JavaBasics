@@ -2,7 +2,7 @@ package practiceProblems.graph;
 
 import java.util.LinkedList;
 
-public class AdjacencyList
+public class AdjacencyList_LinkedList
 {
     static class Edge
     {
@@ -21,7 +21,7 @@ public class AdjacencyList
     static class Graph
     {
         int vertices;
-        LinkedList<Edge> [] adjacencylist;
+        LinkedList<Edge>[] adjacencylist;
 
         Graph (int vertices)
         {
