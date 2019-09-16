@@ -56,19 +56,19 @@ public class BT_PreOrderTraversal {
 		// without recursion using stack
 		public void preOrderWithoutRecursion() {
 			
-			Stack<TreeNode> nodes = new Stack<>();
-			nodes.push(root);
+			Stack<TreeNode> stack = new Stack<>();
+			stack.push(root);
 
-			while (!nodes.isEmpty()) {
+			while (!stack.isEmpty()) {
 				
-				TreeNode current = nodes.pop();
-				System.out.printf("%s ", current.data);
+				TreeNode current = stack.pop();
+				System.out.printf(current.data + " ");
 
 				if (current.right != null) 
-					nodes.push(current.right);
+					stack.push(current.right);
 		    
 				if (current.left != null) 
-					nodes.push(current.left);
+					stack.push(current.left);
 			}
 		}
 	}

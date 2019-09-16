@@ -107,15 +107,15 @@ public class BST_searchAndInsert {
         TreeNode node5=new TreeNode(5);
         TreeNode node55=new TreeNode(55);
 
-        insert_iterative(null,rootNode);
-        insert_iterative(rootNode,node20);
-        insert_iterative(rootNode,node10);
-        insert_iterative(rootNode,node30);
-        insert_iterative(rootNode,node60);
-        insert_iterative(rootNode,node50);
-        insert_iterative(rootNode,node70);
-        insert_iterative(rootNode,node5);
-        insert_iterative(rootNode,node55);
+        insert_rec(null,rootNode);
+        insert_rec(rootNode,node20);
+        insert_rec(rootNode,node10);
+        insert_rec(rootNode,node30);
+        insert_rec(rootNode,node60);
+        insert_rec(rootNode,node50);
+        insert_rec(rootNode,node70);
+        insert_rec(rootNode,node5);
+        insert_rec(rootNode,node55);
         return rootNode;
     }
 }
