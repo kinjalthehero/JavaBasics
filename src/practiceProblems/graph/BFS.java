@@ -46,17 +46,13 @@ public class BFS
 
             List<Node> neighbours = element.getNeighbours();
 
-            for (int i = 0; i < neighbours.size(); i++) {
-                Node n=neighbours.get(i);
-
-                if(n != null && !n.visited)
+            for (Node neighbor: neighbours) {
+                if (neighbor != null && !neighbor.visited)
                 {
-                    queue.add(n);
-                    n.visited=true;
-
+                    queue.add(neighbor);
+                    neighbor.visited= true;
                 }
             }
-
         }
     }
 
