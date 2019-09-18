@@ -123,6 +123,17 @@ public class String_FirstNonRepeatedChar {
 	    return '\0';
 	}
 
+	public static int firstUniqChar(String s) {
+
+		for (int i = 0; i < s.length(); i++)
+		{
+			if (s.indexOf(s.charAt(i)) == s.lastIndexOf(s.charAt(i)))
+				return i;
+		}
+
+		return -1;
+
+	}
 	
 	public static void main(String[] args) {
 		
@@ -130,21 +141,25 @@ public class String_FirstNonRepeatedChar {
 		System.out.println(getFirstNonRepeatedChar(str));
 		System.out.println(firstNonRepeatingChar(str));
 		System.out.println(firstNonRepeatedCharacter(str));
+		System.out.println(firstUniqChar(str));
 		
 		str = "abcde";
 		System.out.println(getFirstNonRepeatedChar(str));
 		System.out.println(firstNonRepeatingChar(str));
 		System.out.println(firstNonRepeatedCharacter(str));
+		System.out.println(firstUniqChar(str));
 		
 		str = "aaaaa";
 		System.out.println(getFirstNonRepeatedChar(str));
 		System.out.println(firstNonRepeatingChar(str));
 		System.out.println(firstNonRepeatedCharacter(str));
+		System.out.println(firstUniqChar(str));
 		
 		str = "";
 		System.out.println(getFirstNonRepeatedChar(str));
 		System.out.println(firstNonRepeatingChar(str));
 		System.out.println(firstNonRepeatedCharacter(str));
+		System.out.println(firstUniqChar(str));
 
 	}
 
