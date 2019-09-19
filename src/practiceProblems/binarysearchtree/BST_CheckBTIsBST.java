@@ -15,34 +15,24 @@ public class BST_CheckBTIsBST
         }
     }
 
-    // Inorder traversal for binary tree and will track previous node in inorder traversal
-    // If previous node is less than current node, then it is binary search tree else it is not
     public  static boolean isBSTInOrder(TreeNode root, TreeNode prev)
     {
-        if (root == null) {
+        if (root == null)
             return true;
-        }
 
         if(!isBSTInOrder(root.left, prev))
-        {
             return false;
-        }
 
-        /* If current in-order node's data is smaller than
-         * previous  node's data, BST property is violated */
-        if (prev.data > root.data) {
+        if (prev.data > root.data)
             return false;
-        }
 
-        /* set the previous in-order data to the current node's data*/
         prev.data = root.data;
 
         return isBSTInOrder(root.right, prev);
     }
 
-    public static boolean isBST(TreeNode root, int min, int max) {
-
-        /* base case: we reached null*/
+    public static boolean isBST(TreeNode root, int min, int max)
+    {
         if(root == null)
             return true;
 
@@ -50,6 +40,49 @@ public class BST_CheckBTIsBST
                 root.data > max &&
                 isBST(root.left, min, root.data) &&
                 isBST(root.right, root.data, max));
+    }
+
+    public static boolean isValidBST(TreeNode root) {
+        return isBST2 (root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    public static boolean isBST2 (TreeNode root, int min, int max)
+    {
+        if(root == null)
+            return true;
+
+        if (root.data <= min || root.data > max)
+            return false;
+
+        return (isBST2(root.left, min, root.data) && isBST2(root.right, root.data, max));
+    }
+
+    public static boolean isValidBST_leet(TreeNode root)
+    {
+        if (root == null)
+            return true;
+
+        Stack<TreeNode> stack = new Stack<>();
+        int pre = Integer.MIN_VALUE;;
+
+        while (root != null || !stack.isEmpty())
+        {
+            while (root != null)
+            {
+                stack.push(root);
+                root = root.left;
+            }
+
+            root = stack.pop();
+
+            if (root.data <= pre)
+                return false;
+
+            pre = root.data;
+            root = root.right;
+        }
+
+        return true;
     }
 
 
@@ -62,8 +95,16 @@ public class BST_CheckBTIsBST
         System.out.println("-------------------------");
         System.out.println("Using inorder method");
 
-        TreeNode prev=new TreeNode(Integer.MIN_VALUE);
-        System.out.println(isBSTInOrder(rootNode,prev));
+        TreeNode prev = new TreeNode(Integer.MIN_VALUE);
+        System.out.println(isBSTInOrder(rootNode, prev));
+
+        System.out.print("Testing");
+        System.out.println(isValidBST(rootNode));
+
+        System.out.print("Leet");
+        System.out.println(isValidBST_leet(rootNode));
+
+
 
         System.out.println("-------------------------");
         System.out.println("Using min max method");
@@ -81,6 +122,9 @@ public class BST_CheckBTIsBST
         System.out.println("Using min max method");
         System.out.println(isBST(rootNodeBinaryTree,Integer.MIN_VALUE,Integer.MAX_VALUE));
         System.out.println("-------------------------");
+
+        System.out.print("Leet");
+        System.out.println(isValidBST_leet(rootNodeBinaryTree));
     }
 
     public static TreeNode createBinarySearchTree()
