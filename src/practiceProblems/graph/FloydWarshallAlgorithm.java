@@ -6,32 +6,26 @@ public class FloydWarshallAlgorithm
 {
     final static int INF = 99999, vertices = 4;
 
+    // https://www.youtube.com/watch?v=oNI0rf2P9gE
     void floydWarshall(int graph[][])
     {
-        int dist[][] = new int[vertices][vertices];
-        int i, j, k;
+        int distance[][] = new int[vertices][vertices];
 
-        for (i = 0; i < vertices; i++)
-            for (j = 0; j < vertices; j++)
-                dist[i][j] = graph[i][j];
+        for (int i = 0; i < vertices; i++)
+            for (int j = 0; j < vertices; j++)
+                distance[i][j] = graph[i][j];
 
-        for (k = 0; k < vertices; k++)
-        {
-            // Pick all vertices as source one by one
-            for (i = 0; i < vertices; i++)
-            {
-                // Pick all vertices as destination for the above picked source
-                for (j = 0; j < vertices; j++)
-                {
-                    // If vertex k is on the shortest pathFromSource from i to j, then update the value of distanceFromSource[i][j]
-                    if (dist[i][k] + dist[k][j] < dist[i][j])
-                        dist[i][j] = dist[i][k] + dist[k][j];
+        for (int via = 0; via < vertices; via++) {
+            for (int source = 0; source < vertices; source++) {
+                for (int dest = 0; dest < vertices; dest++) {
+                    if (distance[source][via] + distance[via][dest] < distance[source][dest])
+                        distance[source][dest] = distance[source][via] + distance[via][dest];
                 }
             }
         }
 
         // Print the shortest distance matrix
-        printSolution(dist);
+        printSolution(distance);
     }
 
     void printSolution(int dist[][])

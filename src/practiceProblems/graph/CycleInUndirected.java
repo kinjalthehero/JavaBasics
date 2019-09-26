@@ -21,51 +21,35 @@ class CycleInUndirected
         adj[w].add(v);
     }
 
-    Boolean isCyclic()
+    boolean isCyclic()
     {
-
-        Boolean visited[] = new Boolean[numberOFVertices];
+        boolean visited[] = new boolean[numberOFVertices];
 
         for (int i = 0; i < numberOFVertices; i++)
             visited[i] = false;
 
-        // Call isCyclicUtil method for every vertex
-        for (int i = 0; i < numberOFVertices; i++)
-        {
+        for(int i = 0; i < numberOFVertices; i++) {
             if (!visited[i])
-            {
-                if (isCyclicUtil(i, visited, -1))
-                    return true;
-            }
+                return isCycleUtil(i, visited, -1);
         }
-
         return false;
+
     }
 
-    Boolean isCyclicUtil(int currVertex, Boolean visited[], int parent)
+    boolean isCycleUtil(int vertex, boolean visited[], int parent)
     {
-        visited[currVertex] = true;
-
-        Iterator<Integer> neighbors = adj[currVertex].iterator();
-
-        while (neighbors.hasNext())
-        {
-            int currNeighbor = neighbors.next();
-
-            //if currNeighbor is not its direct parent
-            if(currNeighbor != parent)
+        for(int v: adj[vertex]) {
+            if(!visited[v])
             {
-                if(visited[currNeighbor])
-                    return true; // visited means cycle has been detected
-                else
-                    if (isCyclicUtil(currNeighbor, visited, currVertex)) //recursion from destination node
-                        return true;
+                visited[v] = true;
+                return isCycleUtil(v, visited, vertex);
             }
+            else if(v != parent)
+                return true;
         }
 
         return false;
     }
-
 
     public static void main(String args[])
     {

@@ -37,8 +37,8 @@ public class TopologicalSort
 
             if(neighbor != null && !neighbor.visited)
             {
-                toplogicalSort(neighbor);
                 neighbor.visited=true;
+                toplogicalSort(neighbor);
             }
         }
 

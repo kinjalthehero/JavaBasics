@@ -58,7 +58,6 @@ public class DijkstraShortestPath
 
         PriorityQueue<Vertex> priorityQueue = new PriorityQueue<>();
         priorityQueue.add(sourceVertex);
-        sourceVertex.visited  = true;
 
         while (!priorityQueue.isEmpty())
         {
