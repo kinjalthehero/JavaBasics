@@ -19,7 +19,7 @@ public class AdjacencyMatrix
 
     public void printGraph()
     {
-        System.out.println("Graph: (Adjacency Matrix)");
+        System.out.println("Graph_Practice: (Adjacency Matrix)");
         for (int i = 0; i < vertex; i++)
         {
             for (int j = 0; j <vertex ; j++)

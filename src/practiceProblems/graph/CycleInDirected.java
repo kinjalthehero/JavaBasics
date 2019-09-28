@@ -74,8 +74,8 @@ class CycleInDirected {
         graph.addEdge(3, 3);
 
         if(graph.isCyclic())
-            System.out.println("Graph contains cycle");
+            System.out.println("Graph_Practice contains cycle");
         else
-            System.out.println("Graph doesn't contain cycle");
+            System.out.println("Graph_Practice doesn't contain cycle");
     }
 }

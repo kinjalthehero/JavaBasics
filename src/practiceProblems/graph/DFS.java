@@ -6,44 +6,27 @@ import java.util.Stack;
 
 public class DFS
 {
-    static class Node
+    static class Vertex
     {
         int data;
         boolean visited;
-        List<Node> neighbours;
+        List<Vertex> neighbours;
 
-        Node(int data)
+        Vertex(int data)
         {
             this.data=data;
             this.neighbours=new ArrayList<>();
 
         }
-
-        public void addneighbours(Node neighbourNode)
-        {
-            this.neighbours.add(neighbourNode);
-        }
-
-        public List<Node> getNeighbours()
-        {
-            return neighbours;
-        }
-
-        public void setNeighbours(List<Node> neighbours)
-        {
-            this.neighbours = neighbours;
-        }
     }
 
     // Recursive DFS
-    public  void dfs(Node node)
+    public  void dfs(Vertex vertex)
     {
-        System.out.print(node.data + " ");
-        node.visited=true;
+        System.out.print(vertex.data + " ");
+        vertex.visited=true;
 
-        List<Node> neighbours=node.getNeighbours();
-
-        for (Node neighbor: neighbours)
+        for (Vertex neighbor: vertex.neighbours)
         {
             if(neighbor != null && !neighbor.visited)
                 dfs(neighbor);
@@ -52,20 +35,18 @@ public class DFS
 
     // Iterative DFS using stack
     // https://www.youtube.com/watch?v=iaBEKo5sM7w
-    public  void dfsUsingStack(Node node)
+    public  void dfsUsingStack(Vertex vertex)
     {
-        Stack<Node> stack=new  Stack<>();
-        stack.add(node);
-        node.visited=true;
+        Stack<Vertex> stack=new  Stack<>();
+        stack.add(vertex);
+        vertex.visited=true;
 
         while (!stack.isEmpty())
         {
-            Node element = stack.pop();
+            Vertex element = stack.pop();
             System.out.print(element.data + " ");
 
-            List<Node> neighbours = element.getNeighbours();
-
-            for (Node neighbor: neighbours)
+            for (Vertex neighbor: element.neighbours)
             {
                 if (neighbor != null && !neighbor.visited)
                 {
@@ -79,43 +60,42 @@ public class DFS
     public static void main(String arg[])
     {
 
-        Node node40 =new Node(40);
-        Node node10 =new Node(10);
-        Node node20 =new Node(20);
-        Node node30 =new Node(30);
-        Node node60 =new Node(60);
-        Node node50 =new Node(50);
-        Node node70 =new Node(70);
+        Vertex vertex40 =new Vertex(40);
+        Vertex vertex10 =new Vertex(10);
+        Vertex vertex20 =new Vertex(20);
+        Vertex vertex30 =new Vertex(30);
+        Vertex vertex60 =new Vertex(60);
+        Vertex vertex50 =new Vertex(50);
+        Vertex vertex70 =new Vertex(70);
 
-        node40.addneighbours(node10);
-        node40.addneighbours(node20);
-        node10.addneighbours(node30);
-        node20.addneighbours(node10);
-        node20.addneighbours(node30);
-        node20.addneighbours(node60);
-        node20.addneighbours(node50);
-        node30.addneighbours(node60);
-        node60.addneighbours(node70);
-        node50.addneighbours(node70);
+        vertex40.neighbours.add(vertex10);
+        vertex40.neighbours.add(vertex20);
+        vertex10.neighbours.add(vertex30);
+        vertex20.neighbours.add(vertex10);
+        vertex20.neighbours.add(vertex30);
+        vertex20.neighbours.add(vertex60);
+        vertex20.neighbours.add(vertex50);
+        vertex30.neighbours.add(vertex60);
+        vertex60.neighbours.add(vertex70);
+        vertex50.neighbours.add(vertex70);
 
         DFS dfsExample = new DFS();
 
         System.out.println("The DFS traversal of the graph using stack ");
-        dfsExample.dfsUsingStack(node40);
+        dfsExample.dfsUsingStack(vertex40);
 
         System.out.println();
 
         // Resetting the visited flag for nodes
-        node40.visited=false;
-        node10.visited=false;
-        node20.visited=false;
-        node30.visited=false;
-        node60.visited=false;
-        node50.visited=false;
-        node70.visited=false;
-
+        vertex40.visited=false;
+        vertex10.visited=false;
+        vertex20.visited=false;
+        vertex30.visited=false;
+        vertex60.visited=false;
+        vertex50.visited=false;
+        vertex70.visited=false;
 
         System.out.println("The DFS traversal of the graph using recursion ");
-        dfsExample.dfs(node40);
+        dfsExample.dfs(vertex40);
     }
 }

@@ -23,7 +23,7 @@ public class BellmanFord
         }
     }
 
-    // Graph with adjacency list
+    // Graph_Practice with adjacency list
     public static List<Edge>[] createGraph (int numberOfVertices)
     {
         List<Edge>[] graph = new List[numberOfVertices];

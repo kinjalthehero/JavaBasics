@@ -61,17 +61,17 @@ class CycleInUndirected
         g1.addEdge(3, 4);
 
         if (g1.isCyclic())
-            System.out.println("Graph contains cycle");
+            System.out.println("Graph_Practice contains cycle");
         else
-            System.out.println("Graph doesn't contains cycle");
+            System.out.println("Graph_Practice doesn't contains cycle");
 
         CycleInUndirected g2 = new CycleInUndirected(3);
         g2.addEdge(0, 1);
         g2.addEdge(1, 2);
 
         if (g2.isCyclic())
-            System.out.println("Graph contains cycle");
+            System.out.println("Graph_Practice contains cycle");
         else
-            System.out.println("Graph doesn't contains cycle");
+            System.out.println("Graph_Practice doesn't contains cycle");
     }
 }

@@ -21,16 +21,6 @@ public class BFS
             this.neighbours=new ArrayList<>();
 
         }
-        public void addneighbours(Node neighbourNode)
-        {
-            this.neighbours.add(neighbourNode);
-        }
-        public List<Node> getNeighbours() {
-            return neighbours;
-        }
-        public void setNeighbours(List<Node> neighbours) {
-            this.neighbours = neighbours;
-        }
     }
 
     public void bfs(Node node)
@@ -44,9 +34,7 @@ public class BFS
             Node element=queue.remove();
             System.out.print(element.data + " ");
 
-            List<Node> neighbours = element.getNeighbours();
-
-            for (Node neighbor: neighbours) {
+            for (Node neighbor: element.neighbours) {
                 if (neighbor != null && !neighbor.visited)
                 {
                     queue.add(neighbor);
@@ -67,16 +55,16 @@ public class BFS
         Node node50 =new Node(50);
         Node node70 =new Node(70);
 
-        node40.addneighbours(node10);
-        node40.addneighbours(node20);
-        node10.addneighbours(node30);
-        node20.addneighbours(node10);
-        node20.addneighbours(node30);
-        node20.addneighbours(node60);
-        node20.addneighbours(node50);
-        node30.addneighbours(node60);
-        node60.addneighbours(node70);
-        node50.addneighbours(node70);
+        node40.neighbours.add(node10);
+        node40.neighbours.add(node20);
+        node10.neighbours.add(node30);
+        node20.neighbours.add(node10);
+        node20.neighbours.add(node30);
+        node20.neighbours.add(node60);
+        node20.neighbours.add(node50);
+        node30.neighbours.add(node60);
+        node60.neighbours.add(node70);
+        node50.neighbours.add(node70);
         System.out.println("The BFS traversal of the graph is ");
         BFS bfsExample = new BFS();
         bfsExample.bfs(node40);
