@@ -108,12 +108,50 @@ public class LL_Add2NumberLinkedList {
 		
 		return newHead;
 	}
+
+	/**
+	 * Definition for singly-linked list.
+	 * public class ListNode {
+	 *     int val;
+	 *     ListNode next;
+	 *     ListNode(int x) { val = x; }
+	 * }
+	 */
+
+		public static Node addTwoNumbers(Node l1, Node l2) {
+
+			int carry = 0;
+			Node output = null, head=null, curr = null;
+
+			while (l1 != null && l2 != null) {
+				int sum = l1.value + l2.value + carry;
+				int outputVal = sum%10;
+				carry = sum / 10;
+				output = new Node(outputVal);
+				if (head == null) {
+					head = output;
+					curr = head;
+				} else
+					curr.next = output;
+				l1 = l1.next;
+				l2 = l2.next;
+				curr = curr.next;
+			}
+
+			if (carry != 0) {
+				output = new Node(carry);
+				curr.next = output;
+			}
+
+			return head;
+		}
+
  
 	public static void main(String[] args) {
 		
 		LL_Add2NumberLinkedList list = new LL_Add2NumberLinkedList();
 		
-		Node head1=new Node(5);
+		/*Node head1=new Node(5);
 		list.addToTheLast(head1);
 		list.addToTheLast(new Node(6));
 		list.addToTheLast(new Node(7));
@@ -130,8 +168,28 @@ public class LL_Add2NumberLinkedList {
 		list.addToTheLast(new Node(9));
  
 		System.out.print("Number 2:  ");
+		list.printList(head2);*/
+
+		Node head1=new Node(0);
+		list.addToTheLast(head1);
+		System.out.print("Number 1:  ");
+		list.printList(head1);
+		head=null;
+
+		Node head2=new Node(0);
+		list.addToTheLast(head2);
+		System.out.print("Number 2:  ");
 		list.printList(head2);
-		// Reversing first linkedList
+
+
+		Node result = addTwoNumbers(head1, head2);
+		//result=reverseLinkedList(result);
+		System.out.print("Sum:  ");
+		list.printList(result);
+
+
+
+		/*// Reversing first linkedList
 		head1=reverseLinkedList(head1);
  
 		//Reversing second linkedList
@@ -142,6 +200,6 @@ public class LL_Add2NumberLinkedList {
 		// Reverse the above linkedlist to get actual sum
 		result=reverseLinkedList(result);
 		System.out.print("Sum:  ");
-		list.printList(result);
+		list.printList(result);*/
 	}
 }

@@ -14,7 +14,7 @@ public class LL_IntersectionOfTwoLL{
 		}
 	}
  
-	public void addToTheLast(Node node) 
+	public void addToTheLast(Node node)
 	{
 		if (head == null) 
 		{
@@ -92,6 +92,8 @@ public class LL_IntersectionOfTwoLL{
  
 		return null;
 	}
+
+
  
 	public static void main(String[] args) 
 	{
