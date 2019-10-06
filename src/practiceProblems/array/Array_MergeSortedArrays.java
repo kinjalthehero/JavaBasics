@@ -22,7 +22,29 @@ public class Array_MergeSortedArrays {
 	    // Store remaining elements of second array 
 	    while (j < arr2_len) 
 	    	arr3[k++] = arr2[j++]; 
-	 } 
+	 }
+
+	public static void merge(int[] nums1, int m, int[] nums2, int n) {
+
+		int elementsInNums1 = m-1;
+		int nums1Length = nums1.length-1;
+		int nums2Length = nums2.length-1;
+
+		while(elementsInNums1 >= 0 && nums2Length >= 0) {
+			if (nums1[elementsInNums1] > nums2[nums2Length])
+				nums1[nums1Length--] = nums1[elementsInNums1--];
+			else
+				nums1[nums1Length--] = nums2[nums2Length--];
+		}
+
+		while (elementsInNums1 >= 0){
+			nums1[nums1Length--] = nums1[elementsInNums1--];
+		}
+
+		while (nums2Length >= 0) {
+			nums1[nums1Length--] = nums2[nums2Length--];
+		}
+	}
    
  public static void main (String[] args)  
  { 
@@ -38,6 +60,19 @@ public class Array_MergeSortedArrays {
    
      System.out.println("Array after merging"); 
      for (int i=0; i < n1+n2; i++) 
-         System.out.print(arr3[i] + " "); 
+         System.out.print(arr3[i] + " ");
+
+	 int[] arr4 = {1, 3, 5, 7, 0, 0, 0, 0};
+	 n1 = arr4.length;
+
+	 int[] arr5 = {2, 4, 6, 8};
+	 n2 = arr5.length;
+
+	 merge(arr4, 4, arr5, n2);
+
+	 System.out.println("Array after merging");
+	 for (int i=0; i < n1; i++)
+		 System.out.print(arr3[i] + " ");
+
  } 
 } 

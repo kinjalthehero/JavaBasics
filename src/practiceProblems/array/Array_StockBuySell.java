@@ -17,7 +17,7 @@ public class Array_StockBuySell {
 
         return maxprofit;
     }
-    
+
     public static void main(String[] args) {
         int arr[]={14, 12, 70, 15, 99, 65, 21, 90};
         System.out.println("Maximum profit :"+maxProfit(arr));
