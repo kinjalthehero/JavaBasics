@@ -43,6 +43,39 @@ public class String_LongestCommonPrefix {
         return strs[0];
     }
 
+    public static String longestCommonPrefix_DivideAndConquer(String[] strs)
+    {
+        if (strs == null || strs.length == 0)
+            return "";
+
+        return longestCommonPrefix (strs, 0 , strs.length - 1);
+    }
+
+    private static String longestCommonPrefix (String[] strs, int left, int right)
+    {
+        if (left == right)
+            return strs[left];
+        else
+        {
+            int mid = (left + right)/2;
+            String lcpLeft =   longestCommonPrefix(strs, left , mid);
+            String lcpRight =  longestCommonPrefix(strs, mid + 1,right);
+            return commonPrefix(lcpLeft, lcpRight);
+        }
+    }
+
+    static String commonPrefix(String left,String right)
+    {
+        int min = Math.min(left.length(), right.length());
+
+        for (int i = 0; i < min; i++)
+        {
+            if ( left.charAt(i) != right.charAt(i) )
+                return left.substring(0, i);
+        }
+
+        return left.substring(0, min);
+    }
 
     public static void main(String[] args)
     {
@@ -52,7 +85,9 @@ public class String_LongestCommonPrefix {
 
         longestPrefix=longestCommonPrefix_verticalScanning(strArr);
         System.out.println("Longest Prefix : "+longestPrefix);
-    }
 
+        longestPrefix=longestCommonPrefix_DivideAndConquer(strArr);
+        System.out.println("Longest Prefix : "+longestPrefix);
+    }
 
 }

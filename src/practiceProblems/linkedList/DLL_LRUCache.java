@@ -16,7 +16,7 @@ class LinkedList_Node
     }
 }
 
-class DLL_LRUCache
+class DLL_ListNodeCache
 {
     
 	LinkedList_Node head;
@@ -24,7 +24,7 @@ class DLL_LRUCache
     HashMap<Integer, LinkedList_Node> map = null;
     int cap = 0;
  
-    public DLL_LRUCache(int capacity)
+    public DLL_ListNodeCache(int capacity)
     {
         this.cap = capacity;
         this.map = new HashMap<>();
