@@ -37,6 +37,43 @@ public class Array_MinTrainPlatform {
         return maxPlatforms;
     }
 
+    // Similar problem
+    public static int minMeetingRooms(int[][] intervals)
+    {
+        int[] startTimes = new int[intervals.length];
+        int[] endTimes = new int[intervals.length];
+        int startTimeIndex =0, endTimeIndex = 0;
+        int meetingRooms = 0, maxMeetingRoomsNeeded = 0;
+
+        for(int i=0; i<intervals.length; i++)
+        {
+            startTimes[i] = intervals[i][0];
+            endTimes[i] = intervals[i][1];
+        }
+
+        Arrays.sort(startTimes);
+        Arrays.sort(endTimes);
+
+        while (startTimeIndex < startTimes.length && endTimeIndex < startTimes.length)
+        {
+            if (startTimes[startTimeIndex] < endTimes[endTimeIndex])
+            {
+                meetingRooms++;
+                startTimeIndex++;
+
+                if (meetingRooms > maxMeetingRoomsNeeded)
+                    maxMeetingRoomsNeeded = meetingRooms;
+            }
+            else
+            {
+                meetingRooms--;
+                endTimeIndex++;
+            }
+        }
+
+        return maxMeetingRoomsNeeded;
+    }
+
     public static void main(String args[])
     {
         // arr[] = {1:00, 1:40, 1:50, 2:00, 2:15, 4:00}
