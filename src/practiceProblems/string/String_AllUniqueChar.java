@@ -6,11 +6,13 @@ public class String_AllUniqueChar {
 
     public static boolean hasAllUniqueChars (String word) {
 
-        HashSet set = new HashSet();
+        HashSet<Character> set = new HashSet<>();
 
         for(int index=0; index < word.length(); index ++)   {
 
             char c =word.charAt(index);
+
+            boolean check = set.add(c) ? true: false;
 
             // If Hashset's add method return false,that means it is already present in HashSet
             if(!set.add(c))

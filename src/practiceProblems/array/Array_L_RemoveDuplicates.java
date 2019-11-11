@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Array_L_RemoveDuplicates
 {
-    public static int removeDuplicates(int[] nums) {
+    /*public static int removeDuplicates(int[] nums) {
         int i = 0;
         int ptr = i+1;
         while (i < nums.length && ptr < nums.length) {
@@ -15,6 +15,23 @@ public class Array_L_RemoveDuplicates
                 ptr++;
         }
         return i+1;
+    }*/
+
+    public static int removeDuplicates (int[] arr) {
+
+        int slow = 0, fast = 0;
+
+        while (slow < arr.length && fast < arr.length) {
+
+            if (arr[slow] == arr[fast])
+                fast++;
+            else {
+                slow++;
+                arr[slow] = arr[fast];
+            }
+        }
+
+        return slow+1;
     }
 
     public static void main (String[] args)

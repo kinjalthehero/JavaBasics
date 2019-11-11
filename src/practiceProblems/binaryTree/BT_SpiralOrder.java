@@ -1,6 +1,6 @@
 package practiceProblems.binaryTree;
 
-import java.util.Stack;
+import java.util.*;
 
 public class BT_SpiralOrder {
 
@@ -64,6 +64,54 @@ public class BT_SpiralOrder {
         }
     }
 
+    public static void spiralOrZigzagLevelOrder_usingQueue(TreeNode root) {
+
+        if(root==null)
+            return;
+
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.add(root);
+
+        boolean directionflag = false;
+
+        // NOTE: There are 2 same while loops
+        while(!queue.isEmpty())
+        {
+            // Create temp stack of all elements in the next level in one direction
+            Queue<TreeNode> tempQueue=new LinkedList<>();
+
+            // Pop and print all elements of the same level in one direction
+            // NOTE: Second while loop
+            while(!queue.isEmpty())
+            {
+                TreeNode tempNode = queue.poll();
+                System.out.printf("%d ",tempNode.data);
+
+                // directionFlag = false; push left first and then right
+                // directionFlag = true; push right first and then left
+                if(directionflag)
+                {
+                    if(tempNode.left!=null)
+                        tempQueue.add(tempNode.left);
+                    if(tempNode.right!=null)
+                        tempQueue.add(tempNode.right);
+                } else
+                {
+                    if(tempNode.right!=null)
+                        tempQueue.add(tempNode.right);
+                    if(tempNode.left!=null)
+                        tempQueue.add(tempNode.left);
+                }
+            }
+
+            // NOTE: This part is outside of the 2nd while loop
+            directionflag=!directionflag;
+
+            // All elements of the next level is added, copy to the stack
+            queue = tempQueue;
+        }
+    }
+
     void directionTravel (TreeNode node)
     {
         Stack<TreeNode> stack = new Stack<>();
@@ -101,10 +149,6 @@ public class BT_SpiralOrder {
             stack = tempStack;
 
         }
-
-
-
-
     }
 
     public static void main(String[] args)
@@ -114,6 +158,8 @@ public class BT_SpiralOrder {
         TreeNode rootNode=createBinaryTree();
         System.out.println("Spiral/Zigzag traversal of binary tree :");
         spiralOrZigzagLevelOrder(rootNode);
+        System.out.println();
+        spiralOrZigzagLevelOrder_usingQueue(rootNode);
     }
 
     public static TreeNode createBinaryTree()

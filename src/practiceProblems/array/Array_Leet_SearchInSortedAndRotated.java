@@ -39,7 +39,15 @@ public class Array_Leet_SearchInSortedAndRotated {
 
     public static void main(String[] args)
     {
-        int arr[]={16,19,21,25,3,5,8,10};
+        int arr[]={21,25,3,5,8,10,16,19};
+        System.out.println("Index of element 16 : "+findElementRotatedSortedArray(arr,0,arr.length-1,16));
+        System.out.println("Index of element 19 : "+findElementRotatedSortedArray(arr,0,arr.length-1,19));
+        System.out.println("Index of element 21 : "+findElementRotatedSortedArray(arr,0,arr.length-1,21));
+        System.out.println("Index of element 25 : "+findElementRotatedSortedArray(arr,0,arr.length-1,25));
+        System.out.println("Index of element 3 : "+findElementRotatedSortedArray(arr,0,arr.length-1,3));
         System.out.println("Index of element 5 : "+findElementRotatedSortedArray(arr,0,arr.length-1,5));
+        System.out.println("Index of element 8 : "+findElementRotatedSortedArray(arr,0,arr.length-1,8));
+        System.out.println("Index of element 10 : "+findElementRotatedSortedArray(arr,0,arr.length-1,10));
+        System.out.println("Index of element 99 : "+findElementRotatedSortedArray(arr,0,arr.length-1,99));
     }
 }

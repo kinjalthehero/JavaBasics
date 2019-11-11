@@ -2,24 +2,19 @@ package practiceProblems.array;
 
 public class Array_LargestSumSubArray {
 
-    static int maxSubArraySum(int arr[]) { 
+    static int maxSubArraySum(int[] nums)
+    {
+        int n = nums.length;
+        //int currSum = nums[0], maxSum = nums[0];
+        int currSum = 0, maxSum = 0;
 
-        int largestSum = Integer.MIN_VALUE;
-        int max = 0; 
-
-        for (int i = 0; i < arr.length; i++) { 
-            
-        	max = max + arr[i]; 
-            
-            if (largestSum < max) 
-                largestSum = max; 
-            
-            if (max < 0) 
-                max = 0; 
-        } 
-        
-        return largestSum; 
-    } 
+        for(int i = 0; i < n; ++i)
+        {
+            currSum = Math.max(nums[i], currSum + nums[i]);
+            maxSum = Math.max(maxSum, currSum);
+        }
+        return maxSum;
+    }
     
     public static void main (String[] args) { 
         

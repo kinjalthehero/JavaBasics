@@ -4,30 +4,33 @@ import java.util.Arrays;
 
 public class Array_L_MoveZeros {
 
-    public static void moveZeroes(int[] nums) {
-        if (nums == null || nums.length == 0)
-            return;
+    public static void moveZero(int[] arr) {
 
-        int insertPos = 0;
-        for (int num: nums)
-        {
-            if (num != 0)
-            {
-                nums[insertPos] = num;
-                insertPos++;
+        int slow = 0, fast = 0;
+
+        while (slow < arr.length && fast < arr.length) {
+
+            if (arr[fast] == 0)
+                fast++;
+            else {
+                arr[slow] = arr[fast];
+                slow++;
+                arr[fast] = 0;
             }
-        }
-
-        while (insertPos < nums.length)
-        {
-            nums[insertPos] = 0;
-            insertPos++;
         }
     }
 
     public static void main (String[] args) {
         int[] arr = {0,1,0,3,12};
-        moveZeroes(arr);
+        moveZero(arr);
         System.out.println(Arrays.toString(arr));
+
+        int[] arr2 = {0,0,0,0,1,2,0,0,0,3,12};
+        moveZero(arr2);
+        System.out.println(Arrays.toString(arr2));
+
+        int[] arr4 = {0,0,0};
+        moveZero(arr4);
+        System.out.println(Arrays.toString(arr4));
     }
 }

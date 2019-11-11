@@ -28,35 +28,15 @@ public class BT_printAllPathsToLeaf {
         printAllPathsToLeaf(node.right, path, len);
     }
 
-
     public static void main(String[] args)
     {
         // Creating a binary tree
         TreeNode rootNode=createBinaryTree();
         System.out.println("Printing all paths from root to leaf :");
-        printPathToLeafNode_kinjal(rootNode,new int[1000],0);
+        printAllPathsToLeaf(rootNode,new int[1000],0);
     }
 
-    static void printPathToLeafNode_kinjal (TreeNode node, int[] path, int len)
-    {
-        if (node == null)
-            return;
-
-        path[len] = node.data;
-        len++;
-
-        if (node.left == null && node.right == null)
-        {
-            printArray(path, len);
-            return;
-        }
-
-        printPathToLeafNode_kinjal (node.left, path, len);
-        printPathToLeafNode_kinjal (node.right, path, len);
-
-    }
-
-    public static void  printArray(int[] path,int len)
+    public static void  printArray(int[] path, int len)
     {
         for (int i = 0; i < len; i++)
         {

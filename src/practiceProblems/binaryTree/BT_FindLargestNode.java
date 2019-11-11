@@ -1,5 +1,7 @@
 package practiceProblems.binaryTree;
 
+import apple.laf.JRSUIUtils;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -72,13 +74,38 @@ public class BT_FindLargestNode
         return max;
     }
 
+    public static boolean search (TreeNode root, TreeNode searchNode) {
+
+        TreeNode curr = root;
+
+        while (curr != null && curr.data != searchNode.data) {
+            if (searchNode.data < curr.data)
+                curr = curr.left;
+            else
+                curr = curr.right;
+        }
+
+        boolean result = (curr == null)? false: true;
+        return result;
+    }
+
 
     public static void main(String[] args)
     {
         // Creating a binary tree
         TreeNode rootNode=createBinaryTree();
-        System.out.println("Max node using recursion :"+getMaximumRec(rootNode));
-        System.out.println("Max node using iteration :"+getMaximumItr(rootNode));
+        //System.out.println("Max node using recursion :"+getMaximumRec(rootNode));
+        //System.out.println("Max node using iteration :"+getMaximumItr(rootNode));
+        System.out.println(search(rootNode, rootNode));
+        System.out.println(search(rootNode, rootNode.left));
+        System.out.println(search(rootNode, rootNode.right));
+        System.out.println(search(rootNode, rootNode.left.left));
+        System.out.println(search(rootNode, rootNode.left.right));
+        System.out.println(search(rootNode, rootNode.right.left));
+        System.out.println(search(rootNode, rootNode.right.right));
+
+        TreeNode newNode =new TreeNode(100);
+        System.out.println(search(rootNode, newNode));
     }
 
     public static TreeNode createBinaryTree()

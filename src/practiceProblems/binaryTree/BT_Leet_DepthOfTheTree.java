@@ -29,6 +29,18 @@ public class BT_Leet_DepthOfTheTree {
         return depth_left > depth_right ? depth_left : depth_right;
     }
 
+    static int maxDepth_recursion_kinjal(TreeNode root, int depth)
+    {
+
+        if(root == null)
+            return depth;
+
+        int depth_left = maxDepth_recursion_kinjal(root.left, depth+1);
+        int depth_right = maxDepth_recursion_kinjal(root.right, depth+1);
+
+        return (depth_left > depth_right) ? depth_left : depth_right;
+    }
+
     public static int maxDepth_BFS(TreeNode root)
     {
         if(root == null)
@@ -84,6 +96,7 @@ public class BT_Leet_DepthOfTheTree {
         node60.right=node70;
 
         System.out.println("Depth of the tree using recursion is :"+ maxDepth_recursion(rootNode));
+        System.out.println("Depth of the tree using recursion is :"+ maxDepth_recursion_kinjal(rootNode, 0));
         System.out.println("Depth of the tree using iteration is :"+ maxDepth_BFS(rootNode));
     }
 

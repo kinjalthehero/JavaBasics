@@ -16,10 +16,14 @@ public class BST_FindMinMax
     // Get minimum element in binary search tree
     public static TreeNode minimumElement(TreeNode root)
     {
+        TreeNode minElement = null;
+
         if(root.left == null)
             return root;
         else
-            return minimumElement(root.left);
+            minElement = minimumElement(root.left);
+
+        return minElement;
     }
 
     // Get maximum element in binary search tree
