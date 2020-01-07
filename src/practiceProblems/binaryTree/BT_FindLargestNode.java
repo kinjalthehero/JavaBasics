@@ -1,26 +1,23 @@
 package practiceProblems.binaryTree;
 
-import apple.laf.JRSUIUtils;
-
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class BT_FindLargestNode
 {
-    public static class TreeNode
+    public static class Node
     {
         int data;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int data)
+        Node left;
+        Node right;
+        Node(int data)
         {
             this.data=data;
         }
     }
 
     // Recursive Solution
-    public static  int getMaximumRec(TreeNode root)
+    public static  int getMaximumRec(Node root)
     {
         int max = Integer.MIN_VALUE;
         int currValue = 0;
@@ -48,18 +45,18 @@ public class BT_FindLargestNode
 
 
     // Iterative Solution
-    public static int getMaximumItr(TreeNode startNode)
+    public static int getMaximumItr(Node startNode)
     {
         int max = Integer.MIN_VALUE;
 
         // Make a queue using linked list
-        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<Node> queue = new LinkedList<>();
         queue.add(startNode);
 
         while(!queue.isEmpty())
         {
             // Retrieves and removes the head of this queue, or returns null if this queue is empty.
-            TreeNode tempNode = queue.poll();
+            Node tempNode = queue.poll();
 
             if(max < tempNode.data)
                 max = tempNode.data;
@@ -74,9 +71,9 @@ public class BT_FindLargestNode
         return max;
     }
 
-    public static boolean search (TreeNode root, TreeNode searchNode) {
+    public static boolean search (Node root, Node searchNode) {
 
-        TreeNode curr = root;
+        Node curr = root;
 
         while (curr != null && curr.data != searchNode.data) {
             if (searchNode.data < curr.data)
@@ -93,7 +90,7 @@ public class BT_FindLargestNode
     public static void main(String[] args)
     {
         // Creating a binary tree
-        TreeNode rootNode=createBinaryTree();
+        Node rootNode=createBinaryTree();
         //System.out.println("Max node using recursion :"+getMaximumRec(rootNode));
         //System.out.println("Max node using iteration :"+getMaximumItr(rootNode));
         System.out.println(search(rootNode, rootNode));
@@ -104,20 +101,43 @@ public class BT_FindLargestNode
         System.out.println(search(rootNode, rootNode.right.left));
         System.out.println(search(rootNode, rootNode.right.right));
 
-        TreeNode newNode =new TreeNode(100);
+        Node newNode =new Node(100);
         System.out.println(search(rootNode, newNode));
+
+        System.out.println(largest(rootNode));
     }
 
-    public static TreeNode createBinaryTree()
+    static int largestNumber = Integer.MIN_VALUE;
+
+    static int largest (Node node) {
+
+        if(node == null)
+            return largestNumber;
+
+        if (node.data > largestNumber)
+            largestNumber = node.data;
+
+        int leftLargest = largest(node.left);
+        int rightLargest = largest(node.right);
+
+        if (leftLargest > largestNumber)
+            return leftLargest;
+        else if (rightLargest > largestNumber)
+            return rightLargest;
+        else
+            return largestNumber;
+    }
+
+    public static Node createBinaryTree()
     {
 
-        TreeNode rootNode =new TreeNode(40);
-        TreeNode node20=new TreeNode(20);
-        TreeNode node10=new TreeNode(10);
-        TreeNode node30=new TreeNode(30);
-        TreeNode node60=new TreeNode(60);
-        TreeNode node50=new TreeNode(50);
-        TreeNode node70=new TreeNode(70);
+        Node rootNode =new Node(40);
+        Node node20=new Node(20);
+        Node node10=new Node(10);
+        Node node30=new Node(30);
+        Node node60=new Node(60);
+        Node node50=new Node(50);
+        Node node70=new Node(70);
 
         rootNode.left=node20;
         rootNode.right=node60;

@@ -18,18 +18,15 @@ public class Stack_UsingTwoQueues
 	
 	Stack_UsingTwoQueues()
 	{
-		queue1=new LinkedList<Integer>();
-		queue2=new LinkedList<Integer>();
+		queue1 = new LinkedList<Integer>();
+		queue2 = new LinkedList<Integer>();
 	}
 
-	// Remove value from the beginning of the list 
 	public void push(int i)
 	{
 		
 		if(queue1.size()==0)
-		{
 			queue1.add(i);
-		}
 		else
 		{
 			int sizeOfQueue1 = queue1.size();

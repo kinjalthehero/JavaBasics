@@ -1,34 +1,52 @@
 package practiceProblems.string;
 
-import java.util.*;
-
 public class Delete {
 
-    public static boolean validParenthesis (String input) {
+    static boolean validPalindrome (String str) {
 
-        Stack<Character> stack = new Stack<>();
+        int left = 0;
+        int right = str.length()-1;
 
-        for (int i = 0; i < input.length(); i++) {
+        while (left < right) {
 
-            char parenthesis = input.charAt(i);
+            if (str.charAt(left) != str.charAt(right)) {
 
-            if (parenthesis == '(')
-                stack.push(')');
-            else if (parenthesis == '{')
-                stack.push('}');
-            else if (parenthesis == '[')
-                stack.push(']');
-            else if (stack.isEmpty() || stack.peek() != parenthesis)
-                    return false;
-                else
-                    stack.pop();
+                boolean avoidLeftChar = finalValidation(str.substring(0, left) + str.substring(left+1));
+                boolean avoidRightChar = finalValidation(str.substring(0, right) + str.substring(right+1));
+
+                return (avoidLeftChar || avoidRightChar);
+            }
+
+            left++;
+            right--;
         }
 
-        return stack.isEmpty();
+        return true;
+    }
+
+    private static boolean finalValidation (String str) {
+
+        int left = 0;
+        int right = str.length()-1;
+
+        while (left < right) {
+
+            if (str.charAt(left++) != str.charAt(right--))
+                return false;
+
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
 
-        System.out.println(validParenthesis("()[]{}"));
+        System.out.println(validPalindrome("abcba"));
+        System.out.println(validPalindrome("abdcba"));
+        System.out.println(validPalindrome("abcdba"));
+        System.out.println(validPalindrome("adbcba"));
+        System.out.println(validPalindrome("abcbda"));
+        System.out.println(validPalindrome("abecbda"));
+        System.out.println(validPalindrome("abcbdea"));
     }
 }

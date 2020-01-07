@@ -30,4 +30,35 @@ public class General_HappyNumber {
 
         return false;
     }
+
+    public static void main(String[] args) {
+        System.out.println(happyNumber(19));
+        System.out.println(happyNumber(15));
+    }
+
+    static boolean happyNumber (int num) {
+
+        Set<Integer> nums = new HashSet<>();
+
+        while (true) {
+
+            int sum = 0;
+            while (num != 0) {
+
+                int remainder = num % 10;
+                sum += Math.pow(remainder, 2);
+                num /= 10;
+            }
+
+            if (sum == 1)
+                return true;
+
+            if (nums.contains(sum))
+                return false;
+            else
+                nums.add(sum);
+
+            num = sum;
+        }
+    }
 }

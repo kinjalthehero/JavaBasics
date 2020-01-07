@@ -2,21 +2,21 @@ package practiceProblems.binarysearchtree;
 
 public class BST_FindMinMax
 {
-    public static class TreeNode
+    public static class Node
     {
         int data;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int data)
+        Node left;
+        Node right;
+        Node(int data)
         {
             this.data=data;
         }
     }
 
     // Get minimum element in binary search tree
-    public static TreeNode minimumElement(TreeNode root)
+    public static Node minimumElement(Node root)
     {
-        TreeNode minElement = null;
+        Node minElement = null;
 
         if(root.left == null)
             return root;
@@ -27,7 +27,7 @@ public class BST_FindMinMax
     }
 
     // Get maximum element in binary search tree
-    public static TreeNode maximumElement(TreeNode root)
+    public static Node maximumElement(Node root)
     {
         if(root.right == null)
             return root;
@@ -35,7 +35,7 @@ public class BST_FindMinMax
             return maximumElement(root.right);
     }
 
-    public static TreeNode insert(TreeNode root,TreeNode nodeToBeInserted)
+    public static Node insert(Node root, Node nodeToBeInserted)
     {
         if(root==null)
         {
@@ -60,23 +60,48 @@ public class BST_FindMinMax
 
     public static void main(String[] args)
     {
-        TreeNode rootNode=createBinarySearchTree();
+        Node rootNode=createBinarySearchTree();
         System.out.println("Minimum element in binary search tree: "+minimumElement(rootNode).data);
         System.out.println("Maximum element in binary search tree: "+maximumElement(rootNode).data);
+        System.out.println(search(rootNode, 40));
+        System.out.println(search(rootNode, 20));
+        System.out.println(search(rootNode, 10));
+        System.out.println(search(rootNode, 30));
+        System.out.println(search(rootNode, 60));
+        System.out.println(search(rootNode, 50));
+        System.out.println(search(rootNode, 70));
+        System.out.println(search(rootNode, 5));
+        System.out.println(search(rootNode, 55));
+        System.out.println(search(rootNode, 100));
+    }
+
+    static boolean search (Node node, int element) {
+
+        while (node != null) {
+
+            if (node.data == element)
+                return true;
+            else if (node.data > element)
+                node = node.left;
+            else
+                node = node.right;
+        }
+
+        return false;
     }
 
 
-    public static TreeNode createBinarySearchTree()
+    public static Node createBinarySearchTree()
     {
-        TreeNode rootNode =new TreeNode(40);
-        TreeNode node20=new TreeNode(20);
-        TreeNode node10=new TreeNode(10);
-        TreeNode node30=new TreeNode(30);
-        TreeNode node60=new TreeNode(60);
-        TreeNode node50=new TreeNode(50);
-        TreeNode node70=new TreeNode(70);
-        TreeNode node5=new TreeNode(5);
-        TreeNode node55=new TreeNode(55);
+        Node rootNode =new Node(40);
+        Node node20=new Node(20);
+        Node node10=new Node(10);
+        Node node30=new Node(30);
+        Node node60=new Node(60);
+        Node node50=new Node(50);
+        Node node70=new Node(70);
+        Node node5=new Node(5);
+        Node node55=new Node(55);
 
         insert(null,rootNode);
         insert(rootNode,node20);

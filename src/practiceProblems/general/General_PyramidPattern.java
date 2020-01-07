@@ -7,13 +7,14 @@ public class General_PyramidPattern {
 	    
     public static void drawPyramidPattern() { 
         
-    	// every row
+    	// Number of row
     	for (int i = 0; i < 5; i++) {
 
-    		// Leave spaces
+    		// Number of spaces
             for (int j = 0; j < 5 - i; j++)  
                 System.out.print(" "); 
-            
+
+            // Number of stars
             for (int k = 0; k <= i; k++) 
                 System.out.print("* "); // because we need space after every star 
             
@@ -21,11 +22,16 @@ public class General_PyramidPattern {
         } 
     } 
 
-    public static void drawPyramidOfNumbers() { 
+    public static void drawPyramidOfNumbers()
+    {
+        // Number of row
         for (int i = 0; i < 5; i++) { 
-            for (int j = 0; j < 5 - i; j++)  
+
+            // Number of spaces
+            for (int j = 0; j < 5 - i; j++)
                 System.out.print(" "); 
-            
+
+            // Numbers
             for (int k = 0; k <= i; k++)  
                 System.out.print(k + " "); 
              
@@ -35,10 +41,10 @@ public class General_PyramidPattern {
     
     public static void main(String args[]) { 
         
-        System.out.println("Pyramid pattern of star in Java : "); 
-        drawPyramidPattern(); 
+        System.out.println("Pyramid pattern of star in Java : ");
+        drawPyramidPattern();
         
         System.out.println("Pyramid of numbers in Java : "); 
         drawPyramidOfNumbers(); 
-    } 
+    }
 }

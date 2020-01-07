@@ -110,7 +110,7 @@ public class BST_CheckBTIsBST
         System.out.println("Using min max method");
         System.out.println(isBST(rootNode,Integer.MIN_VALUE,Integer.MAX_VALUE));
 
-        // Creating a binary tree which is not BST
+        // Creating a binary tree which is not BST_SumRange
         TreeNode rootNodeBinaryTree=createBinaryTree();
 
         System.out.println("-------------------------");

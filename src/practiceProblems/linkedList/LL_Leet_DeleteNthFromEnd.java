@@ -2,64 +2,104 @@ package practiceProblems.linkedList;
 
 public class LL_Leet_DeleteNthFromEnd {
 
-    public static class ListNode {
+    private static class Node {
 
         int val;
-        ListNode next;
-        ListNode(int x)
-        {
-            val = x;
+        Node next;
+
+        Node (int val) {
+
+            this.val = val;
         }
     }
 
-    public static ListNode removeNthFromEnd(ListNode head, int n)
-    {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-        ListNode fast = dummy;
-        ListNode slow = dummy;
+    void print (Node head) {
 
-        // Advances first pointer so that the gap between first and second is n nodes apart
-        for (int i = 1; i <= n + 1; i++) {
-            fast = fast.next;
+        Node temp = head;
+
+		while (temp != null) {
+            System.out.print(temp.val + " ");
+            temp = temp.next;
+        }
+    }
+
+    void insertLast (Node head, Node node) {
+
+        Node temp = head;
+
+        if (temp == null) {
+            head = node;
+            return;
         }
 
-        // Move first to the end, maintaining the gap
-        while (fast != null) {
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = node;
+    }
+
+    void length (Node head) {
+
+        Node temp = head;
+        int length = 0;
+
+        while (temp != null) {
+            length++;
+            temp = temp.next;
+        }
+
+        System.out.println("Length: " + length);
+
+    }
+
+    static Node nthElement (Node head, int pos) {
+
+        Node slow = head;
+        Node fast = head;
+
+        while (pos != 0) {
+
+            fast = fast.next;
+            pos--;
+        }
+
+        if (fast.next == null)
+            return head.next;
+
+        while (fast.next != null) {
+
             fast = fast.next;
             slow = slow.next;
         }
 
         slow.next = slow.next.next;
-        return dummy.next;
+
+        return head;
     }
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
 
-        ListNode node1 = new ListNode(1);
-        ListNode node2 = new ListNode(2);
-        ListNode node3 = new ListNode(3);
-        ListNode node4 = new ListNode(4);
-        ListNode node5 = new ListNode(5);
+        LL_Leet_DeleteNthFromEnd ln = new LL_Leet_DeleteNthFromEnd();
 
-        ListNode head = node1;
-        node1.next = node2;
-        node2.next = node3;
-        node3.next = node4;
-        node4.next = node5;
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
+        Node node7 = new Node(7);
 
-        ListNode curr = head;
-        while (curr != null) {
-            System.out.print(curr.val + " ");
-            curr = curr.next;
-        }
-
-        removeNthFromEnd(head, 2);
-
-        curr = head;
-        while (curr != null) {
-            System.out.print(curr.val + " ");
-            curr = curr.next;
-        }
+        ln.insertLast(null, node1);
+        ln.insertLast(node1, node2);
+        ln.insertLast(node1, node3);
+        ln.insertLast(node1, node4);
+        ln.insertLast(node1, node5);
+        ln.insertLast(node1, node6);
+        ln.insertLast(node1, node7);
+        ln.print(node1);
+        System.out.println();
+        nthElement(node1, 3);
+        ln.print(node1);
     }
 }

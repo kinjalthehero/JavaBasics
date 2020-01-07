@@ -93,6 +93,25 @@ public class LL_IntersectionOfTwoLL{
 		return null;
 	}
 
+	public Node getIntersectionNode(Node headA, Node headB) {
+
+		if(headA == null || headB == null)
+			return null;
+
+		Node curr1 = headA;
+		Node curr2 = headB;
+
+		//if a & b have different len, then we will stop the loop after second iteration
+		while(curr1 != curr2)
+		{
+			//for the end of first iteration, we just reset the pointer to the head of another linkedlist
+			curr1 = (curr1 == null) ? headB : curr1.next;
+			curr2 = (curr2 == null)? headA : curr2.next;
+		}
+
+		return curr1;
+	}
+
 
  
 	public static void main(String[] args) 

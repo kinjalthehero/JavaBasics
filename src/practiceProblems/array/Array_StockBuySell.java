@@ -18,8 +18,27 @@ public class Array_StockBuySell {
         return maxprofit;
     }
 
+    static int maxProfit_kinjal (int prices[]) {
+
+        int maxProfit = Integer.MIN_VALUE;
+        int maxPrice = prices[prices.length-1];
+
+        for (int i = prices.length-1; i >= 0; i--) {
+
+            if (prices[i] > maxPrice)
+                maxPrice = prices[i];
+            else if (maxPrice - prices[i] > maxProfit)
+                maxProfit = maxPrice - prices[i];
+        }
+
+        return maxProfit;
+    }
+
     public static void main(String[] args) {
         int arr[]={14, 12, 70, 15, 99, 65, 21, 90};
-        System.out.println("Maximum profit :"+maxProfit(arr));
+        //System.out.println("Maximum profit :"+maxProfit_kinjal(arr));
+
+        int arr2[]={1,2};
+        System.out.println("Maximum profit :"+maxProfit_kinjal(arr2));
     }
 }

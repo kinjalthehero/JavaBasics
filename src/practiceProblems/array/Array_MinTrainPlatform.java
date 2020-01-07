@@ -80,7 +80,33 @@ public class Array_MinTrainPlatform {
         // dep[] = {1:10, 3:00, 2:20, 2:30, 3:15, 6:00}
 
         int arr[] = {100, 140, 150, 200, 215, 400};
-        int dep[] = {110, 300, 220, 230,315, 600};
+        int dep[] = {110, 300, 220, 230, 315, 600};
         System.out.println("Minimum platforms needed:"+findPlatformsRequiredForStation(arr,dep));
+        System.out.println("Minimum platforms needed:"+minPlatformRequired(arr,dep));
     }
+
+    static int minPlatformRequired (int[] arr, int[] dep) {
+
+        int platforms = 0;
+
+        int a = 0, d = 0, maxPlatform = 0;
+
+        while (a < arr.length && d < arr.length) {
+
+            if (arr[a] < dep[d]) {
+                platforms++;
+                a++;
+
+                if (platforms> maxPlatform)
+                    maxPlatform = platforms;
+            } else if (dep[d] < arr[a]) {
+                platforms--;
+                d++;
+            }
+        }
+
+        return maxPlatform;
+    }
+
+
 }

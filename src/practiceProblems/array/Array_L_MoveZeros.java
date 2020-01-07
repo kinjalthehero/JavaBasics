@@ -22,15 +22,35 @@ public class Array_L_MoveZeros {
 
     public static void main (String[] args) {
         int[] arr = {0,1,0,3,12};
-        moveZero(arr);
+        moveZeros(arr);
         System.out.println(Arrays.toString(arr));
 
         int[] arr2 = {0,0,0,0,1,2,0,0,0,3,12};
-        moveZero(arr2);
+        moveZeros(arr2);
         System.out.println(Arrays.toString(arr2));
 
         int[] arr4 = {0,0,0};
-        moveZero(arr4);
+        moveZeros(arr4);
         System.out.println(Arrays.toString(arr4));
+    }
+
+    static void moveZeros (int[] arr) {
+
+        int slow = 0, fast = 0;
+
+        while (fast < arr.length) {
+
+            if (arr[fast] == 0)
+                fast++;
+            else {
+                int temp = arr[slow];
+                arr[slow] = arr[fast];
+                arr[fast] = temp;
+                slow++;
+                fast++;
+            }
+
+
+        }
     }
 }

@@ -2,8 +2,16 @@ package practiceProblems.linkedList;
 
 import dataStructure.SinglyLinkedList;
 
-class SinglyLL {
+/*class SinglyLL {
 	
+
+
+
+	
+}*/
+
+//Without using recursion.
+public class LL_ReverseLinkedList {
 
 	public static Node reverseLinkedList (Node curr)
 	{
@@ -28,6 +36,19 @@ class SinglyLL {
 		return prev;
 	}
 
+	public static Node reverseLinkedList_rec (Node node)
+	{
+		// base case
+		if (node == null || node.next == null)
+			return node;
+
+		Node remaining = reverseLinkedList_rec (node.next);
+		node.next.next = node;
+		node.next = null;
+
+		return remaining;
+	}
+
 	static class Node {
 
 		private int data;
@@ -48,19 +69,19 @@ class SinglyLL {
 
 	private Node head;
 
-	public SinglyLL(Node head) {
+	public LL_ReverseLinkedList(Node head) {
 		this.head = head;
 	}
 
 	public void add(Node node) {
-	  
+
 		Node current = head;
 		while (current != null) {
 			if (current.next == null) {
 				current.next = node;
 				break;
 			}
-		current = current.next;
+			current = current.next;
 		}
 	}
 
@@ -82,30 +103,22 @@ class SinglyLL {
 		System.out.println("");
 	}
 
-	
-}
-
-//Without using recursion.
-public class LL_ReverseLinkedList {
-
 	public static void main(String[] args) {
-	
-		// creating a singly linked list
-		SinglyLL.Node head = new SinglyLL.Node(1);
-		SinglyLL linkedlist = new SinglyLL(head);
-	
-		// adding node into singly linked list
-		linkedlist.add(new SinglyLL.Node(2));
-		linkedlist.add(new SinglyLL.Node(3));
-		// printing a singly linked list
+
+		Node head = new Node(1);
+		LL_ReverseLinkedList linkedlist = new LL_ReverseLinkedList(head);
+
+		linkedlist.add(new Node(2));
+		linkedlist.add(new Node(3));
+
 		linkedlist.print();
-		
+
 		// reversing the singly linked list
 		//linkedlist.reverse();
 
-		SinglyLL.Node reversedHead = linkedlist.reverseLinkedList(head);
-		
-		// printing the singly linked list again
+		//SinglyLL.Node reversedHead = linkedlist.reverseLinkedList(head);
+		Node reversedHead = linkedlist.reverseLinkedList_rec(head);
+
 		linkedlist.print(reversedHead);
 	}
 

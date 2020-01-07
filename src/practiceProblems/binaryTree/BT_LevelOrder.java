@@ -4,26 +4,26 @@ import java.util.Queue;
 import java.util.LinkedList;
 public class BT_LevelOrder {
  
-	public static class TreeNode
+	public static class Node
 	{
 		int data;
-		TreeNode left;
-		TreeNode right;
+		Node left;
+		Node right;
 		
-		TreeNode(int data)
+		Node(int data)
 		{
 			this.data=data;
 		}
 	}
  
 	// prints in level order
-	public static void levelOrderTraversal(TreeNode startNode) {
+	public static void levelOrderTraversal(Node startNode) {
 		
-		Queue<TreeNode> queue=new LinkedList<TreeNode>();
+		Queue<Node> queue=new LinkedList<Node>();
 		queue.add(startNode);
 		while(!queue.isEmpty())
 		{
-			TreeNode tempNode=queue.poll();
+			Node tempNode=queue.poll();
 			System.out.printf("%d ",tempNode.data);
 			if(tempNode.left!=null)
 				queue.add(tempNode.left);
@@ -34,21 +34,21 @@ public class BT_LevelOrder {
 	public static void main(String[] args)
 	{
 		// Creating a binary tree
-		TreeNode rootNode=createBinaryTree();
+		Node rootNode=createBinaryTree();
 		System.out.println("Level Order traversal of binary tree will be:");
 		levelOrderTraversal(rootNode);
 	}
  
-	public static TreeNode createBinaryTree()
+	public static Node createBinaryTree()
 	{
  
-		TreeNode rootNode =new TreeNode(40);
-		TreeNode node20=new TreeNode(20);
-		TreeNode node10=new TreeNode(10);
-		TreeNode node30=new TreeNode(30);
-		TreeNode node60=new TreeNode(60);
-		TreeNode node50=new TreeNode(50);
-		TreeNode node70=new TreeNode(70);
+		Node rootNode =new Node(40);
+		Node node20=new Node(20);
+		Node node10=new Node(10);
+		Node node30=new Node(30);
+		Node node60=new Node(60);
+		Node node50=new Node(50);
+		Node node70=new Node(70);
  
 		rootNode.left=node20;
 		rootNode.right=node60;

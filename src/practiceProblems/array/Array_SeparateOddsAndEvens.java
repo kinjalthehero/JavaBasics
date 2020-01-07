@@ -1,5 +1,7 @@
 package practiceProblems.array;
 
+import java.util.Arrays;
+
 public class Array_SeparateOddsAndEvens {
 
     // Similar to separating 0s and 1s - Method 2
@@ -40,18 +42,34 @@ public class Array_SeparateOddsAndEvens {
         int arr[]={3, 5, 6, 8, 22, 27, 55, 66, 48, 89};
         System.out.println("Original Array: ");
 
-        for (int i = 0; i < arr.length; i++)
-        {
-            System.out.print(arr[i]+" ");
-        }
+        System.out.println(Arrays.toString(arr));
 
-        System.out.println();
+        separate(arr);
 
-        arr = separateOddsAndEvens(arr);
+        System.out.println(Arrays.toString(arr));
+    }
 
-        for (int i = 0; i < arr.length; i++)
-        {
-            System.out.print(arr[i]+" ");
+    static void separate (int[] arr) {
+
+        int left = 0, right = arr.length-1;
+
+        while (left < right) {
+
+            while(arr[left] % 2 == 0)
+                left++;
+
+            while(arr[right] % 2 == 1)
+                right--;
+
+            if (left < right) {
+
+                int temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+            }
+
+            left++;
+            right--;
         }
     }
 }

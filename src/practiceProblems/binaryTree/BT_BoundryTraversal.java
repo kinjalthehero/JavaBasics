@@ -2,18 +2,18 @@ package practiceProblems.binaryTree;
 
 public class BT_BoundryTraversal {
 
-    public static class TreeNode
+    public static class Node
     {
         int data;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int data)
+        Node left;
+        Node right;
+        Node(int data)
         {
             this.data=data;
         }
     }
 
-    public static void boundaryLevelTraversal(TreeNode root)
+    public static void boundaryLevelTraversal(Node root)
     {
         System.out.print(root.data+" ");
         printLeftEdgeNodes(root.left);
@@ -22,7 +22,7 @@ public class BT_BoundryTraversal {
 
     }
 
-    private static void printLeafNodes(TreeNode root)
+    private static void printLeafNodes(Node root)
     {
         if(root==null)
             return;
@@ -36,7 +36,7 @@ public class BT_BoundryTraversal {
         printLeafNodes(root.right);
     }
 
-    private static void printRightBottomUp(TreeNode root)
+    private static void printRightBottomUp(Node root)
     {
         if(root==null)
             return;
@@ -55,7 +55,7 @@ public class BT_BoundryTraversal {
     }
 
 
-    private static void printLeftEdgeNodes(TreeNode root)
+    private static void printLeftEdgeNodes(Node root)
     {
 
         if(root==null)
@@ -77,24 +77,24 @@ public class BT_BoundryTraversal {
     public static void main(String[] args)
     {
         // Creating a binary tree
-        TreeNode rootNode=createBinaryTree();
+        Node rootNode=createBinaryTree();
         System.out.println("Boundary traversal of binary tree will be:");
         boundaryLevelTraversal(rootNode);
     }
 
-    public static TreeNode createBinaryTree()
+    public static Node createBinaryTree()
     {
 
-        TreeNode rootNode =new TreeNode(40);
-        TreeNode node20=new TreeNode(20);
-        TreeNode node10=new TreeNode(10);
-        TreeNode node30=new TreeNode(30);
-        TreeNode node60=new TreeNode(60);
-        TreeNode node50=new TreeNode(50);
-        TreeNode node70=new TreeNode(70);
-        TreeNode node5=new TreeNode(5);
-        TreeNode node45=new TreeNode(45);
-        TreeNode node55=new TreeNode(55);
+        Node rootNode =new Node(40);
+        Node node20=new Node(20);
+        Node node10=new Node(10);
+        Node node30=new Node(30);
+        Node node60=new Node(60);
+        Node node50=new Node(50);
+        Node node70=new Node(70);
+        Node node5=new Node(5);
+        Node node45=new Node(45);
+        Node node55=new Node(55);
 
         rootNode.left=node20;
         rootNode.right=node60;

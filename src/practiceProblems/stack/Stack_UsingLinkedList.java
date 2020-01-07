@@ -46,10 +46,10 @@ public class Stack_UsingLinkedList {
 		lls.push(40);
 		lls.push(60);
 		lls.push(75);
-		System.out.println("Element removed from LinkedList_primitive: "+lls.pop());
-		System.out.println("Element removed from LinkedList_primitive: "+lls.pop());
+		System.out.println("Element removed from LL_BasicOperations: "+lls.pop());
+		System.out.println("Element removed from LL_BasicOperations: "+lls.pop());
 		lls.push(10);
-		System.out.println("Element removed from LinkedList_primitive: "+lls.pop());
+		System.out.println("Element removed from LL_BasicOperations: "+lls.pop());
 		printList(lls.head);
 	}
 	public static void printList(Node head) 
@@ -66,7 +66,7 @@ public class Stack_UsingLinkedList {
  
 /**
  * 
- * Exception to indicate that LinkedList_primitive is empty.
+ * Exception to indicate that LL_BasicOperations is empty.
  */
  
 class LinkedListEmptyException extends RuntimeException {

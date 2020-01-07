@@ -47,10 +47,10 @@ public class LL_Stack
 		lls.push(40);
 		lls.push(60);
 		lls.push(75);
-		System.out.println("Element removed from LinkedList_primitive: "+lls.pop());
-		System.out.println("Element removed from LinkedList_primitive: "+lls.pop());
+		System.out.println("Element removed from LL_BasicOperations: "+lls.pop());
+		System.out.println("Element removed from LL_BasicOperations: "+lls.pop());
 		lls.push(10);
-		System.out.println("Element removed from LinkedList_primitive: "+lls.pop());
+		System.out.println("Element removed from LL_BasicOperations: "+lls.pop());
 		printList(lls.head);
 	}
 	

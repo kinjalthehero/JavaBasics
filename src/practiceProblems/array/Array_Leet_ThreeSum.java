@@ -7,23 +7,29 @@ import java.util.List;
 
 public class Array_Leet_ThreeSum {
 
-    public static List<List<Integer>> threeSum(int[] num)
+    public static List<List<Integer>> threeSum (int[] num)
     {
-        Arrays.sort(num);
-
         List<List<Integer>> res = new LinkedList<>();
 
-        for (int i = 0; i < num.length-2; i++)
+        if (num.length < 3)
+            return res;
+
+        Arrays.sort(num);
+
+        for (int firstNumber = 0; firstNumber < num.length-2; firstNumber++)
         {
-            if (i == 0 || (i > 0 && num[i] != num[i-1]))
+            if (num[firstNumber] > 0)
+                break;
+
+            if (firstNumber == 0 || num[firstNumber] != num[firstNumber-1])
             {
-                int low = i+1, high = num.length-1, sum = 0 - num[i];
+                int low = firstNumber+1, high = num.length-1;
 
                 while (low < high)
                 {
-                    if (num[low] + num[high] == sum)
+                    if (num[low] + num[high] + num[firstNumber] == 0)
                     {
-                        res.add(Arrays.asList(num[i], num[low], num[high]));
+                        res.add(Arrays.asList(num[firstNumber], num[low], num[high]));
 
                         while (low < high && num[low] == num[low+1])
                             low++;
@@ -34,10 +40,20 @@ public class Array_Leet_ThreeSum {
                         low++;
                         high--;
                     }
-                    else if (num[low] + num[high] < sum)
+                    else if (num[low] + num[high] + num[firstNumber] < 0) {
+                        while (low < high && num[low] == num[low+1])
+                        {
+                            low++;
+                        }
                         low++;
-                    else
+                    }
+                    else {
+                        while (low < high && num[high] == num[high-1])
+                        {
+                            high--;
+                        }
                         high--;
+                    }
                 }
             }
         }

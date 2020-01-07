@@ -14,14 +14,14 @@ public class LinkedListBasics
         friends.add("John");
         friends.add("David");
         friends.add("Chris");
-        System.out.println("Initial LinkedList_primitive : " + friends);
+        System.out.println("Initial LL_BasicOperations : " + friends);
 
         // add - at at the specified position
         friends.add(3, "Lisa");
         System.out.println("After add(3, \"Lisa\") : " + friends);
 
         // addFirst
-        // Adding an element at the beginning of the LinkedList_primitive
+        // Adding an element at the beginning of the LL_BasicOperations
         friends.addFirst("Steve");
         System.out.println("After addFirst(\"Steve\") : " + friends);
 

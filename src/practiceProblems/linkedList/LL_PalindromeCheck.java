@@ -108,9 +108,10 @@ public class LL_PalindromeCheck {
 		LL_PalindromeCheck list = new LL_PalindromeCheck();
 		Node head=new Node(1);
 		list.addToTheLast(head);
-		//list.addToTheLast(new Node(2));
-		//list.addToTheLast(new Node(3));
-		//list.addToTheLast(new Node(4));
+		list.addToTheLast(new Node(2));
+		list.addToTheLast(new Node(3));
+		list.addToTheLast(new Node(2));
+		list.addToTheLast(new Node(1));
 
  
 		list.printList();

@@ -175,7 +175,7 @@ public class LinkedList_primitive
             return;
         } 
   
-        // CASE 2: If the index is greater than 0 but less than the size of LinkedList_primitive
+        // CASE 2: If the index is greater than 0 but less than the size of LL_BasicOperations
         int index_counter = 0; 
   
         while (currNode != null)

@@ -15,39 +15,59 @@ public class LL_MiddleElement {
   
     public static void main(String args[]) {
       
-      //creating LinkedList_primitive with 5 elements including head
+      //creating LL_BasicOperations with 5 elements including head
       LinkedList linkedList = new LinkedList();
       LinkedList.Node head = linkedList.head();
       linkedList.add( new LinkedList.Node("1"));
       linkedList.add( new LinkedList.Node("2"));
       linkedList.add( new LinkedList.Node("3"));
       linkedList.add( new LinkedList.Node("4"));
-    
-      getMiddleElement(head);
-      
+
+        findMiddleNode(head);
+
+      linkedList.add(new LinkedList.Node("5"));
+
+        findMiddleNode(head);
     }
 
-    public Node findMiddleNode(Node head)
+    static void middleNode (LinkedList.Node head) {
+
+        if (head == null || head.next() == null)
+            return;
+
+        LinkedList.Node slow = head, fast = head;
+
+        while (fast != null && fast.next() != null) {
+
+            slow = slow.next();
+            fast = fast.next().next();
+        }
+
+        System.out.println(slow.data());
+
+    }
+
+    static public void findMiddleNode(LinkedList.Node head)
     {
-        Node slow = head;
-        Node fast = head;
+        LinkedList.Node slow = head;
+        LinkedList.Node fast = head;
 
         while(fast != null)
         {
-            fast = fast.next;
+            fast = fast.next();
 
-            if(fast != null && fast.next != null) {
-                slow = slow.next;
-                fast = fast.next;
+            if(fast != null && fast.next() != null) {
+                slow = slow.next();
+                fast = fast.next();
             }
         }
 
-        return slow;
+        System.out.println(slow.next());
     }
 
     private static void getMiddleElement(LinkedList.Node head) {
  		
-    	//finding middle element of LinkedList_primitive in single pass
+    	//finding middle element of LL_BasicOperations in single pass
     	int length = 0;
     	LinkedList.Node current = head;
     	LinkedList.Node middle = head;
@@ -68,8 +88,8 @@ public class LL_MiddleElement {
     	if(length % 2 == 1)
     	  middle = middle.next();
 
-    	System.out.println("length of LinkedList_primitive: " + length);
-    	System.out.println("middle element of LinkedList_primitive : "                                  + middle);
+    	System.out.println("length of LL_BasicOperations: " + length);
+    	System.out.println("middle element of LL_BasicOperations : "                                  + middle);
     } 
   
 }
@@ -125,6 +145,6 @@ class LinkedList {
 
 /* 
 Output:
-length of LinkedList_primitive: 4
-middle element of LinkedList_primitive: 2
+length of LL_BasicOperations: 4
+middle element of LL_BasicOperations: 2
 */

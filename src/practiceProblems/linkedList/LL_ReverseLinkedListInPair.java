@@ -37,30 +37,73 @@ public class LL_ReverseLinkedListInPair{
 		System.out.println();
 	}
 
-	public static Node reverseLinkedListInPairs(Node head)
-	{
-		Node curr = head;
-		Node temp = null;
-		Node newHead = null;
+	public static Node reverseInPairs_orig (Node head) {
 
-		while (curr != null && curr.next != null)
-		{
-			if (temp != null)
-			{
-				// This is important step
-				temp.next.next = curr.next;
+		Node curr = head;
+		Node temp;
+		Node future;
+
+		if (head == null || head.next == null)
+			return head;
+
+		Node newHead = curr.next;
+
+		while (true) {
+
+			temp = curr.next;
+			future = temp.next;
+			temp.next = curr;
+
+			if (future == null || future.next == null) {
+				curr.next = future;
+				break;
 			}
 
-			temp=curr.next;
-			curr.next=temp.next;
-			temp.next=curr;
- 
-			if (newHead == null)
-				newHead = temp;
+			curr.next = future.next;
+			curr = future;
+		}
 
-			curr=curr.next;
- 
-		}     
+		return newHead;
+
+	}
+
+	public static Node reverseInPairs (Node head) {
+
+		Node curr = head;
+		Node future;
+
+		if (head == null || head.next == null)
+			return head;
+
+		Node newHead = curr.next;
+
+		while (true) {
+
+			future = curr.next.next;
+			curr.next.next = curr;
+
+			if (future == null || future.next == null) {
+				curr.next = future;
+				break;
+			}
+
+			curr.next = future.next;
+			curr = future;
+		}
+
+		return newHead;
+
+	}
+
+	static Node reverseInPairs_recursive (Node head) {
+
+		if (head == null || head.next == null)
+			return head;
+
+		Node newHead = head.next;
+		head.next = reverseInPairs_recursive(newHead.next);
+		newHead.next = head;
+
 		return newHead;
 	}
  
@@ -76,10 +119,10 @@ public class LL_ReverseLinkedListInPair{
 		list.addToTheLast(new Node(8));
  
 		list.printList(head);
-		
-		Node result=reverseLinkedListInPairs(head);
-		
+
+		Node result2=reverseInPairs_recursive(head);
+
 		System.out.println("After reversing in pair");
-		list.printList(result);
+		list.printList(result2);
 	}
 }

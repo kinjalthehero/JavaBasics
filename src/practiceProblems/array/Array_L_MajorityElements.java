@@ -1,9 +1,6 @@
 package practiceProblems.array;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 public class Array_L_MajorityElements {
 
@@ -37,7 +34,33 @@ public class Array_L_MajorityElements {
     }
 
     public static void main (String[] args) {
-        int[] arr = {2,2,1,1,1,2,2};
-        System.out.println(majorityElement_HashMap(arr));
+        int[] arr = {2,2,1,1,1,2,2,2,2,2};
+        System.out.println(majority(arr));
+    }
+
+    static int majority (int[] arr) {
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int a : arr) {
+
+            if (map.containsKey(a))
+                map.put(a, map.get(a) + 1);
+            else
+                map.put(a, 1);
+        }
+
+        Set<Integer> set = map.keySet();
+
+        for (Integer a : set) {
+
+            int val = map.get(a);
+            int half = (arr.length / 2);
+
+            if (val > half)
+                return a;
+        }
+
+        return 0;
     }
 }

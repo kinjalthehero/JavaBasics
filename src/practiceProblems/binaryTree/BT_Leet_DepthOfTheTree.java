@@ -2,23 +2,22 @@ package practiceProblems.binaryTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class BT_Leet_DepthOfTheTree {
 
-    public static class TreeNode
+    public static class Node
     {
         int data;
-        TreeNode left;
-        TreeNode right;
+        Node left;
+        Node right;
 
-        TreeNode(int data)
+        Node(int data)
         {
             this.data=data;
         }
     }
 
-    static int maxDepth_recursion(TreeNode root)
+    static int maxDepth_recursion(Node root)
     {
 
         if(root == null)
@@ -29,7 +28,7 @@ public class BT_Leet_DepthOfTheTree {
         return depth_left > depth_right ? depth_left : depth_right;
     }
 
-    static int maxDepth_recursion_kinjal(TreeNode root, int depth)
+    static int maxDepth_recursion_kinjal(Node root, int depth)
     {
 
         if(root == null)
@@ -41,12 +40,12 @@ public class BT_Leet_DepthOfTheTree {
         return (depth_left > depth_right) ? depth_left : depth_right;
     }
 
-    public static int maxDepth_BFS(TreeNode root)
+    public static int maxDepth_BFS(Node root)
     {
         if(root == null)
             return 0;
 
-        Queue<TreeNode> queue = new LinkedList<>();
+        Queue<Node> queue = new LinkedList<>();
         queue.add(root);
 
         int depth = 0;
@@ -58,7 +57,7 @@ public class BT_Leet_DepthOfTheTree {
             // Iterate through nodes of the same level
             while(size > 0)
             {
-                TreeNode node = queue.poll();
+                Node node = queue.poll();
 
                 if(node.left != null)
                     queue.add(node.left);
@@ -76,15 +75,26 @@ public class BT_Leet_DepthOfTheTree {
         return depth;
     }
 
+    static int depth (Node node) {
+
+        if (node == null)
+            return 0;
+
+        int leftDepth = 1 + depth(node.left);
+        int rightDepth = 1 + depth(node.right);
+
+        return (leftDepth > rightDepth)? leftDepth:rightDepth;
+    }
+
     public static void main(String[] args)
     {
-        TreeNode rootNode =new TreeNode(40);
-        TreeNode node20=new TreeNode(20);
-        TreeNode node10=new TreeNode(10);
-        TreeNode node30=new TreeNode(30);
-        TreeNode node60=new TreeNode(60);
-        TreeNode node50=new TreeNode(50);
-        TreeNode node70=new TreeNode(70);
+        Node rootNode =new Node(40);
+        Node node20=new Node(20);
+        Node node10=new Node(10);
+        Node node30=new Node(30);
+        Node node60=new Node(60);
+        Node node50=new Node(50);
+        Node node70=new Node(70);
 
         rootNode.left=node20;
         rootNode.right=node60;
@@ -98,6 +108,7 @@ public class BT_Leet_DepthOfTheTree {
         System.out.println("Depth of the tree using recursion is :"+ maxDepth_recursion(rootNode));
         System.out.println("Depth of the tree using recursion is :"+ maxDepth_recursion_kinjal(rootNode, 0));
         System.out.println("Depth of the tree using iteration is :"+ maxDepth_BFS(rootNode));
+        System.out.println("Depth of the tree using iteration is :"+ depth(rootNode));
     }
 
 

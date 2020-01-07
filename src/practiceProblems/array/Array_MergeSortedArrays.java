@@ -24,7 +24,7 @@ public class Array_MergeSortedArrays {
 	    	arr3[k++] = arr2[j++]; 
 	 }
 
-	public static void merge(int[] nums1, int m, int[] nums2, int n) {
+	public static void merge_orig(int[] nums1, int m, int[] nums2, int n) {
 
 		int elementsInNums1 = m-1;
 		int nums1Length = nums1.length-1;
@@ -70,9 +70,25 @@ public class Array_MergeSortedArrays {
 
 	 merge(arr4, 4, arr5, n2);
 
+	 System.out.println();
+
 	 System.out.println("Array after merging");
 	 for (int i=0; i < n1; i++)
 		 System.out.print(arr3[i] + " ");
 
- } 
+ }
+
+	static void merge (int[] arr1, int len1, int[] arr2, int len2) {
+
+		int i=len1-1, j = len2-1;
+		int length = arr1.length-1;
+
+		while(j >= 0) {
+
+			if (arr1[i] > arr2[j])
+				arr1[length--] = arr1[i--];
+			else
+				arr1[length--] = arr2[j--];
+		}
+	}
 } 
