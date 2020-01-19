@@ -14,23 +14,23 @@ public class LinkedListBasics
         friends.add("John");
         friends.add("David");
         friends.add("Chris");
-        System.out.println("Initial LinkedList_primitive : " + friends);
+        System.out.println("Initial LL_BasicOperations : " + friends);
 
         // add - at at the specified position
         friends.add(3, "Lisa");
         System.out.println("After add(3, \"Lisa\") : " + friends);
 
         // addFirst
-        // Adding an element at the beginning of the LinkedList_primitive
+        // Adding an element at the beginning of the LL_BasicOperations
         friends.addFirst("Steve");
         System.out.println("After addFirst(\"Steve\") : " + friends);
 
         // addLast
-        // Adding an element at the end of the LinkedList
+        // Adding an element at the end of the SinglyLinkedList
         friends.addLast("Jennifer");
         System.out.println("After addLast(\"Jennifer\") : " + friends);
 
-        // ArrayList to LinkedList
+        // ArrayList to SinglyLinkedList
         List<String> familyFriends = new ArrayList<>();
         familyFriends.add("Jesse");
         familyFriends.add("Walt");
@@ -39,12 +39,12 @@ public class LinkedListBasics
         System.out.println("After addAll(familyFriends) : " + friends);
 
         // getFirst()
-        // throws NoSuchElementException if the LinkedList is empty
+        // throws NoSuchElementException if the SinglyLinkedList is empty
         String firstElement = friends.getFirst();
         System.out.println("First friend : " + firstElement);
 
         // getLast()
-        // throws NoSuchElementException if the LinkedList is empty
+        // throws NoSuchElementException if the SinglyLinkedList is empty
         String lastElement = friends.getLast();
         System.out.println("Last friend : " + lastElement);
 
@@ -53,11 +53,11 @@ public class LinkedListBasics
         System.out.println("3rd friend : " + stockPriceOn3rdDay);
 
         // removeFirst()
-        String element = friends.removeFirst();  // Throws NoSuchElementException if the LinkedList is empty
+        String element = friends.removeFirst();  // Throws NoSuchElementException if the SinglyLinkedList is empty
         System.out.println("Removed the first friend " + element + " => " + friends);
 
         // removeLast()
-        element = friends.removeLast();   // Throws NoSuchElementException if the LinkedList is empty
+        element = friends.removeLast();   // Throws NoSuchElementException if the SinglyLinkedList is empty
         System.out.println("Removed the last friend " + element + " => " + friends);
 
         // remove()
@@ -72,7 +72,7 @@ public class LinkedListBasics
         System.out.println("indexOf \"Steve\" : " + friends.indexOf("Steve"));
 
         // lastIndexOf
-        // Find the index of the last occurrence of an element in the LinkedList
+        // Find the index of the last occurrence of an element in the SinglyLinkedList
         System.out.println("lastIndexOf \"David\" : " + friends.lastIndexOf("David"));
 
         /**********************************************
@@ -97,7 +97,7 @@ public class LinkedListBasics
         });
 
         // listIterator()
-        // ListIterator can be used to iterate over the LinkedList in both forward and backward directions
+        // ListIterator can be used to iterate over the SinglyLinkedList in both forward and backward directions
         // In this example, we start from the end of the list and traverse backwards
         ListIterator<String> humanSpeciesListIterator = friends.listIterator(friends.size());
         while (humanSpeciesListIterator.hasPrevious()) {
@@ -110,12 +110,12 @@ public class LinkedListBasics
             System.out.println(speciesName);
         }
 
-        // Clear the LinkedList by removing all elements
+        // Clear the SinglyLinkedList by removing all elements
         friends.clear();
-        System.out.println("Cleared the LinkedList => " + friends);
+        System.out.println("Cleared the SinglyLinkedList => " + friends);
 
-        // Check if the LinkedList contains an element
-        System.out.println("Does friends LinkedList contain \"Lara\"? : " + friends.contains("Rajeev"));
+        // Check if the SinglyLinkedList contains an element
+        System.out.println("Does friends SinglyLinkedList contain \"Lara\"? : " + friends.contains("Rajeev"));
     }
 
 }

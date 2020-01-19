@@ -8,15 +8,17 @@ public class Array_MatrixMultiplication {
 	public static int[][] product(int[][] matrix1, int[][] matrix2) {
         
 		int columnsOfFirstMatrix = matrix1[0].length;
+        int rowsOfFirstMatrix = matrix1.length;
+
+        int columnsofSecondMatrix = matrix2[0].length;
         int rowsOfSecondMatrix = matrix2.length;
 
+        int[][] result = new int[rowsOfFirstMatrix][columnsofSecondMatrix];
+
+        // condition for matrix multiplication
         if (columnsOfFirstMatrix != rowsOfSecondMatrix) {
             throw new IllegalArgumentException(String.format("Can't multiply matrices, columns of first matrix" + " %d is not equal to rows of second matrix %d",  columnsOfFirstMatrix, rowsOfSecondMatrix));
         }
-
-        int rowsOfFirstMatrix = matrix1.length;
-        int columnsofSecondMatrix = matrix2[0].length;
-        int[][] product = new int[rowsOfFirstMatrix][columnsofSecondMatrix];
 
         // Take one row at a time from the first matrix
         for (int i = 0; i < rowsOfFirstMatrix; i++) {
@@ -24,18 +26,20 @@ public class Array_MatrixMultiplication {
             for (int j = 0; j < columnsofSecondMatrix; j++) {
 
                 int sum = 0;
-                // Multiply and add it to the sum
+
+                // How many times we multiply and sum depends on rowsOfSecondMatrix or columnsOfFirstMatrix
+                // Iterate for rowsOfSecondMatrix or columnsOfFirstMatrix times. They both have to be equal.
                 for (int k = 0; k < rowsOfSecondMatrix; k++) {
                     sum = sum + matrix1[i][k] * matrix2[k][j];
                 }
 
                 // Put that value in the final result
-                // Result will have rowsOfFirstMatrix and columnsofSecondMatrix
-                product[i][j] = sum;
+                // Result will have rowsOfFirstMatrix and columnsOfSecondMatrix
+                result[i][j] = sum;
             }
         }
 
-        return product;
+        return result;
     }
 
     public static void main(String args[]) {

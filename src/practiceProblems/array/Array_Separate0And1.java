@@ -1,5 +1,7 @@
 package practiceProblems.array;
 
+import java.util.Arrays;
+
 public class Array_Separate0And1 {
 
     // Method 1: Count number of zeros and then add them in the array
@@ -22,7 +24,7 @@ public class Array_Separate0And1 {
             arr[i] = 0;
         }
 
-        // From count to arr.length-1, insert 1s
+        // From count to arr.length-1, insertLast 1s
         for (int i = count; i < arr.length; i++)
         {
             arr[i] = 1;
@@ -65,30 +67,35 @@ public class Array_Separate0And1 {
     public static void main(String[] args)
     {
         int arr[]={0,0,0,1,0,1,0,1,1,1};
-        System.out.println("Original Array: ");
-
-        for (int i = 0; i < arr.length; i++)
-        {
-            System.out.print(arr[i]+" ");
-        }
-
-        System.out.println();
-
-        arr=separate0s1sSolution1(arr);
-
-        for (int i = 0; i < arr.length; i++)
-        {
-            System.out.print(arr[i]+" ");
-        }
-
-        System.out.println();
+        zerosAndOnes(arr);
+        System.out.println("Array with separate 0s and 1s: " + Arrays.toString(arr));
 
         int arr2[] = {0,0,0,1,1,1,0,1,0,1,0,1,0,1,1,1};
-        arr2 = separate0s1sSolution2(arr2);
+        zerosAndOnes(arr2);
+        System.out.println("Array with separate 0s and 1s: " + Arrays.toString(arr2));
+    }
 
-        for (int i = 0; i < arr2.length; i++)
-        {
-            System.out.print(arr2[i]+" ");
+    static void zerosAndOnes (int[] arr) {
+
+        int left = 0, right = arr.length-1;
+
+        while (left < right) {
+
+            while (arr[left] != 1)
+                left++;
+
+            while (arr[right] != 0)
+                right--;
+
+            if (left < right)
+            {
+                int temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+            }
+
+            left++;
+            right--;
         }
     }
 }

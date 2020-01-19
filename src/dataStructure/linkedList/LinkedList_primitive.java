@@ -1,84 +1,81 @@
 package dataStructure.linkedList;
 
-public class LinkedList_primitive {
-		
+public class LinkedList_primitive
+{
 	Node head;
 	
-	class Node {
-		
+	class Node
+	{
 		int data;
 		Node next;
 		
-		Node (int d) {
+		Node (int d)
+		{
 			data = d;
 			next = null;
 		}
 	}
-	
-	// Insert node at the end of the list
-	public LinkedList_primitive insert (LinkedList_primitive list , int data) {
-		
-		// Create new node with data in it
+
+	public void insertLast(int data)
+	{
+
 		Node new_node = new Node(data);
-		
-		// If list is empty then make newnode as head
-		if (list.head == null)
-			list.head = new_node;
-		else {
-			Node curr = list.head; 
-			
-			// Go till last node and attach new_node to the last node
+
+		if (head == null)
+		{
+			head = new_node;
+		}
+		else
+		{
+			Node curr = head;
+
 			while (curr.next != null)
 				curr = curr.next;
 			
 			curr.next = new_node;
 		}
-		
-		return list;
 	}
 	
-	public LinkedList_primitive insertAfterANode(LinkedList_primitive list, int insertAfterNodeData, int data) {
-		
-		// Create a new node
+	public void insertAfterANode(int insertAfterNodeData, int data)
+	{
+
 		Node newNode = new Node(data);
-		
-		// Get a temp pointer
-		Node curr = list.head;
+
+		Node curr = head;
 		
 		while (curr !=null && curr.data != insertAfterNodeData)
 			curr = curr.next;
 		
-		if (curr != null) {
+		if (curr != null)
+		{
 			newNode.next = curr.next;
 			curr.next = newNode;
 		}
-		
-		return list;
-		
 	}
 	
-	public LinkedList_primitive insertBeforeANode (LinkedList_primitive list, int insertBefore, int data) {
+	public void insertBeforeANode (int insertBefore, int data)
+	{
 		
 		// Create a new node
 		Node newNode = new Node(data);
 		
 		// If list is empty return the empty list
-		if (list.head == null)
-			return list;
+		if (head == null)
+			System.out.println("List is empty");
 		
 		// If node to be inserted before head node
-		if (list.head.data == insertBefore) {
-			
-			newNode.next = list.head;
-			list.head = newNode;
-			return list;
+		if (head.data == insertBefore)
+		{
+			newNode.next = head;
+			head = newNode;
 		}
 		
 		// When inserted before temp node, use prev node to keep track of the traversal
 		Node prev = null;
-		Node curr = list.head;
+		Node curr = head;
 		
-		while (curr != null && curr.data != insertBefore) {
+		while (curr != null && curr.data != insertBefore)
+		{
 			prev = curr;
 			curr = curr.next;
 		}
@@ -87,14 +84,13 @@ public class LinkedList_primitive {
 			prev.next = newNode;
 			newNode.next = curr;
 		}
-			
-		return list;
 	}
 	
 	
-	public void print (LinkedList_primitive list) {
+	public void print ()
+	{
 		
-		Node curr = list.head;
+		Node curr = head;
 		
 		// Traverse till the last node
 		// CAREFUL: Condition uses last and not last.next
@@ -106,106 +102,105 @@ public class LinkedList_primitive {
 		System.out.println();
 	}
 	
-	public LinkedList_primitive deleteANode (LinkedList_primitive list, int data) {
+	public void deleteANode (int data)
+	{
 		
 		// If list is empty return an empty list
-		if (list.head == null) {
+		if (head == null)
+		{
 			System.out.println("List is empty");
-			return list;
 		}
 		
 		// Only 1 node in the list
-		if (list.head.next == null) {
-			list.head = null;
-			return list;
+		if (head.next == null)
+		{
+			head = null;
 		}
 		
-		// Delete middle or a last node
+		// SinglyLinkedList middle or a last node
 		Node prev = null;
-		Node curr = list.head;
+		Node curr = head;
 		
-		// Go wither till data is found
-		// or last node has been reached
-		while (curr != null && curr.data != data) {
+		while (curr != null && curr.data != data)
+		{
 			prev = curr;
 			curr = curr.next;
 		}
 		
-		if (curr!= null) {
+		if (curr!= null)
+		{
 			prev.next = curr.next;
 		}
-		
-		return list;
 	}
-	  
-    // Method to delete a node in the LinkedList_primitive by KEY
-    public LinkedList_primitive deleteByKey(LinkedList_primitive list, int key) {
 
-    	// Point to head node of the list 
-        Node currNode = list.head;
+    public void deleteByKey(int key)
+	{
+        Node currNode = head;
         Node prev = null; 
-  
+
         // CASE 1: List is empty
         if (currNode == null)
-        	return list;
+        	System.out.println("List is empty");
         
         // CASE 2: If head node itself holds the key to be deleted 
-        if (currNode.data == key) { 
-            list.head = currNode.next; // Changed head 
-            return list; 
+        if (currNode.data == key)
+        {
+            head = currNode.next; // Changed head
         } 
   
         // CASE 3: If the key is somewhere other than at head 
-        while (currNode != null && currNode.data != key) { 
+        while (currNode != null && currNode.data != key)
+        {
             prev = currNode; 
             currNode = currNode.next; 
         } 
   
         if (currNode != null)  
-            prev.next = currNode.next; 
-         
-        return list; 
+            prev.next = currNode.next;
     } 
      
-    public LinkedList_primitive deleteAtPosition(LinkedList_primitive list, int index) {
-    
+    public void deleteAtPosition(int index)
+	{
     	// Store head node 
-        Node currNode = list.head;
+        Node currNode = head;
         Node prev = null; 
         
         if (currNode == null) 
-        	return list;
+        	System.out.println("");
   
         // CASE 1: If index is 0, then head node itself is to be deleted 
-        if (index == 0) { 
-            list.head = currNode.next; 
-            return list; 
+        if (index == 0)
+        {
+            head = currNode.next;
+            return;
         } 
   
-        // CASE 2: If the index is greater than 0 but less than the size of LinkedList_primitive
+        // CASE 2: If the index is greater than 0 but less than the size of LL_BasicOperations
         int index_counter = 0; 
   
-        while (currNode != null) { 
-            if (index_counter == index) { 
+        while (currNode != null)
+        {
+            if (index_counter == index)
+            {
                 prev.next = currNode.next; 
                 break; 
-            } else { 
+            } else
+            {
                 prev = currNode; 
                 currNode = currNode.next; 
                 index_counter++; 
             } 
-        } 
-    
-        return list; 
+        }
     } 
     
     // Iteration
-    public int length_iterative() {
+    public int length_iterative()
+	{
         int count=0;
         Node current = this.head;
 
-
-        while(current != null){
+        while(current != null)
+        {
             count++;
             current=current.next;
         }
@@ -213,8 +208,10 @@ public class LinkedList_primitive {
     }
 
     // Recursion
-    public int length_recursion (Node current) {
-        if(current == null){ //base case
+    public int length_recursion (Node current)
+	{
+        if(current == null)
+        {
             return 0;
         }
         
@@ -224,96 +221,97 @@ public class LinkedList_primitive {
 	public static void main (String[] args) {
 		
 		LinkedList_primitive ln = new LinkedList_primitive();
-		ln.insert(ln, 1);
-		ln.insert(ln, 2);
-		ln.insert(ln, 3);
-		ln.insert(ln, 4);
-		ln.insert(ln, 5);
-		ln.insert(ln, 6);
-		ln.insert(ln, 7);
-		ln.insert(ln, 8);
-		ln.insert(ln, 9);
-		ln.insert(ln, 10);
+		ln.insertLast(1);
+		ln.insertLast(2);
+		ln.insertLast(3);
+		ln.insertLast(4);
+		ln.insertLast(5);
+		ln.insertLast(6);
+		ln.insertLast(7);
+		ln.insertLast(8);
+		ln.insertLast(9);
+		ln.insertLast(10);
+		ln.print();
 		
-		ln.insertAfterANode(ln, 1, 20);
-		ln.print(ln);
+		ln.insertAfterANode(1, 20);
+		ln.print();
 		System.out.println();
 		
-		ln.insertAfterANode(ln, 5, 20);
-		ln.print(ln);
+		ln.insertAfterANode(5, 20);
+		ln.print();
 		System.out.println();
 		
-		ln.insertAfterANode(ln, 10, 20);
-		ln.print(ln);
+		ln.insertAfterANode(10, 20);
+		ln.print();
 		System.out.println();
 		
-		ln.insertAfterANode(ln, 100, 21);
-		ln.print(ln);
+		ln.insertAfterANode(100, 21);
+		ln.print();
 		System.out.println();
 		
-		System.out.println("Inserting before 1 before 30");
-		ln.insertBeforeANode(ln, 1, 30);
-		ln.print(ln);
+		System.out.println("Inserting 30 before 1");
+		ln.insertBeforeANode(1, 30);
+		ln.print();
 		System.out.println();
 		
-		System.out.println("Inserting before 30 before 5");
-		ln.insertBeforeANode(ln, 5, 30);
-		ln.print(ln);
+		System.out.println("Inserting 5 before 30");
+		ln.insertBeforeANode(5, 30);
+		ln.print();
 		System.out.println();
 		
-		System.out.println("Inserting before 30 before 10");
-		ln.insertBeforeANode(ln, 10, 30);
-		ln.print(ln);
+		System.out.println("Inserting 10 before 30");
+		ln.insertBeforeANode(10, 30);
+		ln.print();
 		System.out.println();
 		
-		System.out.println("Inserting before 31 before 100");
-		ln.insertBeforeANode(ln, 100, 31);
-		ln.print(ln);
+		System.out.println("Inserting 100 before 31");
+		ln.insertBeforeANode(100, 31);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting 5");
-		ln.deleteByKey(ln,5); 
-		ln.print(ln); 
+		ln.deleteByKey(5);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting 1");
-		ln.deleteByKey(ln,1); 
-		ln.print(ln);
+		ln.deleteByKey(1);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting 21");
-		ln.deleteByKey(ln,21); 
-		ln.print(ln); 
+		ln.deleteByKey(21);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting 20");
-		ln.deleteByKey(ln,20); 
-		ln.print(ln);
+		ln.deleteByKey(20);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting 20");
-		ln.deleteByKey(ln,20); 
-		ln.print(ln);
+		ln.deleteByKey(20);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting 20");
-		ln.deleteByKey(ln,20); 
-		ln.print(ln);
+		ln.deleteByKey(20);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting at position 0");
-		ln.deleteAtPosition(ln, 0); 
-		ln.print(ln);
+		ln.deleteAtPosition(0);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting at position 2");
-		ln.deleteAtPosition(ln, 2); 
-		ln.print(ln);
+		ln.deleteAtPosition(2);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Deleting at position 8");
-		ln.deleteAtPosition(ln, 8); 
-		ln.print(ln);
+		ln.deleteAtPosition(8);
+		ln.print();
 		System.out.println();
 		
 		System.out.println("Find length using recursion");

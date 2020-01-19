@@ -6,8 +6,20 @@ import java.util.Scanner;
 // Reference: http://www.java67.com/2016/05/fibonacci-series-in-java-using-recursion.html#ixzz5pB0cEIWh
 
 public class Basic_Fibonacci {
-	
-	public static int fibonacci(int number){ 
+
+	int[] fib_cache = new int[31];
+
+	public int fib_dynamic_prog(int N)
+	{
+		if(N <= 1)
+			return N;
+		else if(fib_cache[N] != 0)
+			return fib_cache[N];
+		else
+			return fib_cache[N] = fib_dynamic_prog(N - 1) + fib_dynamic_prog(N - 2);
+	}
+
+	public static int fibonacci(int number){
 		if(number == 1 || number == 2)
 			return 1; 
 		return fibonacci(number-1) + fibonacci(number -2); 
@@ -29,6 +41,8 @@ public class Basic_Fibonacci {
 
 		return fibonacci; 
 	}
+
+
 	
 	public static void main(String args[]) { 
 		System.out.println("Enter number upto which Fibonacci series to print: "); 

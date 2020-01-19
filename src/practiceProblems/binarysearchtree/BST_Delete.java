@@ -13,17 +13,7 @@ public class BST_Delete
         }
     }
 
-    // Get minimum element in binary search tree
-    public static TreeNode minimumElement(TreeNode root)
-    {
-        if (root.left == null)
-            return root;
-        else {
-            return minimumElement(root.left);
-        }
-    }
-
-    public static TreeNode deleteNode(TreeNode root, int value) {
+    public static TreeNode deleteNode (TreeNode root, int value) {
 
         if (root == null)
             return null;
@@ -37,6 +27,7 @@ public class BST_Delete
             root.right = deleteNode(root.right, value);
 
         }
+        // Found the node to be deleted
         else
         {
             // if nodeToBeDeleted have both children
@@ -50,7 +41,7 @@ public class BST_Delete
                 // Replacing current node with minimum node from right subtree
                 root.data = minNodeForRight.data;
 
-                // Deleting minimum node from right now
+                // Deleting minimum node from right
                 deleteNode(root.right, minNodeForRight.data);
 
             }
@@ -64,11 +55,20 @@ public class BST_Delete
             {
                 root = root.right;
             }
-            // if nodeToBeDeleted do not have child (Leaf node)
+            // if nodeToBeDeleted does not have child (Leaf node)
             else
                 root = null;
         }
         return root;
+    }
+
+    // Get minimum element in binary search tree
+    public static TreeNode minimumElement(TreeNode root)
+    {
+        if (root.left == null)
+            return root;
+        else
+            return minimumElement(root.left);
     }
 
     public static TreeNode insert(TreeNode root, TreeNode nodeToBeInserted) {
@@ -109,6 +109,11 @@ public class BST_Delete
         System.out.println("Deleting node 40 which have two children:");
         TreeNode rootNodeRes = deleteNode(rootNode, 40);
         inOrder(rootNodeRes);
+
+        System.out.println();
+        System.out.println("Deleting node 500 which is not present in the tree:");
+        rootNodeRes = deleteNode(rootNode, 500);
+        inOrder(rootNode);
     }
 
     public static TreeNode createBinarySearchTree() {

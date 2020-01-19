@@ -28,22 +28,42 @@ public class Array_LargestElement {
 		int[] arr = {1,2,3,4,5,6};
 		System.out.println(Arrays.toString(arr));
 		printLargestAndSmallestElements(arr);
+		largestSmallest(arr);
 		System.out.println();
 		
 		int[] arr1 = {1,1,1,1,1};
 		System.out.println(Arrays.toString(arr1));
 		printLargestAndSmallestElements(arr1);
+		largestSmallest(arr);
 		System.out.println();
 		
 		int[] arr2 = {6,1,1,1};
 		System.out.println(Arrays.toString(arr2));
 		printLargestAndSmallestElements(arr2);
+		largestSmallest(arr);
 		System.out.println();
 		
 		int[] arr3 = {6,5,4,3,2,1};
 		System.out.println(Arrays.toString(arr3));
 		printLargestAndSmallestElements(arr3);
+		largestSmallest(arr);
 		
+	}
+
+	static void largestSmallest (int[] arr) {
+
+		int largest = Integer.MIN_VALUE;
+		int smallest = Integer.MAX_VALUE;
+
+		for (int a: arr) {
+
+			if (a > largest)
+				largest = a;
+			if (a < smallest)
+				smallest = a;
+		}
+
+		System.out.println("Largest " + largest + " Smallest " + smallest);
 	}
 
 }

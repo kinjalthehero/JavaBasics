@@ -26,6 +26,18 @@ public class String_Reverse {
 			return str.charAt(str.length() - 1) + recursiveReverse(str.substring(0, str.length() - 1));
 	}
 
+	private static void printReverse(char [] str) {
+		helper(0, str);
+	}
+
+	private static void helper(int index, char [] str) {
+		if (str == null || index >= str.length) {
+			return;
+		}
+		helper(index + 1, str);
+		System.out.print(str[index]);
+	}
+
 	// Reverse in place
 	public static String inPlaceReverse(String input) {
 
@@ -65,6 +77,13 @@ public class String_Reverse {
 		word = "Band";
 		reverse = inPlaceReverse(word);
 		System.out.printf(" original String : %s , reversed String %s %n", word, reverse);
+
+		// Using recursion
+		word = "Band";
+		printReverse(word.toCharArray());
+		System.out.printf(" original String : %s , reversed String %s %n", word, reverse);
+
+
 
 	}   
 }

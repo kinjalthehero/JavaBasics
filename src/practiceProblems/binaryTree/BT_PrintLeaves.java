@@ -14,6 +14,8 @@ package practiceProblems.binaryTree;
  * output: d e g k 
  */
 
+import java.util.Stack;
+
 public class BT_PrintLeaves {
 
   private static class TreeNode {
@@ -50,6 +52,29 @@ public class BT_PrintLeaves {
     printLeaves(node.left);
     printLeaves(node.right);
   }
+
+  static void printLeaves_iteration (TreeNode node)
+	{
+		Stack<TreeNode> stack = new Stack<>();
+		stack.push(node);
+
+		while (!stack.isEmpty())
+		{
+			TreeNode tempNode = stack.pop();
+
+			if (tempNode.left == null && tempNode.right == null)
+			{
+				System.out.print(tempNode.value + " ");
+			}
+
+			// NOTE: As we are using stack, first insert right so that left will pop first
+			if (tempNode.right != null)
+				stack.push(tempNode.right);
+
+			if (tempNode.left != null)
+				stack.push(tempNode.left);
+		}
+	}
   
   public static void main(String[] args) throws Exception {
 
@@ -86,6 +111,7 @@ public class BT_PrintLeaves {
 	    // print all leaf nodes of binary tree using recursion
 	    System.out.println("Printing all leaf nodes of binary tree in Java (recursively)");
 	    printLeaves(root);
+	  printLeaves_iteration(root);
 
 	  }
 }

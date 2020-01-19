@@ -2,35 +2,39 @@ package practiceProblems.linkedList;
 
 import java.util.HashMap;
 
-class LinkedList_Node {
+class LinkedList_Node
+{
     int key;
     int value;
     LinkedList_Node prev;
     LinkedList_Node next;
  
-    public LinkedList_Node(int key, int value){
+    public LinkedList_Node(int key, int value)
+    {
         this.key=key;
         this.value=value;
     }
 }
 
-class DLL_LRUCache {
+class DLL_ListNodeCache
+{
     
 	LinkedList_Node head;
     LinkedList_Node tail;
     HashMap<Integer, LinkedList_Node> map = null;
     int cap = 0;
  
-    public DLL_LRUCache(int capacity) {
+    public DLL_ListNodeCache(int capacity)
+    {
         this.cap = capacity;
         this.map = new HashMap<>();
     }
  
-    public int get(int key) {
-        if(map.get(key)==null){
+    public int get(int key)
+    {
+        if(map.get(key) == null)
             return -1;
-        }
- 
+
         //move to tail
         LinkedList_Node t = map.get(key);
  
@@ -48,8 +52,11 @@ class DLL_LRUCache {
             //move to tail
             removeNode(t);
             offerNode(t);
-        }else{
-            if(map.size()>=cap){
+        }
+        else
+        {
+            if(map.size()>=cap)
+            {
                 //delete head
                 map.remove(head.key);
                 removeNode(head);
@@ -62,22 +69,30 @@ class DLL_LRUCache {
         }
     }
  
-    private void removeNode(LinkedList_Node n){
-        if(n.prev!=null){
+    private void removeNode(LinkedList_Node n)
+    {
+        if(n.prev!=null)
+        {
             n.prev.next = n.next;
-        }else{
+        }else
+        {
             head = n.next;
         }
  
-        if(n.next!=null){
+        if(n.next!=null)
+        {
             n.next.prev = n.prev;
-        }else{
+        }
+        else
+        {
             tail = n.prev;
         }
     }
  
-    private void offerNode(LinkedList_Node n){
-        if(tail!=null){
+    private void offerNode(LinkedList_Node n)
+    {
+        if(tail!=null)
+        {
             tail.next = n;
         }
  
@@ -85,7 +100,8 @@ class DLL_LRUCache {
         n.next = null;
         tail = n;
  
-        if(head == null){
+        if(head == null)
+        {
             head = tail;   
         }
     }

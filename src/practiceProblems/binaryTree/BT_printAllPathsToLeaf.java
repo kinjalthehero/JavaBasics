@@ -22,15 +22,11 @@ public class BT_printAllPathsToLeaf {
         len++;
 
         if(node.left == null && node.right == null)
-        {
-            printArray(path,len);
-            return;
-        }
-
+            printArray(path, len);
+        
         printAllPathsToLeaf(node.left, path, len);
         printAllPathsToLeaf(node.right, path, len);
     }
-
 
     public static void main(String[] args)
     {
@@ -40,10 +36,11 @@ public class BT_printAllPathsToLeaf {
         printAllPathsToLeaf(rootNode,new int[1000],0);
     }
 
-    public static void  printArray(int[] path,int len)
+    public static void  printArray(int[] path, int len)
     {
-        for (int i = 0; i < len; i++) {
-            System.out.print(" "+path[i]);
+        for (int i = 0; i < len; i++)
+        {
+            System.out.print(" " + path[i]);
         }
         System.out.println();
     }

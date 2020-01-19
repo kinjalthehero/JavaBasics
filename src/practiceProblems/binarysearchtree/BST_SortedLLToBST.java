@@ -25,15 +25,16 @@ public class BST_SortedLLToBST {
 		}
 	}
 	
-	public TreeNode convertSortedLinkedListToBST(int n) {
-		 
+	public TreeNode convertSortedLinkedListToBST(int n)
+	{
+
 		if (n <= 0) 
 			return null;
  
-		/* Recursively creating the left subtree */
+		// Recursively creating the left subtree
 		TreeNode left = convertSortedLinkedListToBST (n/2);
  
-		/* Create a root node*/
+		// Create a root node
 		TreeNode root = new TreeNode(head.value);
  
 		// Set pointer to left subtree

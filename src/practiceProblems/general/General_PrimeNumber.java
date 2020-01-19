@@ -4,14 +4,11 @@ package practiceProblems.general;
 
 public class General_PrimeNumber {
 	
-	// Java method to check if an integer number is prime or not. 
-	// @return true if number is prime, else false 
-	
-	public static boolean isPrime(int number) { 
+	public static boolean isPrime(int number) {
 
-		int sqrt = (int) Math.sqrt(number) + 1; 
+		int sqrt = (int) Math.sqrt(number);
 
-		for (int i = 2; i < sqrt; i++) { 
+		for (int i = 2; i <= sqrt; i++) {
 			if (number % i == 0) { 
 				// number is perfectly divisible - no prime 
 				return false; 
@@ -19,41 +16,25 @@ public class General_PrimeNumber {
 		} 
 		return true; 
 	}
-	
-	/* * Second version of isPrimeNumber method, with improvement like not 
-	 * * checking for division by even number, if its not divisible by 2. */ 
-	public static boolean isPrimeNumber(int number) { 
-		if (number == 2 || number == 3) 
-			return true; 
-		
-		if (number % 2 == 0)  
-			return false; 
-		
-		int sqrt = (int) Math.sqrt(number) + 1; 
-		
-		for (int i = 3; i < sqrt; i += 2) { 
-			if (number % i == 0)
-				return false; 
-		} 
-		
-		return true; 
-	}
 
-	/* * Third way to check if a number is prime or not. */ 
-	public static String isPrimeOrNot(int num) { 
-		if (num < 0)  
-			return "not valid"; 
-		
-		if (num == 0 || num == 1)  
-			return "not prime"; 
-		
-		if (num == 2 || num == 3) 
-			return "prime number"; 
-		
-		if ((num * num - 1) % 24 == 0) 
-			return "prime";  
-		else
-			return "not prime"; 
+	public static void main(String[] args) {
+
+		System.out.println(isPrime(2));
+		System.out.println(isPrime(3));
+		System.out.println(isPrime(5));
+		System.out.println(isPrime(7));
+		System.out.println(isPrime(11));
+		System.out.println(isPrime(19));
+		System.out.println(isPrime(23));
+		System.out.println(isPrime(29));
+
+		System.out.println(isPrime(20));
+		System.out.println(isPrime(15));
+		System.out.println(isPrime(12));
+		System.out.println(isPrime(8));
+		System.out.println(isPrime(100));
+
+
 	}
 
 }

@@ -71,7 +71,7 @@ public class LL_StartOfTheLoop {
 
 	public static void main(String[] args) {
 		LL_StartOfTheLoop list = new LL_StartOfTheLoop();
-		// Creating a linked list
+
 		Node loopNode=new Node(7);
 		list.addToTheLast(new Node(5));
 		list.addToTheLast(new Node(6));
@@ -85,5 +85,39 @@ public class LL_StartOfTheLoop {
 		Node startNode=list.findStartNodeOfTheLoop();
 		if(startNode!=null)
 			System.out.println("start Node of loop is "+ startNode.value);
+	}
+
+	public Node detectCycle(Node head) {
+
+		if (head == null || head.next == null)
+			return head;
+
+		Node slow = head, fast = head;
+		boolean loop =  false;
+
+		while (fast != null && fast.next != null) {
+
+			slow = slow.next;
+			fast = fast.next;
+
+			if (slow == fast) {
+				loop = true;
+				break;
+			}
+		}
+
+		if (!loop)
+			return null;
+		else {
+			slow = head;
+
+			while (slow != fast) {
+				slow = slow.next;
+				fast = fast.next;
+			}
+		}
+
+		return slow;
+
 	}
 }

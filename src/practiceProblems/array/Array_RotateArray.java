@@ -2,6 +2,27 @@ package practiceProblems.array;
 
 public class Array_RotateArray {
 
+    public static int[] rotate_efficient(int[] nums, int k)
+    {
+        k %= nums.length;
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
+        return nums;
+    }
+
+    public static void reverse(int[] nums, int start, int end)
+    {
+        while (start < end)
+        {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
     // Brute force approach
     // Time complexity: o(n*k)
     // Where n is number of elements and k denotes position shift
@@ -84,5 +105,13 @@ public class Array_RotateArray {
         System.out.println();
         System.out.println("================================");
         System.out.println("Rotate array most optimized approach");
+
+        int nums3[]={10,20,30,40,50,60};
+        int[] result3=rotate_efficient(nums3,5);
+        printArray(result3);
+        System.out.println();
+        System.out.println("================================");
+        System.out.println("Rotate array leet way - most effective");
+
     }
 }

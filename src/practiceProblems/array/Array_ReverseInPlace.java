@@ -28,7 +28,9 @@ public class Array_ReverseInPlace {
         // reversing array with three elements
         reverse(names);
         System.out.println("reversed array: " + Arrays.toString(names) );
-       
+        // reversing array with three elements
+
+
         String[] test = {"John"};
         System.out.println("original array: " + Arrays.toString(test) );
        

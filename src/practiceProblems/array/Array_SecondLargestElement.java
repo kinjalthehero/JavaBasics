@@ -29,10 +29,33 @@ public class Array_SecondLargestElement {
         return secondHighest;
     }
 
+    static int secondLargest (int[] arr) {
+
+        if (arr.length == 0 || arr.length == 1)
+            throw new RuntimeException("Need 2 or more elements in the array");
+
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int a: arr) {
+
+            if (a > largest) {
+                secondLargest = largest;
+                largest = a;
+
+            }
+            else if (a > secondLargest)
+                secondLargest = a;
+        }
+
+        return secondLargest;
+    }
+
     public static void main(String args[])
     {
         int[] arr1={7,5,6,1,4,2};
         int secondHighest=findSecondLargestNumberInTheArray(arr1);
         System.out.println("Second largest element in the array : "+ secondHighest);
+        System.out.println(secondLargest(arr1));
     }
 }

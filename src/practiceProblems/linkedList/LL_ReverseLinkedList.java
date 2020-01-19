@@ -1,30 +1,52 @@
 package practiceProblems.linkedList;
 
-class SinglyLL {
+import dataStructure.SinglyLinkedList;
+
+/*class SinglyLL {
 	
-	// without recursion
-	public void reverse() {
-		  
-		Node pointer = head;
-		Node previous = null, current = null;
+
+
+
 	
-		while (pointer != null) {
-		  
-			// store pointer of the node we are processing  
-			current = pointer;
-			
-			// move the pointer ahead for the next iteration before we start processing
-			pointer = pointer.next;
-	
-			// Point to the previous node
-			current.next = previous;
-			
-			// Keep making all new nodes as head so that last node will become head
-			head = current;
-			
-			// Linking is done. Now preparation for next iteration. Current node will become previous.   
-			previous = current;
+}*/
+
+//Without using recursion.
+public class LL_ReverseLinkedList {
+
+	public static Node reverseLinkedList (Node curr)
+	{
+		Node prev = null;
+		Node next;
+
+		while (curr != null)
+		{
+			// saving next node’s position for next iteration
+			next = curr.next;
+
+			// reverse
+			curr.next = prev;
+
+			// prep for next iteration. Make curr node prev and next node curr
+			prev = curr;
+			curr = next;
 		}
+
+		// NOTICE: Don’t return curr
+		// return prev because curr node is null from while loop
+		return prev;
+	}
+
+	public static Node reverseLinkedList_rec (Node node)
+	{
+		// base case
+		if (node == null || node.next == null)
+			return node;
+
+		Node remaining = reverseLinkedList_rec (node.next);
+		node.next.next = node;
+		node.next = null;
+
+		return remaining;
 	}
 
 	static class Node {
@@ -47,19 +69,19 @@ class SinglyLL {
 
 	private Node head;
 
-	public SinglyLL(Node head) {
+	public LL_ReverseLinkedList(Node head) {
 		this.head = head;
 	}
 
 	public void add(Node node) {
-	  
+
 		Node current = head;
 		while (current != null) {
 			if (current.next == null) {
 				current.next = node;
 				break;
 			}
-		current = current.next;
+			current = current.next;
 		}
 	}
 
@@ -72,29 +94,32 @@ class SinglyLL {
 		System.out.println("");
 	}
 
-	
-}
-
-//Without using recursion.
-public class LL_ReverseLinkedList {
+	public void print(Node node) {
+		//Node node = head;
+		while (node != null) {
+			System.out.print(node.data() + " ");
+			node = node.next();
+		}
+		System.out.println("");
+	}
 
 	public static void main(String[] args) {
-	
-		// creating a singly linked list
-		SinglyLL.Node head = new SinglyLL.Node(1);
-		SinglyLL linkedlist = new SinglyLL(head);
-	
-		// adding node into singly linked list
-		linkedlist.add(new SinglyLL.Node(2));
-		linkedlist.add(new SinglyLL.Node(3));
-		// printing a singly linked list
+
+		Node head = new Node(1);
+		LL_ReverseLinkedList linkedlist = new LL_ReverseLinkedList(head);
+
+		linkedlist.add(new Node(2));
+		linkedlist.add(new Node(3));
+
 		linkedlist.print();
-		
+
 		// reversing the singly linked list
-		linkedlist.reverse();
-		
-		// printing the singly linked list again
-		linkedlist.print();
+		//linkedlist.reverse();
+
+		//SinglyLL.Node reversedHead = linkedlist.reverseLinkedList(head);
+		Node reversedHead = linkedlist.reverseLinkedList_rec(head);
+
+		linkedlist.print(reversedHead);
 	}
 
 }

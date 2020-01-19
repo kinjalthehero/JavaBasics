@@ -32,7 +32,7 @@ public class BT_PostOrderTraversal {
 		
 		bt.postOrder();
 		
-		System.out.println(); // insert new line
+		System.out.println(); // insertLast new line
 		
 		// traversing binary tree on post order traversal without recursion
 		System.out.println("printing nodes of binary tree on post order using iteration");
@@ -73,29 +73,32 @@ class BinaryTree_PostOrder {
 		postOrder(node.right);
 		System.out.printf("%s ", node.data);
 	}
-	
-	// Without recursion
-	public void postOrderWithoutRecursion() {
-		
+
+	// Left -> Right -> Print
+	public void postOrderWithoutRecursion()
+	{
 		Stack<TreeNode> nodes = new Stack<>();
 		nodes.push(root);
 		
-		while (!nodes.isEmpty()) {
+		while (!nodes.isEmpty())
+		{
 			TreeNode current = nodes.peek();
 		
-		if (current.isLeaf()) {
-			TreeNode node = nodes.pop();
-			System.out.printf("%s ", node.data);
-		} else if(current.right != null){
-				nodes.push(current.right);
-				current.right = null;
-		}
-		
-		if(current.left != null){
-			nodes.push(current.left);
-			current.left = null;
-		}
+			if (current.isLeaf())
+			{
+				TreeNode node = nodes.pop();
+				System.out.printf("%s ", node.data);
+			}
+			else if(current.right != null)
+			{
+					nodes.push(current.right);
+					current.right = null;
+			}
 
+			if(current.left != null){
+				nodes.push(current.left);
+				current.left = null;
+			}
 		}
 	}
 	

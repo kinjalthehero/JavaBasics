@@ -2,12 +2,12 @@ package practiceProblems.binaryTree;
 
 public class BT_CountLeafNodes {
 
-    public static class TreeNode
+    public static class Node
     {
         int data;
-        TreeNode left;
-        TreeNode right;
-        TreeNode(int data)
+        Node left;
+        Node right;
+        Node(int data)
         {
             this.data=data;
         }
@@ -15,7 +15,7 @@ public class BT_CountLeafNodes {
 
     // Recursive Solution
     /* To get the count of leaf nodes in a binary tree*/
-    public static  int getLeafCountOfBinaryTree(TreeNode node)
+    public static  int getLeafCountOfBinaryTree(Node node)
     {
         if(node == null)
             return 0;
@@ -28,20 +28,35 @@ public class BT_CountLeafNodes {
     public static void main(String[] args)
     {
         // Creating a binary tree
-        TreeNode rootNode=createBinaryTree();
+        Node rootNode=createBinaryTree();
         System.out.println("Number of leaf nodes in binary tree :"+getLeafCountOfBinaryTree(rootNode));
+        System.out.println("Number of leaf nodes in binary tree :"+leafNodes(rootNode));
     }
 
-    public static TreeNode createBinaryTree()
+    static int leafNodes (Node root) {
+
+        if (root == null)
+            return 0;
+
+        if (root.left == null && root.right == null)
+            return 1;
+
+        int left = leafNodes(root.left);
+        int right = leafNodes(root.right);
+
+        return left + right;
+    }
+
+    public static Node createBinaryTree()
     {
 
-        TreeNode rootNode =new TreeNode(40);
-        TreeNode node20=new TreeNode(20);
-        TreeNode node10=new TreeNode(10);
-        TreeNode node30=new TreeNode(30);
-        TreeNode node60=new TreeNode(60);
-        TreeNode node50=new TreeNode(50);
-        TreeNode node70=new TreeNode(70);
+        Node rootNode =new Node(40);
+        Node node20=new Node(20);
+        Node node10=new Node(10);
+        Node node30=new Node(30);
+        Node node60=new Node(60);
+        Node node50=new Node(50);
+        Node node70=new Node(70);
 
         rootNode.left=node20;
         rootNode.right=node60;

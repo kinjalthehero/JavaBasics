@@ -8,7 +8,7 @@ public class LL_Sort{
 
 	public static void main(String args[]) {
 	
-		// Creating and initializing an LinkedList_primitive for sorting
+		// Creating and initializing an LL_BasicOperations for sorting
 		LinkedList<String> singlyLinkedList = new LinkedList<>();
 		singlyLinkedList.add("Eclipse");
 		singlyLinkedList.add("NetBeans");
@@ -17,14 +17,14 @@ public class LL_Sort{
 		singlyLinkedList.add("Visual Studio");
 		singlyLinkedList.add("notepad");
 		
-		System.out.println("LinkedList_primitive (before sorting): " + singlyLinkedList);
+		System.out.println("LL_BasicOperations (before sorting): " + singlyLinkedList);
 		
-		// Example 1 - Sorting LinkedList_primitive with Collecitons.sort() method in natural order
+		// Example 1 - Sorting LL_BasicOperations with Collecitons.sort() method in natural order
 		Collections.sort(singlyLinkedList);
 		
-		System.out.println("LinkedList_primitive (after sorting in natural): " + singlyLinkedList);
+		System.out.println("LL_BasicOperations (after sorting in natural): " + singlyLinkedList);
 		
-		// Example 2 - Sorting LinkedList_primitive using Collection.sort() and Comparator in Java
+		// Example 2 - Sorting LL_BasicOperations using Collection.sort() and Comparator in Java
 		Collections.sort(singlyLinkedList, new Comparator<String>() {
 			@Override
 			public int compare(String s1, String s2) {
@@ -32,6 +32,6 @@ public class LL_Sort{
 			} 
 		});
 	
-		System.out.println("LinkedList_primitive (after sorting using Comparator): " + singlyLinkedList);
+		System.out.println("LL_BasicOperations (after sorting using Comparator): " + singlyLinkedList);
 	}
 }

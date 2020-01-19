@@ -1,5 +1,9 @@
 package practiceProblems.array;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Array_FindLeaders {
 
     // Brute force approach
@@ -41,10 +45,29 @@ public class Array_FindLeaders {
         }
     }
 
+    static List<Integer> leaders (int[] arr) {
+
+        List<Integer> list = new ArrayList<>();
+        int leader = arr[arr.length-1];
+        list.add(leader);
+
+        for (int i = arr.length-2; i >= 0; i--) {
+
+            if (arr[i] > leader) {
+
+                leader = arr[i];
+                list.add(leader);
+            }
+        }
+
+        return list;
+    }
+
     public static void main(String[] args) {
         int arr[]={14, 12, 70, 15, 99, 65, 21, 90};
         findLeadersInAnArrayBruteForce(arr);
         System.out.println("n==================");
         findLeadersInAnArray(arr);
+        System.out.println("Kinjal" + Arrays.toString(leaders(arr).toArray()));
     }
 }
