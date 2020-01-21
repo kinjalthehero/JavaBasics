@@ -63,7 +63,7 @@ public class LL_BasicOperations
 		if (head == null)
 			System.out.println("List is empty");
 		
-		// If node to be inserted before head node
+		// If node to be inserted before dummyHead node
 		if (head.data == insertBefore)
 		{
 			newNode.next = head;
@@ -142,13 +142,13 @@ public class LL_BasicOperations
         if (currNode == null)
         	System.out.println("List is empty");
         
-        // CASE 2: If head node itself holds the key to be deleted 
+        // CASE 2: If dummyHead node itself holds the key to be deleted
         if (currNode.data == key)
         {
-            head = currNode.next; // Changed head
+            head = currNode.next; // Changed dummyHead
         } 
   
-        // CASE 3: If the key is somewhere other than at head 
+        // CASE 3: If the key is somewhere other than at dummyHead
         while (currNode != null && currNode.data != key)
         {
             prev = currNode; 
@@ -161,14 +161,14 @@ public class LL_BasicOperations
      
     public void deleteAtPosition(int index)
 	{
-    	// Store head node 
+    	// Store dummyHead node
         Node currNode = head;
         Node prev = null; 
         
         if (currNode == null) 
         	System.out.println("");
   
-        // CASE 1: If index is 0, then head node itself is to be deleted 
+        // CASE 1: If index is 0, then dummyHead node itself is to be deleted
         if (index == 0)
         {
             head = currNode.next;

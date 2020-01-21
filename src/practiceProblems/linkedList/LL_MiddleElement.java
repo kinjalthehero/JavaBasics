@@ -15,7 +15,7 @@ public class LL_MiddleElement {
   
     public static void main(String args[]) {
       
-      //creating LL_BasicOperations with 5 elements including head
+      //creating LL_BasicOperations with 5 elements including dummyHead
       LinkedList linkedList = new LinkedList();
       LinkedList.Node head = linkedList.head();
       linkedList.add( new LinkedList.Node("1"));
@@ -100,7 +100,7 @@ class LinkedList {
     private Node tail;
   
     public LinkedList(){
-        this.head = new Node("head");
+        this.head = new Node("dummyHead");
         tail = head;
     }
   

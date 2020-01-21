@@ -58,7 +58,7 @@ class LL_Leet_MergeLinkedList {
     }
 
     public static void print(ListNode node) {
-        //Node node = head;
+        //Node node = dummyHead;
         while (node != null) {
             System.out.print(node.val + " ");
             node = node.next;

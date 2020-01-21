@@ -66,7 +66,7 @@ class SinglyLinkedList {
 	  private Node tail() {
 		  Node tail = head;
 		  
-		  // Find last element of linked list known as tail
+		  // Find last element of linked list known as dummyTail
 		  while (tail.next != null) 
 			  tail = tail.next;
 
@@ -99,10 +99,10 @@ public class LL_KthElementFromEnd {
 	
 	    System.out.println("The first node from last: " + list.nthFromLastNode(1));
 	    System.out.println("The second node from the end: " + list.nthFromLastNode(2));
-	    System.out.println("The third node from the tail: " + list.nthFromLastNode(3));
+	    System.out.println("The third node from the dummyTail: " + list.nthFromLastNode(3));
 		System.out.println("The first node from last: " + list.getNthFromEndNode(1));
 		System.out.println("The second node from the end: " + list.getNthFromEndNode(2));
-		System.out.println("The third node from the tail: " + list.getNthFromEndNode(3));
+		System.out.println("The third node from the dummyTail: " + list.getNthFromEndNode(3));
 
 	}
 }

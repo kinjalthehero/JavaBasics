@@ -159,7 +159,7 @@ public class LL_Add2NumberLinkedList {
 		list.addToTheLast(new Node(2));
 		System.out.print("Number 1:  ");
 		list.printList(head1);
-		head=null;
+		dummyHead=null;
 
 		Node head2=new Node(6);
 		list.addToTheLast(head2);

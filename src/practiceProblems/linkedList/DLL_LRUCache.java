@@ -35,7 +35,7 @@ class DLL_ListNodeCache
         if(map.get(key) == null)
             return -1;
 
-        //move to tail
+        //move to dummyTail
         LinkedList_Node t = map.get(key);
  
         removeNode(t);
@@ -49,7 +49,7 @@ class DLL_ListNodeCache
             LinkedList_Node t = map.get(key);
             t.value = value;
  
-            //move to tail
+            //move to dummyTail
             removeNode(t);
             offerNode(t);
         }
@@ -57,12 +57,12 @@ class DLL_ListNodeCache
         {
             if(map.size()>=cap)
             {
-                //delete head
+                //delete dummyHead
                 map.remove(head.key);
                 removeNode(head);
             }
  
-            //add to tail
+            //add to dummyTail
             LinkedList_Node node = new LinkedList_Node(key, value);
             offerNode(node);
             map.put(key, node);

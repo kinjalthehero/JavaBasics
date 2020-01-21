@@ -77,7 +77,7 @@ public class LL_PalindromeCheck {
 	{
 		Node middleNode = findMiddleNode(head);
 		
-		// head of right side
+		// dummyHead of right side
 		Node secondHead = middleNode.next;
 		
 		// It is end of first part of linked list

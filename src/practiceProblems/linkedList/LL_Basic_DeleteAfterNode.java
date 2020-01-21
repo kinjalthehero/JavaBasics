@@ -100,7 +100,7 @@ public class LL_Basic_DeleteAfterNode {
         System.out.println();
         System.out.println();
 
-        System.out.println("Deleting after the head node");
+        System.out.println("Deleting after the dummyHead node");
         ln.deleteAfterNode(node1,node1);
         ln.print(node1);
         ln.length(node1);

@@ -95,7 +95,7 @@ public class LL_ReverseLinkedList {
 	}
 
 	public void print(Node node) {
-		//Node node = head;
+		//Node node = dummyHead;
 		while (node != null) {
 			System.out.print(node.data() + " ");
 			node = node.next();
@@ -116,7 +116,7 @@ public class LL_ReverseLinkedList {
 		// reversing the singly linked list
 		//linkedlist.reverse();
 
-		//SinglyLL.Node reversedHead = linkedlist.reverseLinkedList(head);
+		//SinglyLL.Node reversedHead = linkedlist.reverseLinkedList(dummyHead);
 		Node reversedHead = linkedlist.reverseLinkedList_rec(head);
 
 		linkedlist.print(reversedHead);

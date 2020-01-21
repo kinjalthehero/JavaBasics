@@ -91,7 +91,7 @@ public class LL_Basic_DeleteFirst {
         System.out.println();
         System.out.println();
 
-        System.out.println("Deleting head node");
+        System.out.println("Deleting dummyHead node");
         Node head = ln.deleteFirst(node1);
         ln.print(head);
         System.out.println();

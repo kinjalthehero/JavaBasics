@@ -24,10 +24,10 @@ public class DLL_Leet_LRUCache {
         this.capacity = capacity;
 
         head = new DLinkedNode();
-        // head.prev = null;
+        // dummyHead.prev = null;
 
         tail = new DLinkedNode();
-        // tail.next = null;
+        // dummyTail.next = null;
 
         head.next = tail;
         tail.prev = head;
@@ -40,7 +40,7 @@ public class DLL_Leet_LRUCache {
         if (node == null)
             return -1;
 
-        // move the accessed node to the head;
+        // move the accessed node to the dummyHead;
         moveToHead(node);
 
         return node.value;
@@ -64,7 +64,7 @@ public class DLL_Leet_LRUCache {
 
             if(size > capacity)
             {
-                // pop the tail
+                // pop the dummyTail
                 DLinkedNode tail = popTail();
                 cache.remove(tail.key);
                 size--;
@@ -76,7 +76,7 @@ public class DLL_Leet_LRUCache {
         }
     }
 
-    //Always add the new node right after head.
+    //Always add the new node right after dummyHead.
     private void addNode(DLinkedNode node) {
 
         node.prev = head;
@@ -98,14 +98,14 @@ public class DLL_Leet_LRUCache {
 
     private void moveToHead(DLinkedNode node){
 
-        //Move certain node in between to the head.
+        //Move certain node in between to the dummyHead.
         removeNode(node);
         addNode(node);
     }
 
     private DLinkedNode popTail() {
 
-        //Pop the current tail.
+        //Pop the current dummyTail.
         DLinkedNode res = tail.prev;
         removeNode(res);
         return res;
