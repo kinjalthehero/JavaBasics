@@ -35,7 +35,5 @@ class String_ValidParentheses {
         System.out.println(obj.isValid("({"));
         System.out.println(obj.isValid(("[)]")));
         System.out.println(obj.isValid("{[]}"));
-
-
     }
 }

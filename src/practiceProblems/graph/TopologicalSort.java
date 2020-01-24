@@ -6,7 +6,7 @@ import java.util.Stack;
 
 public class TopologicalSort
 {
-    Stack<Node> stack = new Stack<>();;
+    static Stack<Node> stack = new Stack<>();;
 
     static class Node
     {
@@ -68,14 +68,10 @@ public class TopologicalSort
         node60.neighbours.add(node70);
         node50.neighbours.add(node70);
 
-        System.out.println("Topological Sorting Order:");
         topological.toplogicalSort(node40);
 
-        // Print contents of stack
-        Stack<Node> resultStack=topological.stack;
-
-        while (resultStack.empty()==false)
-            System.out.print(resultStack.pop() + " ");
+        while (stack.empty()==false)
+            System.out.print(stack.pop() + " ");
     }
 
 }
