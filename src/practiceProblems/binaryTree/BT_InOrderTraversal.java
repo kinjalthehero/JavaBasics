@@ -59,7 +59,7 @@ public class BT_InOrderTraversal {
         Stack stack = new Stack<>();
         TreeNode current = root;
 
-        while (!stack.isEmpty() || current != null)
+        while (current != null || !stack.isEmpty())
         {
             if (current != null)
             {

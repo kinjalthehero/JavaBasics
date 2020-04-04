@@ -40,17 +40,15 @@ class Matrix {
     			data[i][j] = s.nextInt();
     }
 
-    public void transpose() {
-    	int[][] temp = new int[columns][rows];
-    	
-    	// Create a new 1-dimentional array and store the transposed values
-    	for (int i = 0; i < rows; i++) 
-    		for (int j = 0; j < columns; j++) 
-    			temp[j][i] = data[i][j];
-      
-    	// Put back transposed value in original 2-dimentional array
-    	data = temp;
-    }
+	public void transpose() {
+		for (int i = 0; i < rows; i++) {
+			for (int j = i + 1; j < columns; j++) {
+				int temp = data[i][j];
+				data[i][j] = data[j][i];
+				data[j][i] = temp;
+			}
+		}
+	}
 
     public void print() {
     	for (int i = 0; i < rows; i++) {

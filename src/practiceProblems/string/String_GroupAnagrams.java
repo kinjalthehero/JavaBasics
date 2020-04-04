@@ -17,10 +17,7 @@ public class String_GroupAnagrams {
             Arrays.sort(chars);
             String sortedChars = String.valueOf(chars); // Char array to String
 
-            if (!map.containsKey(sortedChars))
-                map.put(sortedChars, new ArrayList<>());
-
-            map.get(sortedChars).add(str);
+            map.put(sortedChars, map.getOrDefault(sortedChars, new ArrayList<>())).add(str);
         }
 
         // map.values() return collection of values

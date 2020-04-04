@@ -38,7 +38,7 @@ public class LL_QueueUsingLL {
 			oldRear.next = rear;
 
 		length++;
-		System.out.println(data+ " added to the queue");
+		System.out.println(data+ " added to the snake");
 	}
  
 	// Remove item from the beginning of the list
@@ -51,7 +51,7 @@ public class LL_QueueUsingLL {
 			rear = null;
 	 
 		length--;
-		System.out.println(data+ " removed from the queue");
+		System.out.println(data+ " removed from the snake");
 		
 		return data;
 	}

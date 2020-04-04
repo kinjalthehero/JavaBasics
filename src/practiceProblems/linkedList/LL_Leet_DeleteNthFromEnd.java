@@ -53,29 +53,30 @@ public class LL_Leet_DeleteNthFromEnd {
 
     }
 
-    static Node nthElement (Node head, int pos) {
+    public static Node removeNthFromEnd(Node head, int n) {
 
-        Node slow = head;
-        Node fast = head;
+        Node dummyNode = new Node(0);
+        dummyNode.next = head;
 
-        while (pos != 0) {
+        Node slow = dummyNode;
+        Node fast = dummyNode;
 
+        // if n=3, move 3 times
+        for (int i = 0; i < n; i++) {
             fast = fast.next;
-            pos--;
         }
 
-        if (fast.next == null)
-            return head.next;
-
-        while (fast.next != null) {
-
-            fast = fast.next;
+        while (fast != null && fast.next != null) {
             slow = slow.next;
+            fast = fast.next;
         }
 
-        slow.next = slow.next.next;
+        if (fast != null) {
+            slow.next = slow.next.next;
+        }
 
-        return head;
+        return dummyNode.next;
+
     }
 
     public static void main (String[] args) {
@@ -83,7 +84,7 @@ public class LL_Leet_DeleteNthFromEnd {
         LL_Leet_DeleteNthFromEnd ln = new LL_Leet_DeleteNthFromEnd();
 
         Node node1 = new Node(1);
-        Node node2 = new Node(2);
+        /*Node node2 = new Node(2);
         Node node3 = new Node(3);
         Node node4 = new Node(4);
         Node node5 = new Node(5);
@@ -100,6 +101,13 @@ public class LL_Leet_DeleteNthFromEnd {
         ln.print(node1);
         System.out.println();
         nthElement(node1, 3);
+        ln.print(node1);*/
+
+        LL_Leet_DeleteNthFromEnd ln2 = new LL_Leet_DeleteNthFromEnd();
+        Node node21 = new Node(1);
+        ln.insertLast(null, node1);
+        removeNthFromEnd(node1, 1);
         ln.print(node1);
+
     }
 }

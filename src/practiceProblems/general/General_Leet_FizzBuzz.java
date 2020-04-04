@@ -48,6 +48,7 @@ class General_Leet_FizzBuzz {
     static public List<String> fizzBuzzkinjal(int n) {
 
         List<String> output = new ArrayList<>();
+
         for (int i=1; i <= n; i++) {
 
             if (i % 3 == 0 && i % 5 == 0)
@@ -57,7 +58,7 @@ class General_Leet_FizzBuzz {
             else if (i % 5 == 0)
                 output.add("Buzz");
             else
-                output.add("" + i);
+                output.add(String.valueOf(i));
         }
 
         return output;

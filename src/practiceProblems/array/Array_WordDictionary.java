@@ -1,46 +1,68 @@
 package practiceProblems.array;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Array_WordDictionary {
 
-    public class TrieNode {
-        public TrieNode[] children = new TrieNode[26];
-        public String item = "";
+    private static TrieNode root;
+
+    public static class TrieNode {
+
+        public Map<Character, TrieNode> children = new HashMap<>();
+        public boolean isWord;
     }
 
-    private TrieNode root = new TrieNode();
+    Array_WordDictionary() {
+        root = new TrieNode();
+    }
 
-    public void addWord(String word) {
-        TrieNode node = root;
+    public static void addWord(String word) {
+
+        TrieNode temp = root;
 
         for (char c : word.toCharArray()) {
-            if (node.children[c - 'a'] == null) {
-                node.children[c - 'a'] = new TrieNode();
-            }
-            node = node.children[c - 'a'];
+
+            if (temp.children.get(c) == null)
+                temp.children.put(c, new TrieNode());
+
+            temp = temp.children.get(c);
         }
-        node.item = word;
+
+        temp.isWord = true;
     }
 
-    public boolean search(String word) {
-        return match(word.toCharArray(), 0, root);
+    public static boolean search(String word) {
+        return match(word, 0, root);
     }
 
-    private boolean match(char[] chs, int k, TrieNode node) {
-        if (k == chs.length)
-            return !node.item.equals("");
+    private static boolean match(String chs, int k, TrieNode node) {
 
-        if (chs[k] != '.') {
-            return node.children[chs[k] - 'a'] != null && match(chs, k + 1, node.children[chs[k] - 'a']);
-        } else {
-            for (int i = 0; i < node.children.length; i++) {
-                if (node.children[i] != null) {
-                    if (match(chs, k + 1, node.children[i])) {
-                        return true;
-                    }
-                }
+        if (k == chs.length())
+            return node.isWord;
+
+        if (chs.charAt(k) == '.') {
+            for (Character ch: node.children.keySet()) {
+                if (node.children.get(ch) != null && match(chs, k+1, node.children.get(ch)))
+                    return true;
             }
-        }
+        } else
+            return node.children.get(chs.charAt(k)) != null && match(chs, k + 1, node.children.get(chs.charAt(k)));
+
         return false;
+    }
+
+    public static void main(String[] args) {
+        Array_WordDictionary wordDictionary = new Array_WordDictionary();
+        wordDictionary.addWord("word");
+        System.out.println(wordDictionary.search("pattern"));
+        addWord("bad");
+        addWord("dad");
+        addWord("mad");
+        System.out.println(search("pad"));
+        System.out.println(search("bad"));
+        System.out.println(search(".ad"));
+        System.out.println(search("b.."));
     }
 }
 

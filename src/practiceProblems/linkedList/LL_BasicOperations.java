@@ -168,14 +168,14 @@ public class LL_BasicOperations
         if (currNode == null) 
         	System.out.println("");
   
-        // CASE 1: If index is 0, then dummyHead node itself is to be deleted
+        // CASE 1: If currIndex is 0, then dummyHead node itself is to be deleted
         if (index == 0)
         {
             head = currNode.next;
             return;
         } 
   
-        // CASE 2: If the index is greater than 0 but less than the size of LL_BasicOperations
+        // CASE 2: If the currIndex is greater than 0 but less than the size of LL_BasicOperations
         int index_counter = 0; 
   
         while (currNode != null)

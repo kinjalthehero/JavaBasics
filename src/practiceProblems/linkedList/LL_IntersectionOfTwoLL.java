@@ -101,7 +101,7 @@ public class LL_IntersectionOfTwoLL{
 		Node curr1 = headA;
 		Node curr2 = headB;
 
-		//if a & b have different len, then we will stop the loop after second iteration
+		//if a & b have different score_snakeLength, then we will stop the loop after second iteration
 		while(curr1 != curr2)
 		{
 			//for the end of first iteration, we just reset the pointer to the dummyHead of another linkedlist

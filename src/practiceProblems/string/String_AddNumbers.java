@@ -2,7 +2,7 @@ package practiceProblems.string;
 
 public class String_AddNumbers {
 
-    public static String addStrings(String num1, String num2)
+    public static String addStrings_orig(String num1, String num2)
     {
         int carry = 0;
         int len1 = num1.length() - 1;
@@ -36,8 +36,55 @@ public class String_AddNumbers {
     }
 
     public static void main(String[] args) {
-        String answer = addStrings("123", "456");
+        String answer = addStrings("1", "9");
         System.out.println(answer);
+    }
+
+    public static String addStrings(String num1, String num2) {
+
+        char[] num1Arr = num1.toCharArray();
+        char[] num2Arr = num2.toCharArray();
+        int num1Pointer = num1Arr.length-1;
+        int num2Pointer = num2Arr.length-1;
+        int sum = 0;
+        int carry = 0;
+        int remainder = 0;
+        StringBuilder sb = new StringBuilder();
+
+        while (num1Pointer >= 0 && num2Pointer >=0) {
+
+            int number1 = num1Arr[num1Pointer] - '0';
+            int number2 = num2Arr[num2Pointer] - '0';
+
+            sum = number1 + number2 + carry;
+
+            remainder = sum%10;
+            carry = sum/10;
+
+            System.out.println(remainder);
+            System.out.println(carry);
+
+            char remiainderInString = (char) (remainder + '0');
+
+            sb.append(remiainderInString);
+
+            num1Pointer--;
+            num2Pointer--;
+        }
+
+        if (num1Pointer >= 0) {
+            int number1 = num1Arr[num1Pointer] - '0';
+            remainder = number1%10;
+            sb.append(remainder);
+        }
+
+        if (num2Pointer >= 0) {
+            int number2 = num2Arr[num2Pointer] - '0';
+            remainder = number2%10;
+            sb.append(remainder);
+        }
+
+        return sb.reverse().toString();
     }
 
 

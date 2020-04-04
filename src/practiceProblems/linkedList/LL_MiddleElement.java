@@ -16,26 +16,26 @@ public class LL_MiddleElement {
     public static void main(String args[]) {
       
       //creating LL_BasicOperations with 5 elements including dummyHead
-      LinkedList linkedList = new LinkedList();
-      LinkedList.Node head = linkedList.head();
-      linkedList.add( new LinkedList.Node("1"));
-      linkedList.add( new LinkedList.Node("2"));
-      linkedList.add( new LinkedList.Node("3"));
-      linkedList.add( new LinkedList.Node("4"));
+      LList lList = new LList();
+      LList.Node head = lList.head();
+      lList.add( new LList.Node("1"));
+      lList.add( new LList.Node("2"));
+      lList.add( new LList.Node("3"));
+      lList.add( new LList.Node("4"));
 
         findMiddleNode(head);
 
-      linkedList.add(new LinkedList.Node("5"));
+      lList.add(new LList.Node("5"));
 
         findMiddleNode(head);
     }
 
-    static void middleNode (LinkedList.Node head) {
+    static void middleNode (LList.Node head) {
 
         if (head == null || head.next() == null)
             return;
 
-        LinkedList.Node slow = head, fast = head;
+        LList.Node slow = head, fast = head;
 
         while (fast != null && fast.next() != null) {
 
@@ -47,10 +47,10 @@ public class LL_MiddleElement {
 
     }
 
-    static public void findMiddleNode(LinkedList.Node head)
+    static public void findMiddleNode(LList.Node head)
     {
-        LinkedList.Node slow = head;
-        LinkedList.Node fast = head;
+        LList.Node slow = head;
+        LList.Node fast = head;
 
         while(fast != null)
         {
@@ -65,12 +65,12 @@ public class LL_MiddleElement {
         System.out.println(slow.next());
     }
 
-    private static void getMiddleElement(LinkedList.Node head) {
+    private static void getMiddleElement(LList.Node head) {
  		
     	//finding middle element of LL_BasicOperations in single pass
     	int length = 0;
-    	LinkedList.Node current = head;
-    	LinkedList.Node middle = head;
+    	LList.Node current = head;
+    	LList.Node middle = head;
 
     	// Loop till the last element
     	// Logic: We increment middle only when length has increased by 2
@@ -94,12 +94,12 @@ public class LL_MiddleElement {
   
 }
 
-class LinkedList {
+class LList {
     
 	private Node head;
     private Node tail;
   
-    public LinkedList(){
+    public LList(){
         this.head = new Node("dummyHead");
         tail = head;
     }

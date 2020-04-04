@@ -2,8 +2,9 @@ package Polymorphism;
 
 public class B extends A {
 
-    public void method () {
-        System.out.println("Inside class B");
+    public <T> void method (T name) {
+
+        System.out.println("Inside class B" + name);
     }
 }
 

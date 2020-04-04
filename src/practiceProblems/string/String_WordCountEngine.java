@@ -4,94 +4,36 @@ import java.util.*;
 
 public class String_WordCountEngine {
 
-    static String[][] wordCountEngine (String doc) {
+    String[][] wordCountEngine (String str) {
 
-        String[] allWords = doc.toLowerCase().split("[^a-zA-Z']+");
-        LinkedHashMap<String, Integer> counter = new LinkedHashMap<>();
+        String[] words = str.split("[^a-zA-Z']+");
+        Map<String, Integer> map = new LinkedHashMap<>();
 
-        Arrays.stream(allWords).forEach(w -> {
-            counter.compute(w, (key, value) -> value == null ? 1 : value + 1);
-        });
-        System.out.println(counter);
-
-
-        TreeMap<Integer, HashSet<String>> sortedMap = new TreeMap<>(Collections.reverseOrder());
-
-        Arrays.stream(allWords).forEach(w -> {
-            int i = counter.get(w);
-            if (sortedMap.containsKey(i)) {
-                HashSet<String> set = sortedMap.get(i);
-                set.add(w);
-                sortedMap.put(i, set);
-            } else {
-                HashSet<String> hashSet = new HashSet<>();
-                hashSet.add(w);
-                sortedMap.put(i, hashSet);
-            }
-
-        });
-
-        System.out.println(sortedMap);
-        String[][] result=new String[counter.size()][2];
-        int iterator=0;
-        for(Map.Entry<Integer,HashSet<String>> entry:sortedMap.entrySet()){
-            int count=entry.getKey();
-
-            for(Map.Entry<String,Integer> e:counter.entrySet()){
-                if(e.getValue()==count){
-                    String[] res=new String[2];
-                    res[0]=e.getKey();
-                    res[1]=String.valueOf(count);
-                    result[iterator]=res;
-                    iterator++;
-                }
-
-            }
-        }
-
-        return result;
-    }
-
-    static String[][] wordCountEngine2(String document) {
-
-        String[] words = document.split(" ");
-        Map<String, String> map = new LinkedHashMap<>();
+        System.out.println(Arrays.toString(words));
 
         for (String w: words) {
             String word = w.toLowerCase();
-
-            if (map.containsKey(word))
-                map.put(word, map.get(word));
-            else
-                map.put(word, Integer.toString(1));
+            map.put(word, map.getOrDefault(word, 0) + 1);
         }
 
-        List<List<String>> temp = new ArrayList<>();
+        System.out.println(map);
 
-        Set<String> str = map.keySet();
+        Set<String> set = map.keySet();
+        List<String> list = new ArrayList<>(set);
 
-        for (String s: str) {
+        Collections.sort(list, (a,b) -> map.get(a) == map.get(b) ? list.indexOf(a) - list.indexOf(b) : map.get(b)-map.get(a));
 
-            String freq = map.get(s);
-            List<String> t = new ArrayList<>();
-            t.add(s);
-            t.add(freq);
-            temp.add(t);
+        System.out.println(list);
+
+        String[][] output = new String[list.size()][2];
+
+        for (int i=0; i < list.size(); i++) {
+            output[i][0] = list.get(i);
+            output[i][1] = String.valueOf(map.get(list.get(i)));
         }
 
-        String[][] finalAnswer = new String[temp.size()][2];
-        for (int i=0; i < temp.size(); i++) {
-            finalAnswer[i][0] = temp.get(i).get(0);
-            finalAnswer[i][1] = temp.get(i).get(1);
-        }
-
-        return finalAnswer;
-
-        //sort(temp, Comparator.comparingInt(one -> one[1]));
-
+        return output;
     }
-
-
 
     public static void main(String[] args) {
 
@@ -99,6 +41,28 @@ public class String_WordCountEngine {
         String sentence = "Practice makes perfect. you'll only get Perfect by practice. just practice! practice";
         System.out.println(Arrays.deepToString(wce.wordCountEngine(sentence)));
 
+        int[] nums = {1,1,1,2,2,3};
+        System.out.println(topKFrequent_Integer(nums, 2));
+
+        int[] nums2 = {1};
+        System.out.println(topKFrequent_Integer(nums2, 1));
+
+    }
+
+    public static List<Integer> topKFrequent_Integer(int[] nums, int k) {
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int n: nums) {
+            map.put(n, map.getOrDefault(n,0) + 1);
+        }
+
+        Set<Integer> set = map.keySet();
+        List<Integer> list = new ArrayList<>(set);
+
+        Collections.sort(list, (a,b) -> (map.get(a) > map.get(b)) ? -1: 1);
+
+        return list.subList(0,k);
     }
 
 }

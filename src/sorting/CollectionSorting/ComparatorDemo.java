@@ -38,13 +38,13 @@ public class ComparatorDemo {
 
         // Sorting in ascending order
         System.out.println("Ascending order");
-        Collections.sort(list, (l1, l2) -> l1.rollNumber > l2.rollNumber? 1 : -1);
+        Collections.sort(list, (l1, l2) -> l1.rollNumber < l2.rollNumber? -1 : 1);
         System.out.println(list);
         System.out.println();
 
         // Sorting in descending order
         System.out.println("Descending order");
-        Collections.sort(list, (l1, l2) -> l1.rollNumber > l2.rollNumber? -1 : 1);
+        Collections.sort(list, (l1, l2) -> l1.rollNumber < l2.rollNumber? 1 : -1);
         System.out.println(list);
         System.out.println();
 
