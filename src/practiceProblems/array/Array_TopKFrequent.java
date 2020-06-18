@@ -4,31 +4,6 @@ import java.util.*;
 
 public class Array_TopKFrequent {
 
-    public static String[] kMostFrequent2 (String[] arr, int k) {
-
-        Map<String, Integer> map = new HashMap<>();
-
-        for (String a: arr) {
-            map.put(a, map.getOrDefault(a, 0) + 1);
-        }
-
-        // Getting set and putting it in a list.
-        // Because we can't apply compareTo
-        //Set<String> set = map.keySet();
-        List<String> words = new ArrayList<>(map.keySet());
-        Collections.sort(words, (a, b) -> map.get(a) == map.get(b) ?  a.compareTo(b) : map.get(b) - map.get(a));
-
-        List<String> answer = words.subList(0, k);
-
-        // Convert String ArrayList to primitive array
-        String[] str = new String[answer.size()];
-        for (int j = 0; j < answer.size(); j++) {
-            str[j] = answer.get(j);
-        }
-
-        return str;
-    }
-
     public static String[] kMostFrequent (String[] input, int k) {
 
         Map<String, Integer> map = new HashMap<>();
@@ -37,16 +12,18 @@ public class Array_TopKFrequent {
             map.put(s, map.getOrDefault(s,0) + 1);
         }
 
-        Set<String> set = map.keySet();
-        List<String> list = new ArrayList<>(set);
+        Set<String> keys = map.keySet();
+        List<String> list = new ArrayList<>(keys);
 
-        Collections.sort(list, (a,b) -> map.get(a) == map.get(b) ? a.compareTo(b) : map.get(b) - map.get(a));
+        list.sort((a,b) -> a.compareTo(b));
+        list.sort((a, b) -> (map.get(a) < map.get(b)) ? -1 : 1);
+        list.sort(Comparator.reverseOrder());
 
-        list.subList(0,k);
+        list.sort((a, b) -> map.get(a) == map.get(b) ? a.compareTo(b) : map.get(a) < map.get(b) ? 1 : -1);
 
-        String[] output = new String[list.size()];
+        String[] output = new String[k];
 
-        for (int i=0; i < list.size(); i++) {
+        for (int i = 0; i < k; i++) {
             output[i] = list.get(i);
         }
 

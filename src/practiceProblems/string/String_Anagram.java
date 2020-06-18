@@ -1,11 +1,33 @@
 package practiceProblems.string;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class String_Anagram {
+
+	public static boolean isAnagram(String s1, String s2) {
+
+		Map<Character,Integer> smap=new HashMap<>();
+
+		if(s1.length() != s2.length())
+			return false;
+
+		for(int i=0; i < s1.length(); i++) {
+			smap.put(s1.charAt(i), smap.getOrDefault(s1.charAt(i),0) + 1);
+			smap.put(s2.charAt(i), smap.getOrDefault(s2.charAt(i),0) - 1);
+		}
+
+		for (Map.Entry<Character, Integer> entry: smap.entrySet()) {
+			if (entry.getValue() != 0)
+				return false;
+		}
+
+		return true;
+	}
    
 	// Method 1: Remove chars from str2
-    public static boolean isAnagram(String str1, String str2){       
+    public static boolean isAnagram2(String str1, String str2){
         
     	if (str1.length() != str2.length())
             return false;

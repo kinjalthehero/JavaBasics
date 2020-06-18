@@ -57,57 +57,37 @@ public class LL_Add2NumberLinkedList {
 		return remaining;
 	}
 
-	public Node findSumOfNumbers(Node l1, Node l2)
-	{
-		int carry = 0;
-		int sum = 0;
-		int iteration = 0;
- 
-		Node newHead = null;
-		Node tempNodeForIteration = null;
-		
-		while(l1 != null || l2 != null)
-		{
-			iteration++;
-			sum = carry;
-			
-			if (l1 != null)
-			{
-				sum = sum + l1.value;
-				l1 = l1.next;
-			}
- 
-			if (l2 != null)
-			{
-				sum = sum + l2.value;
-				l2 = l2.next;
-			}
- 
+	public Node addTwoNumber (Node l1, Node l2) {
+
+		Node dummy = new Node(0);
+		Node curr = dummy;
+		int sum = 0, carry = 0;
+
+		while (l1 != null || l2 != null) {
+
+			int x = (l1 != null) ? l1.value : 0;
+			int y = (l2 != null) ? l2.value : 0;
+
+			sum = x + y + carry;
 			carry = sum / 10;
-			sum = sum % 10;
-			
-			// Check if it first node for the result
-			if(iteration == 1)
-			{ 
-				tempNodeForIteration = new Node(sum);
-				newHead = tempNodeForIteration;
-			}
-			else
-			{
-				Node tempSumNode = new Node(sum);
-				tempNodeForIteration.next = tempSumNode;
-				tempNodeForIteration = tempNodeForIteration.next;
-			}
+
+			Node temp = new Node(sum % 10);
+			curr.next = temp;
+			curr = curr.next;
+
+			if (l1 != null) l1 = l1.next;
+			if (l2 != null) l2 = l2.next;
 		}
-		
-		if(carry != 0)
-		{
-			Node tempNode = new Node(carry);
-			tempNodeForIteration.next = tempNode;
+
+		if (carry > 0) {
+			Node temp = new Node(carry);
+			curr.next = temp;
 		}
-		
-		return newHead;
+
+		return dummy.next;
 	}
+
+
 
 	/**
 	 * Definition for singly-linked list.

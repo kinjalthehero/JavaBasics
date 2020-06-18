@@ -4,6 +4,57 @@ import java.util.Arrays;
 
 public class Array_Separate0And1And2 {
 
+    public void sortColors(int[] arr) {
+
+        if (arr == null || arr.length < 2)
+            return;
+
+        int low = 0;
+        int high = arr.length - 1;
+        int index = 0;
+
+        while (index <= high) {
+            if (arr[index] == 0) {
+                int temp = arr[index];      // swap arr[index] and arr[low] and i,low both ++
+                arr[index] = arr[low];
+                arr[low] = temp;
+                index++;
+                low++;
+            } else if (arr[index] == 2) {
+                int temp = arr[index];      // swap arr[i] and arr[high] and high--;
+                arr[index] = arr[high];
+                arr[high] = temp;
+                high--;
+            } else {
+                index++;
+            }
+        }
+    }
+
+    void sortColors(int arr[], int n) {
+
+        int left = 0, right = n-1;
+
+        for (int i = 0; i <= right; i++) {
+
+            // if you see 2, put it on the right side
+            // 2 is at the right place, decrement right
+            while (arr[i] == 2 && i < right) {
+                int temp = arr[i];
+                arr[i] = arr[right];
+                arr[right--] = temp;
+            }
+
+            // if you see 0, put it on the left side
+            // 0 is at the right place, increment left
+            while (arr[i] == 0 && i > left) {
+                int temp = arr[i];
+                arr[i] = arr[left];
+                arr[left++] = temp;
+            }
+        }
+    }
+
     /*Function to sort the given array*/
     public static void sort(int[]a)
     {

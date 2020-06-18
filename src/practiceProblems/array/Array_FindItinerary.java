@@ -11,15 +11,23 @@ public class Array_FindItinerary {
         Map<String, PriorityQueue<String>> targets = new HashMap<>();
         List<String> output = new LinkedList();
 
-        for (List<String> ticket : tickets)
+        for (List<String> ticket : tickets) {
             targets.computeIfAbsent(ticket.get(0), k -> new PriorityQueue()).add(ticket.get(1));
+            //targets.put(ticket.get(0), targets.getOrDefault(ticket.get(0), new PriorityQueue<>())).add(ticket.get(1));
+
+        }
+
         visit("JFK", output, targets);
+
         return output;
     }
 
     static void visit(String airport, List<String> output, Map<String, PriorityQueue<String>> targets) {
-        while(targets.containsKey(airport) && !targets.get(airport).isEmpty())
+
+        while(targets.containsKey(airport) && !targets.get(airport).isEmpty()) {
             visit(targets.get(airport).poll(), output, targets);
+        }
+
         output.add(0, airport);
     }
 

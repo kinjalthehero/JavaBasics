@@ -16,23 +16,20 @@ public class Array_Permutation {
         return output;
     }
 
-    private static void backtrack(int [] input, List<List<Integer>> output, List<Integer> temp)
-    {
-        if(temp.size() == input.length){
-            output.add(new ArrayList<>(temp));
+    private static void backtrack(int [] input, List<List<Integer>> output, List<Integer> temp) {
+
+        if(temp.size() == input.length) {
+            output.add(temp);
+            System.out.println(output);
         }
-        else
-        {
-            for(int i = 0; i < input.length; i++)
-            {
-                // element already exists, skip
+        else {
+            for(int i = 0; i < input.length; i++) {
+
                 if(temp.contains(input[i]))
                     continue;
 
                 temp.add(input[i]);
-
                 backtrack(input, output, temp);
-
                 temp.remove(temp.size() - 1);
             }
         }
@@ -77,9 +74,10 @@ public class Array_Permutation {
     public static void main(String[] args) {
 
         int[] arr = {1,2,3};
-        System.out.println(Arrays.toString(permute(arr).toArray()));
+        //System.out.println(Arrays.toString(permute(arr).toArray()));
+        System.out.println(permute(arr));
 
-        int[] arrWithDuplicate = {1,1, 2};
-        System.out.println(Arrays.toString(permute_withDuplicates(arrWithDuplicate).toArray()));
+        int[] arrWithDuplicate = {1,1,2};
+        //System.out.println(Arrays.toString(permute_withDuplicates(arrWithDuplicate).toArray()));
     }
 }

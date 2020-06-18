@@ -4,33 +4,41 @@ public class Array_WordSearch
 {
     static boolean[][] visited;
 
-    static public boolean exist (char[][] board, String word)
-    {
-        visited = new boolean[board.length][board[0].length];
+    static public boolean exist (char[][] inputBoard, String inputWord) {
 
-        for(int row = 0; row < board.length; row++)
-            for(int col = 0; col < board[row].length; col++)
-                if((word.charAt(0) == board[row][col]) && search(board, word, row, col, 0))
+        visited = new boolean[inputBoard.length][inputBoard[0].length];
+
+        for (int row = 0; row < inputBoard.length; row++)
+            for (int col = 0; col < inputBoard[row].length; col++)
+                if ((inputWord.charAt(0) == inputBoard[row][col]) && search(inputBoard, inputWord, row, col, 0))
                     return true;
 
         return false;
     }
 
-    private static boolean search(char[][]board, String word, int row, int col, int wordIndex)
-    {
-        if(wordIndex == word.length())
+    private static boolean search(char[][] inputBoard, String inputWord, int row, int col, int wordIndex) {
+
+        if(wordIndex == inputWord.length())
             return true;
 
-        if (row >= board.length || row < 0 || col >= board[row].length || col < 0 || board[row][col] != word.charAt(wordIndex) || visited[row][col])
-            return false;
+        if (row >= inputBoard.length ||
+            row < 0 ||
+            col >= inputBoard[row].length ||
+            col < 0 ||
+            inputBoard[row][col] != inputWord.charAt(wordIndex) ||
+            visited[row][col])
+        return false;
 
         visited[row][col] = true;
 
-        if (search(board, word, row-1, col, wordIndex+1) || search(board, word, row+1, col, wordIndex+1) ||
-            search(board, word, row, col-1, wordIndex+1) || search(board, word, row, col+1, wordIndex+1))
-            return true;
+        if (search(inputBoard, inputWord, row-1, col, wordIndex+1) ||
+            search(inputBoard, inputWord, row+1, col, wordIndex+1) ||
+            search(inputBoard, inputWord, row, col-1, wordIndex+1) ||
+            search(inputBoard, inputWord, row, col+1, wordIndex+1))
+        return true;
 
         visited[row][col] = false;
+
         return false;
     }
 

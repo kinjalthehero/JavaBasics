@@ -43,6 +43,18 @@ public class Delete {
 
     public static void main(String[] args) {
 
+        // Sorting String List in reverse order
+        List<String> revnums = Arrays.asList("pqr", "ccc", "bqr");
+        revnums.sort(null);
+        System.out.println(revnums);
+        System.out.println();
+
+        // Sorting Integer List in reverse order
+        List<Integer> nums = Arrays.asList(999, 111, 666, 333, 888);
+        nums.sort(Comparator.reverseOrder());
+        System.out.println(nums);
+        System.out.println();
+
         Student s1 = new Student(9, "Kinjal");
         Student s2 = new Student(1, "Jignesh");
         Student s3 = new Student(7, "Divyesh");
@@ -57,16 +69,12 @@ public class Delete {
 
         /****** Sorting list of objects ******/
 
-        // Method 1: Sorting in ascending order of Integer
-        list.sort((l1, l2) -> (l1.rollNumber < l2.rollNumber) ? -1 : 1);
-        // Method 2: Sorting in ascending order
+        // Sorting inner elements of integer
         list.sort(Comparator.comparingInt(s -> s.rollNumber));
         System.out.println(Arrays.toString(list.toArray()));
         System.out.println();
 
-        // Method 1: Sorting in ascending order of String
-        list.sort((l1, l2) -> (l1.name.compareTo(l2.name)));
-        // Method 2: Sorting in ascending order of String
+        // Sorting inner elements of String
         list.sort(Comparator.comparing(s -> s.name));
         System.out.println(Arrays.toString(list.toArray()));
         System.out.println();
@@ -79,12 +87,6 @@ public class Delete {
         // Sort first by roll number and then name
         list.sort((a,b) -> (a.rollNumber == b.rollNumber) ? (a.name.compareTo(b.name)) : (a.rollNumber < b.rollNumber) ? -1 : 1);
         System.out.println(Arrays.toString(list.toArray()));
-        System.out.println();
-
-        // Sorting Integer List in reverse order
-        List<Integer> nums = Arrays.asList(999, 111, 666, 333, 888);
-        nums.sort(Comparator.reverseOrder());
-        System.out.println(nums);
         System.out.println();
 
         /****** Sorting primitive array ******/
